@@ -1,2 +1,0 @@
-# kdc
-kukuh dissertation control
