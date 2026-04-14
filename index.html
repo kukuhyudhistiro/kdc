@@ -111,6 +111,11 @@
             <a href="#" data-target="reminder" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
                 <span class="material-icons-outlined">notifications</span> Target & Deadline
             </a>
+            
+            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Resources</div>
+            <a href="#" data-target="repository-links" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                <span class="material-icons-outlined">link</span> Repository Links
+            </a>
         </nav>
 
         <div class="p-4 border-t border-blue-800/50 text-xs text-center text-blue-200">
@@ -370,7 +375,7 @@
                         <span class="material-icons text-5xl text-green-600 dark:text-green-400">science</span>
                     </div>
                     <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Dokumentasi Eksperimen</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-8">Akses log eksperimen, komparasi algoritma GWC vs GWi, ablation study, dan hasil statistical analysis.</p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">Akses log eksperimen, komparasi algoritma GWC (Gabor Wavelet Complex) vs GWi (Gabor Wavelet Imaginary), ablation study, dan hasil statistical analysis.</p>
                     
                     <a href="https://drive.google.com/drive/folders/1_eZTQF1MzDR4wVUE4cmXbAqDJ2FZ7luH" target="_blank" class="inline-flex items-center gap-3 bg-kdcPrimary hover:bg-blue-800 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-900/20 transition-all hover:-translate-y-1">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Drive" class="w-6 h-6">
@@ -886,6 +891,96 @@
                     
                 </div>
             </section>
+
+            <section id="repository-links" class="content-section section-fade hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Repository Links</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Kumpulan link repositori penelitian dari berbagai platform (Google Colab, GitHub, dll)</p>
+                </div>
+
+                <!-- Repository Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Colab - GWC vs GWi Comparison Pipeline -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group">
+                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold">GWC vs GWi Comparison Pipeline</h3>
+                                <span class="material-icons text-2xl">code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-orange-100">
+                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
+                                <span class="text-sm font-medium">Google Colab</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)</p>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
+                                <a href="https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                    <span class="material-icons text-sm">open_in_new</span>
+                                    Buka di Colab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colab - GWC vs GWi with Dual Thresholding -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group">
+                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold">GWC vs GWi with Dual Thresholding</h3>
+                                <span class="material-icons text-2xl">code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-orange-100">
+                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
+                                <span class="text-sm font-medium">Google Colab</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Membuktikan bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).</p>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
+                                <a href="https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                    <span class="material-icons text-sm">open_in_new</span>
+                                    Buka di Colab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template untuk GitHub -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border-2 border-dashed border-gray-300 dark:border-gray-600 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group flex flex-col items-center justify-center p-8 text-center">
+                        <div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
+                            <span class="material-icons text-3xl text-gray-400">add</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">GitHub Repository</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Tambahkan link GitHub untuk kode dan dokumentasi</p>
+                        <button onclick="addRepositoryForm()" class="inline-flex items-center gap-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                            <span class="material-icons text-sm">add</span>
+                            Tambah Link
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Info Section -->
+                <div class="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-6">
+                    <div class="flex items-start gap-3">
+                        <span class="material-icons text-blue-600 dark:text-blue-400 mt-0.5">info</span>
+                        <div>
+                            <h4 class="font-bold text-blue-900 dark:text-blue-200 mb-2">Panduan Menambah Repository</h4>
+                            <p class="text-sm text-blue-800 dark:text-blue-300 mb-2">Untuk menambahkan repository baru (GitHub, GitLab, Colab, dll), format yang dibutuhkan:</p>
+                            <ul class="text-sm text-blue-800 dark:text-blue-300 space-y-1 list-disc list-inside ml-2">
+                                <li><strong>Judul:</strong> Nama deskriptif untuk repository</li>
+                                <li><strong>Deskripsi:</strong> Penjelasan singkat tentang tujuan repository</li>
+                                <li><strong>Platform:</strong> Type (GitHub, Colab, GitLab, dll)</li>
+                                <li><strong>URL:</strong> Link lengkap ke repository</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <div class="mt-12 text-center text-xs text-gray-400 dark:text-gray-600 pb-8">
                 &copy; 2026 Kukuh Dissertation Control
@@ -894,6 +989,13 @@
     </main>
 
     <script>
+        // Repository Management Function
+        function addRepositoryForm() {
+            alert('Fitur penambahan repository akan segera tersedia. Hubungi developer untuk menambahkan link baru.');
+        }
+
+        window.addRepositoryForm = addRepositoryForm;
+
         document.addEventListener('DOMContentLoaded', () => {
             // --- Navigation Logic (SPA Style) ---
             const navLinks = document.querySelectorAll('.nav-link');
