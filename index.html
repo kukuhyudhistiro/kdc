@@ -210,13 +210,13 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300">Catatan Terbaru</h3>
                         <div class="space-y-3">
-                            <div class="bg-rose-100 dark:bg-rose-900/30 p-4 rounded-lg border-l-4 border-rose-400 sticky-note">
-                                <div class="text-xs text-rose-800 dark:text-rose-400 font-semibold mb-1">13-14 April 2026</div>
-                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Positioning & Penyederhanaan Paper</strong> - Positioning riset pada Deep Learning & penghapusan gambar eksperimen redundan, target maksimal 12 halaman IJIES</p>
+                            <div class="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg border-l-4 border-yellow-400 sticky-note">
+                                <div class="text-xs text-yellow-800 dark:text-yellow-400 font-semibold mb-1">14 April 2026</div>
+                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Mapping Paper ke SDG 11</strong> - Paper menggunakan 3 dataset urban (ShanghaiTech, PatternNet, Kampung Warna Warni) untuk edge detection pada permukiman padat & informal, relevan dengan sustainable cities</p>
                             </div>
-                            <div class="bg-lime-100 dark:bg-lime-900/30 p-4 rounded-lg border-l-4 border-lime-400 sticky-note">
-                                <div class="text-xs text-lime-800 dark:text-lime-400 font-semibold mb-1">14 April 2026</div>
-                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Analisis Respon Promotor & Rencana Tindak Lanjut</strong> - Menganalisis respon promotor dan merencanakan aksi follow-up untuk setiap feedback</p>
+                            <div class="bg-teal-100 dark:bg-teal-900/30 p-4 rounded-lg border-l-4 border-teal-400 sticky-note">
+                                <div class="text-xs text-teal-800 dark:text-teal-400 font-semibold mb-1">14 April 2026</div>
+                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Revisi dari Promotor - Eksperimen Downstream</strong> - Tambahkan eksperimen sederhana dengan thresholding Otsu untuk membuktikan hasil edge berguna pada tahap lanjutan</p>
                             </div>
                         </div>
                         <a href="#" onclick="navigateToSection('catatan'); return false;" class="inline-flex items-center gap-2 mt-3 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
@@ -309,7 +309,7 @@
                                         </div>
                                         <span class="text-xs font-semibold text-amber-700 dark:text-amber-300">35%</span>
                                     </div>
-                                    <p class="text-xs text-amber-700 dark:text-amber-300 mt-2">⏱️ 8 hari tersisa</p>
+                                    <p class="text-xs text-amber-700 dark:text-amber-300 mt-2">⏱️ <span class="days-remaining-task1">8</span> hari tersisa</p>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,7 @@
                                         </div>
                                         <span class="text-xs font-semibold text-orange-700 dark:text-orange-300">0%</span>
                                     </div>
-                                    <p class="text-xs text-orange-700 dark:text-orange-300 mt-2">⏱️ 19 hari tersisa</p>
+                                    <p class="text-xs text-orange-700 dark:text-orange-300 mt-2">⏱️ <span class="days-remaining-task2">19</span> hari tersisa</p>
                                 </div>
                             </div>
                         </div>
@@ -740,7 +740,7 @@
                             <div class="bg-gray-50 dark:bg-gray-700/50 px-6 py-3 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400">
                                 <div class="flex items-center gap-2">
                                     <span class="material-icons text-sm">info</span>
-                                    <span>Sisa waktu: <strong>19 hari</strong> (dari 11 April 2026)</span>
+                                    <span>Sisa waktu: <strong><span class="days-info-reminder">19</span> hari</strong> (dari 15 April 2026)</span>
                                 </div>
                             </div>
                         </div>
@@ -760,14 +760,14 @@
                                             <p class="text-sm font-semibold text-amber-900 dark:text-amber-200">Formatting Inass</p>
                                             <p class="text-xs text-amber-700 dark:text-amber-300">19 April 2026</p>
                                         </div>
-                                        <span class="text-lg font-bold text-amber-600">8 hari</span>
+                                        <span class="text-lg font-bold text-amber-600"><span class="days-critical-task1">8</span> hari</span>
                                     </div>
                                     <div class="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-orange-500">
                                         <div>
                                             <p class="text-sm font-semibold text-orange-900 dark:text-orange-200">Submit Inass</p>
                                             <p class="text-xs text-orange-700 dark:text-orange-300">30 April 2026</p>
                                         </div>
-                                        <span class="text-lg font-bold text-orange-600">19 hari</span>
+                                        <span class="text-lg font-bold text-orange-600"><span class="days-critical-task2">19</span> hari</span>
                                     </div>
                                 </div>
                             </div>
@@ -1297,6 +1297,27 @@
             openSidebarBtn.addEventListener('click', () => toggleSidebar(true));
             closeSidebarBtn.addEventListener('click', () => toggleSidebar(false));
             sidebarOverlay.addEventListener('click', () => toggleSidebar(false));
+
+            // --- Auto-Calculate Days Remaining for Target & Deadline ---
+            function updateDaysRemaining() {
+                const today = new Date(2026, 3, 15); // April 15, 2026
+                const task1Date = new Date(2026, 3, 19); // April 19, 2026
+                const task2Date = new Date(2026, 3, 30); // April 30, 2026
+                
+                // Calculate days remaining
+                const daysTask1 = Math.ceil((task1Date - today) / (1000 * 60 * 60 * 24));
+                const daysTask2 = Math.ceil((task2Date - today) / (1000 * 60 * 60 * 24));
+                
+                // Update all elements with days remaining
+                document.querySelectorAll('.days-remaining-task1').forEach(el => el.textContent = daysTask1);
+                document.querySelectorAll('.days-remaining-task2').forEach(el => el.textContent = daysTask2);
+                document.querySelectorAll('.days-critical-task1').forEach(el => el.textContent = daysTask1);
+                document.querySelectorAll('.days-critical-task2').forEach(el => el.textContent = daysTask2);
+                document.querySelectorAll('.days-info-reminder').forEach(el => el.textContent = daysTask2);
+            }
+            
+            // Call the function on page load
+            updateDaysRemaining();
         });
     </script>
 </body>
