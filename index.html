@@ -113,6 +113,73 @@
         .catatan-card.open .catatan-chevron {
             transform: rotate(180deg);
         }
+
+        /* Repository Card Line Clamp */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 0;
+            max-width: 600px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: slideUp 0.3s ease-in-out;
+        }
+        .dark .modal-content {
+            background-color: #1f2937;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dark .modal-header {
+            border-bottom-color: #374151;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        .dark .modal-footer {
+            border-top-color: #374151;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 font-sans flex h-screen overflow-hidden">
@@ -268,13 +335,13 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300">Catatan Terbaru</h3>
                         <div class="space-y-3">
+                            <div class="bg-violet-100 dark:bg-violet-900/30 p-4 rounded-lg border-l-4 border-violet-400 sticky-note">
+                                <div class="text-xs text-violet-800 dark:text-violet-400 font-semibold mb-1">16 April 2026 - Restrukturisasi Data Eksperimen (1)</div>
+                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Jadikan satu semua code ke notebook master Colab</strong> - Menjalankan seluruh eksperimen dalam satu session: GWC/GWi utama + dual thresholding (Adaptive vs Otsu) + modern comparison (PC, ED, Canny, Sobel, LoG). Catat semua angka dari satu run ini.</p>
+                            </div>
                             <div class="bg-cyan-100 dark:bg-cyan-900/30 p-4 rounded-lg border-l-4 border-cyan-400 sticky-note">
                                 <div class="text-xs text-cyan-800 dark:text-cyan-400 font-semibold mb-1">15 April 2026</div>
                                 <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Revisi - Perbandingan Metode Edge Detection</strong> - Membandingkan GWC & GWi dengan Phase Congruency (PC), Edge Drawing (ED), dan baseline klasik (Canny, Sobel, LoG) untuk section 7.6 Paper 1</p>
-                            </div>
-                            <div class="bg-teal-100 dark:bg-teal-900/30 p-4 rounded-lg border-l-4 border-teal-400 sticky-note">
-                                <div class="text-xs text-teal-800 dark:text-teal-400 font-semibold mb-1">14 April 2026</div>
-                                <p class="text-sm text-gray-800 dark:text-gray-300"><strong>Revisi dari Promotor - Eksperimen Downstream</strong> - Tambahkan eksperimen sederhana dengan thresholding Otsu untuk membuktikan hasil edge berguna pada tahap lanjutan</p>
                             </div>
                         </div>
                         <a href="#" onclick="navigateToSection('catatan'); return false;" class="inline-flex items-center gap-2 mt-3 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
@@ -1127,6 +1194,20 @@
                         </div>
                     </div>
 
+                    <div class="catatan-card bg-violet-200 dark:bg-violet-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                        <div class="flex justify-between items-start mb-3 border-b border-violet-300/50 dark:border-violet-700/50 pb-2">
+                            <span class="font-bold text-sm">16 April 2026</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-violet-600 dark:text-violet-400 text-sm">settings_backup_restore</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
+                        </div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Restrukturisasi Data Eksperimen (1)</strong> - Jadikan satu semua code ke notebook master Colab yang menjalankan seluruh eksperimen dalam satu session: (1) GWC/GWi utama, (2) Dual thresholding (Adaptive vs Otsu), (3) Modern comparison (PC, ED, Canny, Sobel, LoG). Catat semua angka dari satu run ini.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-violet-300/50 dark:bg-violet-800/50 px-2 py-1 rounded inline-block">Technical</div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -1140,7 +1221,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Colab - GWC vs GWi Comparison Pipeline -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('GWC vs GWi Comparison Pipeline', 'Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)', 'Google Colab', 'https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing')">
                         <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-lg font-bold">GWC vs GWi Comparison Pipeline</h3>
@@ -1152,10 +1233,10 @@
                             </div>
                         </div>
                         <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)</p>
                             <div class="flex flex-col gap-2">
                                 <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                <a href="https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
                                     <span class="material-icons text-sm">open_in_new</span>
                                     Buka di Colab
                                 </a>
@@ -1164,7 +1245,7 @@
                     </div>
 
                     <!-- Colab - GWC vs GWi with Dual Thresholding -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('GWC vs GWi with Dual Thresholding', 'Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).', 'Google Colab', 'https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing')">
                         <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-lg font-bold">GWC vs GWi with Dual Thresholding</h3>
@@ -1176,10 +1257,10 @@
                             </div>
                         </div>
                         <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).</p>
                             <div class="flex flex-col gap-2">
                                 <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                <a href="https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
                                     <span class="material-icons text-sm">open_in_new</span>
                                     Buka di Colab
                                 </a>
@@ -1188,7 +1269,7 @@
                     </div>
 
                     <!-- Colab - Comparative Edge Detection -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('Comparative Edge Detection Methods', 'Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.', 'Google Colab', 'https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing')">
                         <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-lg font-bold">Comparative Edge Detection Methods</h3>
@@ -1200,10 +1281,34 @@
                             </div>
                         </div>
                         <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.</p>
                             <div class="flex flex-col gap-2">
                                 <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                <a href="https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                                    <span class="material-icons text-sm">open_in_new</span>
+                                    Buka di Colab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Master Paper 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('Master Paper 1', 'Code Eksperimen keseluruhan (1 Console)', 'Google Colab', 'https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing')">
+                        <div class="bg-gradient-to-r from-red-400 to-red-500 p-4 text-white">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold">Master Paper 1</h3>
+                                <span class="material-icons text-2xl">code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-red-100">
+                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
+                                <span class="text-sm font-medium">Google Colab</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Code Eksperimen keseluruhan (1 Console)</p>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-red-600 dark:text-red-400">In Progress</span></span>
+                                <a href="https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
                                     <span class="material-icons text-sm">open_in_new</span>
                                     Buka di Colab
                                 </a>
@@ -1250,12 +1355,74 @@
         </div>
     </main>
 
+    <!-- Repository Detail Modal -->
+    <div id="repositoryModal" class="modal" onclick="if(event.target === this) closeRepositoryModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="text-xl font-bold text-gray-800 dark:text-white">Repository Detail</h2>
+                <button onclick="closeRepositoryModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-4">
+                    <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Platform</h3>
+                    <p id="modalPlatform" class="text-gray-700 dark:text-gray-300">Google Colab</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Deskripsi Lengkap</h3>
+                    <p id="modalDescription" class="text-gray-700 dark:text-gray-300 leading-relaxed text-justify">Description here</p>
+                </div>
+                <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-blue-800 dark:text-blue-300">
+                        <span class="font-semibold">Catatan:</span> Klik tombol di bawah untuk membuka repository di platform yang sesuai.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeRepositoryModal()" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium transition-colors">
+                    Tutup
+                </button>
+                <a id="modalLink" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
+                    <span class="material-icons text-sm">open_in_new</span>
+                    Buka Repository
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Repository Detail Modal Functions
+        function showRepositoryDetail(title, description, platform, url) {
+            const modal = document.getElementById('repositoryModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalPlatform').textContent = platform;
+            document.getElementById('modalLink').href = url;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRepositoryModal() {
+            const modal = document.getElementById('repositoryModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeRepositoryModal();
+            }
+        });
+
         // Repository Management Function
         function addRepositoryForm() {
             alert('Fitur penambahan repository akan segera tersedia. Hubungi developer untuk menambahkan link baru.');
         }
 
+        window.showRepositoryDetail = showRepositoryDetail;
+        window.closeRepositoryModal = closeRepositoryModal;
         window.addRepositoryForm = addRepositoryForm;
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1361,7 +1528,7 @@
 
             // --- Auto-Update Agenda Based on Current Date ---
             function updateAgendaByCurrentDate() {
-                const today = new Date(2026, 3, 15); // April 15, 2026
+                const today = new Date();
                 const todayStr = String(today.getDate()).padStart(2, '0');
                 
                 // Get all agenda day cards in main agenda section
@@ -1386,11 +1553,11 @@
                                 if (badge && !badge.textContent.includes('TODAY')) {
                                     const todayBadge = document.createElement('span');
                                     todayBadge.className = 'text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 px-2 py-1 rounded font-semibold ml-2';
-                                    todayBadge.textContent = '📅 DINA IKI';
+                                    todayBadge.textContent = '📅 TODAY';
                                     badge.parentElement.appendChild(todayBadge);
                                 }
                             }
-                        } else if (new Date(2026, 3, parseInt(dayNum)) < today) {
+                        } else if (new Date(today.getFullYear(), today.getMonth(), parseInt(dayNum)) < today) {
                             // Past days
                             card.classList.add('opacity-75');
                         }
@@ -1432,7 +1599,7 @@
                 let dayName = dateMatch ? dateMatch[1] : '??';
                 let title = titleMatch ? titleMatch.textContent : 'Task';
                 let deliverable = deliverableMatch ? deliverableMatch.textContent : '';
-                let badge = isToday ? 'Dina iki' : 'Sesuk';
+                let badge = isToday ? 'Today' : 'Tomorrow';
                 
                 card.className = `${bgColor} border-l-4 ${borderColor} rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow`;
                 card.innerHTML = `
@@ -1523,7 +1690,7 @@
 
             // --- Auto-Calculate Days Remaining for Target & Deadline ---
             function updateDaysRemaining() {
-                const today = new Date(2026, 3, 15); // April 15, 2026
+                const today = new Date();
                 const task1Date = new Date(2026, 3, 19); // April 19, 2026
                 const task2Date = new Date(2026, 3, 30); // April 30, 2026
                 
