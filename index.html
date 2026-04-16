@@ -55,6 +55,64 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Agenda Card Collapse */
+        .agenda-card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .agenda-card-body.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+        .agenda-card-chevron {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .agenda-day-card.open .agenda-card-chevron {
+            transform: rotate(180deg);
+        }
+        .agenda-card-header {
+            cursor: pointer;
+            user-select: none;
+        }
+        .agenda-card-header:hover .agenda-card-chevron {
+            color: #6b7280;
+        }
+
+        /* Catatan Harian Card Collapse */
+        .catatan-card {
+            cursor: pointer;
+        }
+        .catatan-card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .catatan-card.open .catatan-card-text {
+            display: block;
+            overflow: visible;
+        }
+        .catatan-card-extra {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .catatan-card.open .catatan-card-extra {
+            max-height: 80px;
+            opacity: 1;
+        }
+        .catatan-chevron {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .catatan-card.open .catatan-chevron {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 font-sans flex h-screen overflow-hidden">
@@ -441,153 +499,188 @@
 
                     <div class="space-y-4">
                         <!-- Day 1 -->
-                        <div class="group bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border-l-4 border-green-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 font-bold text-sm">
-                                            <span class="material-icons text-lg">check</span>
-                                        </div>
-                                        <div>
-                                            <div class="flex items-center gap-2">
-                                                <h4 class="font-bold text-gray-800 dark:text-white">Sel, 14/04</h4>
-                                                <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-1 rounded font-semibold">Selesai dan Disetujui 14/04</span>
-                                            </div>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Downstream Validation & Dual Thresholding</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
+                                        <span class="material-icons text-lg">check</span>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Eksperimen downstream validation + dual thresholding (Poin 6) + tulis hasil ke paper</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">table_chart</span>Deliverable: Script + tabel hasil segmentasi Adaptive vs Otsu</p>
-                                    <p class="text-xs text-green-700 dark:text-green-400 ml-12 mt-2 font-semibold italic">✓ Persetujuan Pembimbing: Fokus ke eksperimen terlebih dahulu, writing dilanjutkan dengan data dari eksperimen tambahan</p>
-                                    <a href="https://docs.google.com/document/d/1NGkbESy2u9LpwS3XH9hh0r8IX2ixVRma/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 ml-12 mt-4 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
+                                    <div class="min-w-0">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <h4 class="font-bold text-gray-800 dark:text-white">Sel, 14/04</h4>
+                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai dan Disetujui 14/04</span>
+                                        </div>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Downstream Validation & Dual Thresholding</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen downstream validation + dual thresholding (Poin 6) + tulis hasil ke paper</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-2"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">table_chart</span>Deliverable: Script + tabel hasil segmentasi Adaptive vs Otsu</p>
+                                    <p class="text-xs text-green-700 dark:text-green-400 font-semibold italic mb-4">✓ Persetujuan Pembimbing: Fokus ke eksperimen terlebih dahulu, writing dilanjutkan dengan data dari eksperimen tambahan</p>
+                                    <a href="https://docs.google.com/document/d/1NGkbESy2u9LpwS3XH9hh0r8IX2ixVRma/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
                                         <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
                                     </a>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-green-600 cursor-not-allowed" checked disabled />
                             </div>
                         </div>
 
                         <!-- Day 2 -->
-                        <div class="group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 font-bold text-sm">
-                                            <span class="material-icons text-lg">check</span>
-                                        </div>
-                                        <div>
-                                            <div class="flex items-center gap-2">
-                                                <h4 class="font-bold text-gray-800 dark:text-white">Rab, 15/04</h4>
-                                                <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-1 rounded font-semibold">Selesai & Disetujui</span>
-                                            </div>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Eksperimen Metrik Baru</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
+                                        <span class="material-icons text-lg">check</span>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Eksperimen metrik baru: Precision, Recall, F1, PFOM — coding + running di 3 dataset (Poin 4)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold mb-3"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data hasil metrik baru</p>
-                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 ml-12 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
+                                    <div class="min-w-0">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <h4 class="font-bold text-gray-800 dark:text-white">Rab, 15/04</h4>
+                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
+                                        </div>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Eksperimen Metrik Baru</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen metrik baru: Precision, Recall, F1, PFOM — coding + running di 3 dataset (Poin 4)</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-4"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data hasil metrik baru</p>
+                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
                                         <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
                                     </a>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-green-600 cursor-not-allowed" checked disabled />
                             </div>
                         </div>
 
                         <!-- Day 3 -->
-                        <div class="group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 font-bold text-sm">
-                                            <span class="material-icons text-lg">check</span>
-                                        </div>
-                                        <div>
-                                            <div class="flex items-center gap-2">
-                                                <h4 class="font-bold text-gray-800 dark:text-white">Kam, 16/04</h4>
-                                                <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-1 rounded font-semibold">Selesai & Disetujui</span>
-                                            </div>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Eksperimen Pembanding Modern</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
+                                        <span class="material-icons text-lg">check</span>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Eksperimen pembanding modern: Phase Congruency + Edge Drawing di 3 dataset (Poin 5)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold mb-3"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data perbandingan</p>
-                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 ml-12 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
+                                    <div class="min-w-0">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <h4 class="font-bold text-gray-800 dark:text-white">Kam, 16/04</h4>
+                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
+                                        </div>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Eksperimen Pembanding Modern</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen pembanding modern: Phase Congruency + Edge Drawing di 3 dataset (Poin 5)</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-4"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data perbandingan</p>
+                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
                                         <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
                                     </a>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-green-600 cursor-not-allowed" checked disabled />
                             </div>
                         </div>
 
                         <!-- Day 4 -->
-                        <div class="group bg-white dark:bg-gray-800 border-l-4 border-yellow-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-400 font-bold text-sm">4</div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Jum, 17/04</h4>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Reframing Introduction</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-yellow-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-400 font-bold text-sm">4</div>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Jum, 17/04</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Reframing Introduction</p>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Reframing Introduction + penyesuaian terminologi + penajaman kontribusi (Poin 1–3)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">check</span>Deliverable: Draf teks Introduction, Abstract, Conclusion yang sudah direvisi</p>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-yellow-600" />
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-yellow-600" />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Reframing Introduction + penyesuaian terminologi + penajaman kontribusi (Poin 1–3)</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">check</span>Deliverable: Draf teks Introduction, Abstract, Conclusion yang sudah direvisi</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Day 5 -->
-                        <div class="group bg-white dark:bg-gray-800 border-l-4 border-green-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 font-bold text-sm">5</div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Sab, 18/04</h4>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Integrasi Semua Hasil</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 font-bold text-sm">5</div>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Sab, 18/04</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Integrasi Semua Hasil</p>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Integrasi semua hasil eksperimen ke paper + tabel/figur baru + konsolidasi figur komposit (Poin 7)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">description</span>Deliverable: Draf paper lengkap dengan semua tambahan</p>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-green-600" />
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600" />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Integrasi semua hasil eksperimen ke paper + tabel/figur baru + konsolidasi figur komposit (Poin 7)</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">description</span>Deliverable: Draf paper lengkap dengan semua tambahan</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Day 6 -->
-                        <div class="group bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 font-bold text-sm">6</div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Min, 19/04</h4>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Review & Polish</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 font-bold text-sm">6</div>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Min, 19/04</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Review & Polish</p>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Review menyeluruh, konsistensi angka, referensi baru, polish bahasa</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">spellcheck</span>Deliverable: Paper final pre-submission</p>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-blue-600" />
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-blue-600" />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Review menyeluruh, konsistensi angka, referensi baru, polish bahasa</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">spellcheck</span>Deliverable: Paper final pre-submission</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Day 7 -->
-                        <div class="group bg-white dark:bg-gray-800 border-l-4 border-purple-500 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-start justify-between">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 font-bold text-sm">7</div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Sen, 20/04</h4>
-                                            <p class="text-sm text-gray-500 dark:text-gray-400">Buffer & Final Submission</p>
-                                        </div>
+                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-purple-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
+                                <div class="flex items-center gap-3 min-w-0 flex-1">
+                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 font-bold text-sm">7</div>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Sen, 20/04</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Buffer & Final Submission</p>
                                     </div>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 ml-12 mb-3"><strong>Pekerjaan:</strong> Buffer: perbaikan minor + format IJIES + submit/kirim ke promotor</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 ml-12 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">send</span>Deliverable: File final siap kirim</p>
                                 </div>
-                                <input type="checkbox" class="w-6 h-6 mt-1 rounded text-purple-600" />
+                                <div class="flex items-center gap-2 flex-shrink-0">
+                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                                    <input type="checkbox" class="w-6 h-6 rounded text-purple-600" />
+                                </div>
+                            </div>
+                            <div class="agenda-card-body">
+                                <div class="px-5 pb-5 ml-12">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Buffer: perbaikan minor + format IJIES + submit/kirim ke promotor</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">send</span>Deliverable: File final siap kirim</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -823,142 +916,217 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
-                    
-                    <div class="bg-blue-200 dark:bg-blue-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+
+                    <div class="catatan-card bg-blue-200 dark:bg-blue-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-blue-300/50 dark:border-blue-700/50 pb-2">
                             <span class="font-bold text-sm">1 Maret 2026</span>
-                            <span class="material-icons text-blue-600 dark:text-blue-400 text-sm">check_circle</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-blue-600 dark:text-blue-400 text-sm">check_circle</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Cek Turnitin</strong> - Pengecekan plagiarisme Paper 1 melalui Turnitin. <strong>Hasil: 3%</strong> (Excellent). Originalitas paper sangat baik. Dapat fokus pada perbaikan konten teknis dan struktur.</p>
-                        <div class="mt-3 text-xs bg-blue-300/50 dark:bg-blue-800/50 px-2 py-1 rounded inline-block">Milestone</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Cek Turnitin</strong> - Pengecekan plagiarisme Paper 1 melalui Turnitin. <strong>Hasil: 3%</strong> (Excellent). Originalitas paper sangat baik. Dapat fokus pada perbaikan konten teknis dan struktur.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-blue-300/50 dark:bg-blue-800/50 px-2 py-1 rounded inline-block">Milestone</div>
+                        </div>
                     </div>
 
-                    <div class="bg-green-200 dark:bg-green-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-green-200 dark:bg-green-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-green-300/50 dark:border-green-700/50 pb-2">
                             <span class="font-bold text-sm">18 Maret 2026</span>
-                            <span class="material-icons text-green-600 dark:text-green-400 text-sm">person</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-green-600 dark:text-green-400 text-sm">person</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Feedback Prof Nova</strong> - 3 action items: (1) Sitasi dari jurnal submit Inass (Selesai), (2) Subbab 7 tambah deskriptif, (3) Promotor urutan terakhir pada nama</p>
-                        <div class="mt-3 text-xs bg-green-300/50 dark:bg-green-800/50 px-2 py-1 rounded inline-block">Meeting</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Feedback Prof Nova</strong> - 3 action items: (1) Sitasi dari jurnal submit Inass (Selesai), (2) Subbab 7 tambah deskriptif, (3) Promotor urutan terakhir pada nama</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-green-300/50 dark:bg-green-800/50 px-2 py-1 rounded inline-block">Meeting</div>
+                        </div>
                     </div>
 
-                    <div class="bg-purple-200 dark:bg-purple-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-purple-200 dark:bg-purple-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-purple-300/50 dark:border-purple-700/50 pb-2">
                             <span class="font-bold text-sm">19 Maret 2026</span>
-                            <span class="material-icons text-purple-600 dark:text-purple-400 text-sm">build</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-purple-600 dark:text-purple-400 text-sm">build</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Self Progress - Referensi</strong> - Pengecekan sitasi (duplikat, konteks), ganti referensi tidak sesuai, verifikasi Q1-Q3, tambah 2 paper Inass baru, urutkan sitasi, import ke Mendeley</p>
-                        <div class="mt-3 text-xs bg-purple-300/50 dark:bg-purple-800/50 px-2 py-1 rounded inline-block">Technical</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Self Progress - Referensi</strong> - Pengecekan sitasi (duplikat, konteks), ganti referensi tidak sesuai, verifikasi Q1-Q3, tambah 2 paper Inass baru, urutkan sitasi, import ke Mendeley</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-purple-300/50 dark:bg-purple-800/50 px-2 py-1 rounded inline-block">Technical</div>
+                        </div>
                     </div>
 
-                    <div class="bg-amber-200 dark:bg-amber-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-amber-200 dark:bg-amber-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-amber-300/50 dark:border-amber-700/50 pb-2">
                             <span class="font-bold text-sm">20 Maret 2026</span>
-                            <span class="material-icons text-amber-600 dark:text-amber-400 text-sm">edit</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-amber-600 dark:text-amber-400 text-sm">edit</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Edit Paper & Promotor</strong> - (1) Promotor urutan terakhir pada nama OK ✓ (2) Edit text paper untuk clarity dan consistency. Review struktur bab dan flow tulisan.</p>
-                        <div class="mt-3 text-xs bg-amber-300/50 dark:bg-amber-800/50 px-2 py-1 rounded inline-block">Writing</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Edit Paper & Promotor</strong> - (1) Promotor urutan terakhir pada nama OK ✓ (2) Edit text paper untuk clarity dan consistency. Review struktur bab dan flow tulisan.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-amber-300/50 dark:bg-amber-800/50 px-2 py-1 rounded inline-block">Writing</div>
+                        </div>
                     </div>
 
-                    <div class="bg-red-200 dark:bg-red-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-red-200 dark:bg-red-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-red-300/50 dark:border-red-700/50 pb-2">
                             <span class="font-bold text-sm">6 April 2026</span>
-                            <span class="material-icons text-red-600 dark:text-red-400 text-sm">flag</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-600 dark:text-red-400 text-sm">flag</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Hapus Plot & Target Selesai</strong> - Hapus penjelasan plot gamma comparison. <strong>Target:</strong> Penyelesaian Paper 1 akhir 12 April, format Inass 19 April. Fokus: streamline narrative, fokus kontribusi utama.</p>
-                        <div class="mt-3 text-xs bg-red-300/50 dark:bg-red-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Hapus Plot & Target Selesai</strong> - Hapus penjelasan plot gamma comparison. <strong>Target:</strong> Penyelesaian Paper 1 akhir 12 April, format Inass 19 April. Fokus: streamline narrative, fokus kontribusi utama.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-red-300/50 dark:bg-red-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        </div>
                     </div>
 
-                    <div class="bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-cyan-300/50 dark:border-cyan-700/50 pb-2">
                             <span class="font-bold text-sm">7-9 April 2026</span>
-                            <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">code</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">code</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Perbaikan Coding & Pipeline</strong> - Buat ulang diagram pipeline, ganti image dataset ShanghaiTech, eksperimen ulang dengan Histogram Equalization untuk: (a) kontras lokal, (b) respons Gabor, (c) efek iluminasi. Seluruh eksperimen diulang.</p>
-                        <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Perbaikan Coding & Pipeline</strong> - Buat ulang diagram pipeline, ganti image dataset ShanghaiTech, eksperimen ulang dengan Histogram Equalization untuk: (a) kontras lokal, (b) respons Gabor, (c) efek iluminasi. Seluruh eksperimen diulang.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        </div>
                     </div>
 
-                    <div class="bg-orange-200 dark:bg-orange-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-orange-200 dark:bg-orange-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-orange-300/50 dark:border-orange-700/50 pb-2">
                             <span class="font-bold text-sm">10 April 2026</span>
-                            <span class="material-icons text-orange-600 dark:text-orange-400 text-sm">upload</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-orange-600 dark:text-orange-400 text-sm">upload</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Input Hasil Dataset ke Paper</strong> - Memasukkan hasil uji dataset ke subbab 7 Paper 1. Tulis ulang hasil eksperimen dengan detail lengkap, penambahan tabel & grafik. Cross-checking dengan Pipeline Algorithm Diagram.</p>
-                        <div class="mt-3 text-xs bg-orange-300/50 dark:bg-orange-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Input Hasil Dataset ke Paper</strong> - Memasukkan hasil uji dataset ke subbab 7 Paper 1. Tulis ulang hasil eksperimen dengan detail lengkap, penambahan tabel & grafik. Cross-checking dengan Pipeline Algorithm Diagram.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-orange-300/50 dark:bg-orange-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
+                        </div>
                     </div>
 
-                    <div class="bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-indigo-300/50 dark:border-indigo-700/50 pb-2">
                             <span class="font-bold text-sm">11 April 2026</span>
-                            <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">send</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">send</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Kirim Update ke Pembimbing</strong> - Mengirimkan update lengkap Paper 1 kepada Prof Nova terkait: hasil uji dataset, perbaikan discussion/limitasi/conclusion, status siap format final Inass.</p>
-                        <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Communication</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Kirim Update ke Pembimbing</strong> - Mengirimkan update lengkap Paper 1 kepada Prof Nova terkait: hasil uji dataset, perbaikan discussion/limitasi/conclusion, status siap format final Inass.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Communication</div>
+                        </div>
                     </div>
 
-                    <div class="bg-rose-200 dark:bg-rose-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-rose-200 dark:bg-rose-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-rose-300/50 dark:border-rose-700/50 pb-2">
                             <span class="font-bold text-sm">13-14 April 2026</span>
-                            <span class="material-icons text-rose-600 dark:text-rose-400 text-sm">edit</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-rose-600 dark:text-rose-400 text-sm">edit</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Positioning & Penyederhanaan Paper</strong> - (1) Positioning riset pada metode trending saat ini yaitu <strong>Deep Learning</strong> di bagian Related work and state of the art, (2) Penghapusan gambar-gambar eksperimen yang redundan dan penggantiannya dengan penjelasan paragraf & tabel. Target: ringkas paper maksimal 12 halaman sesuai format IJIES.</p>
-                        <div class="mt-3 text-xs bg-rose-300/50 dark:bg-rose-800/50 px-2 py-1 rounded inline-block">Writing</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Positioning & Penyederhanaan Paper</strong> - (1) Positioning riset pada metode trending saat ini yaitu <strong>Deep Learning</strong> di bagian Related work and state of the art, (2) Penghapusan gambar-gambar eksperimen yang redundan dan penggantiannya dengan penjelasan paragraf & tabel. Target: ringkas paper maksimal 12 halaman sesuai format IJIES.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-rose-300/50 dark:bg-rose-800/50 px-2 py-1 rounded inline-block">Writing</div>
+                        </div>
                     </div>
 
-                    <div class="bg-lime-200 dark:bg-lime-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-lime-200 dark:bg-lime-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-lime-300/50 dark:border-lime-700/50 pb-2">
                             <span class="font-bold text-sm">14 April 2026</span>
-                            <span class="material-icons text-lime-600 dark:text-lime-400 text-sm">checklist</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-lime-600 dark:text-lime-400 text-sm">checklist</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Analisis Respon Promotor & Rencana Tindak Lanjut</strong> - Menganalisis respon dan masukan dari promotor, serta merencanakan tindak lanjut untuk setiap feedback. Dokumentasi lengkap tersedia di menu <strong>Dokumentasi Feedback</strong> pada <a href="https://kdc-2026.vercel.app/" target="_blank" class="text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800">KDC Dashboard</a>.</p>
-                        <div class="mt-3 text-xs bg-lime-300/50 dark:bg-lime-800/50 px-2 py-1 rounded inline-block">Analysis</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Analisis Respon Promotor & Rencana Tindak Lanjut</strong> - Menganalisis respon dan masukan dari promotor, serta merencanakan tindak lanjut untuk setiap feedback. Dokumentasi lengkap tersedia di menu <strong>Dokumentasi Feedback</strong> pada <a href="https://kdc-2026.vercel.app/" target="_blank" class="text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800">KDC Dashboard</a>.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-lime-300/50 dark:bg-lime-800/50 px-2 py-1 rounded inline-block">Analysis</div>
+                        </div>
                     </div>
 
-                    <div class="bg-teal-200 dark:bg-teal-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-teal-200 dark:bg-teal-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-teal-300/50 dark:border-teal-700/50 pb-2">
                             <span class="font-bold text-sm">14 April 2026</span>
-                            <span class="material-icons text-teal-600 dark:text-teal-400 text-sm">lightbulb</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-teal-600 dark:text-teal-400 text-sm">lightbulb</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Revisi dari Promotor - Eksperimen Downstream Sederhana</strong> - Mengerjakan feedback dari Prof Nova: Tambahkan satu eksperimen sederhana untuk menunjukkan bahwa hasil edge yang dihasilkan tidak hanya mirip secara numerik, tapi juga tetap berguna pada tahap lanjutan (downstream task). Gunakan pendekatan ringan seperti <strong>thresholding sederhana (Otsu)</strong> untuk validasi praktis hasil edge detection.</p>
-                        <div class="mt-3 text-xs bg-teal-300/50 dark:bg-teal-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Revisi dari Promotor - Eksperimen Downstream Sederhana</strong> - Mengerjakan feedback dari Prof Nova: Tambahkan satu eksperimen sederhana untuk menunjukkan bahwa hasil edge yang dihasilkan tidak hanya mirip secara numerik, tapi juga tetap berguna pada tahap lanjutan (downstream task). Gunakan pendekatan ringan seperti <strong>thresholding sederhana (Otsu)</strong> untuk validasi praktis hasil edge detection.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-teal-300/50 dark:bg-teal-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
+                        </div>
                     </div>
 
-                    <div class="bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-yellow-300/50 dark:border-yellow-700/50 pb-2">
                             <span class="font-bold text-sm">14 April 2026</span>
-                            <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Mapping Paper ke SDG 9 — Industry, Innovation and Infrastructure</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>process innovation, product innovation, inclusive innovation, manufacturing innovation</strong>. Paper 1 mengusulkan <strong>inovasi proses</strong> (GWi sebagai pengganti GWC) yang merupakan bentuk process innovation di bidang image processing serta kontribusi pada <strong>efisiensi komputasi</strong> dan optimasi algoritma.</p>
-                        <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Mapping Paper ke SDG 9 — Industry, Innovation and Infrastructure</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>process innovation, product innovation, inclusive innovation, manufacturing innovation</strong>. Paper 1 mengusulkan <strong>inovasi proses</strong> (GWi sebagai pengganti GWC) yang merupakan bentuk process innovation di bidang image processing serta kontribusi pada <strong>efisiensi komputasi</strong> dan optimasi algoritma.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
+                        </div>
                     </div>
 
-                    <div class="bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-yellow-300/50 dark:border-yellow-700/50 pb-2">
                             <span class="font-bold text-sm">14 April 2026</span>
-                            <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Mapping Paper ke SDG 11 — Sustainable Cities and Communities</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>city, cities, human settlement/settlements, urban, urbanization, housing, slum*</strong>. Paper 1 secara eksplisit menggunakan <strong>tiga dataset urban</strong>: ShanghaiTech (dense crowd/kota padat), PatternNet (formal residential/perumahan), Kampung Warna Warni (informal settlements/permukiman informal). Analisis edge detection pada citra permukiman padat & informal langsung relevan dengan <strong>pemantauan & pemetaan sustainable cities</strong>.</p>
-                        <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Mapping Paper ke SDG 11 — Sustainable Cities and Communities</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>city, cities, human settlement/settlements, urban, urbanization, housing, slum*</strong>. Paper 1 secara eksplisit menggunakan <strong>tiga dataset urban</strong>: ShanghaiTech (dense crowd/kota padat), PatternNet (formal residential/perumahan), Kampung Warna Warni (informal settlements/permukiman informal). Analisis edge detection pada citra permukiman padat & informal langsung relevan dengan <strong>pemantauan & pemetaan sustainable cities</strong>.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
+                        </div>
                     </div>
 
-                    <div class="bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-indigo-300/50 dark:border-indigo-700/50 pb-2">
                             <span class="font-bold text-sm">14 April 2026</span>
-                            <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">receipt</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">receipt</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Menerima & Mempelajari Catatan Review Draft</strong> - Menerima catatan review lengkap draft Paper 1 dari co-promotor Dr. Ruri. Mempelajari dan menganalisis setiap feedback, notes, dan saran perbaikan yang diberikan untuk mengarahkan revisi berikutnya.</p>
-                        <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Meeting</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Menerima & Mempelajari Catatan Review Draft</strong> - Menerima catatan review lengkap draft Paper 1 dari co-promotor Dr. Ruri. Mempelajari dan menganalisis setiap feedback, notes, dan saran perbaikan yang diberikan untuk mengarahkan revisi berikutnya.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Meeting</div>
+                        </div>
                     </div>
 
-                    <div class="bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                    <div class="catatan-card bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
                         <div class="flex justify-between items-start mb-3 border-b border-cyan-300/50 dark:border-cyan-700/50 pb-2">
                             <span class="font-bold text-sm">15 April 2026</span>
-                            <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">lightbulb</span>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">lightbulb</span>
+                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                            </div>
                         </div>
-                        <p class="text-sm leading-relaxed"><strong>Revisi dari Promotor - Perbandingan Metode Edge Detection</strong> - Membandingkan GWC & GWi dengan metode modern: <strong>Phase Congruency (PC)</strong> — frequency-based, contrast-invariant; <strong>Edge Drawing (ED)</strong> — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection. Untuk ditambahkan di paper section 7.6 guna memperkuat validasi komparatif.</p>
-                        <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
+                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Revisi dari Promotor - Perbandingan Metode Edge Detection</strong> - Membandingkan GWC & GWi dengan metode modern: <strong>Phase Congruency (PC)</strong> — frequency-based, contrast-invariant; <strong>Edge Drawing (ED)</strong> — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection. Untuk ditambahkan di paper section 7.6 guna memperkuat validasi komparatif.</p>
+                        <div class="catatan-card-extra">
+                            <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
+                        </div>
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -1373,6 +1541,28 @@
             
             // Call the function on page load
             updateDaysRemaining();
+
+            // --- Catatan Harian Card Expand/Collapse ---
+            document.querySelectorAll('.catatan-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('open');
+                });
+            });
+
+            // --- Agenda Card Expand/Collapse ---
+            document.querySelectorAll('.agenda-card-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    if (e.target.type === 'checkbox') return;
+                    const card = header.closest('.agenda-day-card');
+                    const body = card.querySelector('.agenda-card-body');
+                    body.classList.toggle('open');
+                    card.classList.toggle('open');
+                });
+            });
+            // Stop checkbox click from toggling card
+            document.querySelectorAll('.agenda-day-card input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('click', e => e.stopPropagation());
+            });
         });
     </script>
 </body>
