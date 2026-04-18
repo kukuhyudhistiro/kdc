@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "RTL dari Feedback Promotor & co-Promotor",
+    "period": "14 April 2026 - Periode Aksi: 14-20 April 2026"
+  },
+  "items": [
+    {
+      "day": 1,
+      "date": "Sel, 14/04",
+      "title": "Downstream Validation & Dual Thresholding",
+      "completed": true,
+      "statusLabel": "Selesai dan Disetujui 14/04",
+      "gradient": "from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20",
+      "work": "Eksperimen downstream validation + dual thresholding (Poin 6) + tulis hasil ke paper",
+      "deliverableIcon": "table_chart",
+      "deliverable": "Script + tabel hasil segmentasi Adaptive vs Otsu",
+      "approvalNote": "Fokus ke eksperimen terlebih dahulu, writing dilanjutkan dengan data dari eksperimen tambahan",
+      "docUrl": "https://docs.google.com/document/d/1NGkbESy2u9LpwS3XH9hh0r8IX2ixVRma/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true",
+      "docLabel": "Buka Dokumen Hasil"
+    },
+    {
+      "day": 2,
+      "date": "Rab, 15/04",
+      "title": "Eksperimen Metrik Baru",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
+      "work": "Eksperimen metrik baru: Precision, Recall, F1, PFOM — coding + running di 3 dataset (Poin 4)",
+      "deliverableIcon": "code",
+      "deliverable": "Script Python + data hasil metrik baru",
+      "docUrl": "https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true",
+      "docLabel": "Buka Dokumen Hasil"
+    },
+    {
+      "day": 3,
+      "date": "Kam, 16/04",
+      "title": "Eksperimen Pembanding Modern",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
+      "work": "Eksperimen pembanding modern: Phase Congruency + Edge Drawing di 3 dataset (Poin 5)",
+      "deliverableIcon": "code",
+      "deliverable": "Script Python + data perbandingan",
+      "docUrl": "https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true",
+      "docLabel": "Buka Dokumen Hasil"
+    },
+    {
+      "day": 4,
+      "date": "Jum, 17/04",
+      "title": "Reframing Introduction",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
+      "work": "Reframing Introduction + penyesuaian terminologi + penajaman kontribusi (Poin 1–3)",
+      "deliverableIcon": "check",
+      "deliverable": "Draf teks Introduction, Abstract, Conclusion yang sudah direvisi"
+    },
+    {
+      "day": 5,
+      "date": "Sab, 18/04",
+      "title": "Integrasi Semua Hasil",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
+      "work": "Integrasi semua hasil eksperimen ke paper + tabel/figur baru",
+      "deliverableIcon": "description",
+      "deliverable": "Draf paper lengkap dengan semua tambahan",
+      "docUrl": "https://docs.google.com/document/d/1AUedzXXYoWOkk_w6X6WEsp3vjzH_Q89F/edit?usp=drive_link&ouid=118098576419995352944&rtpof=true&sd=true",
+      "docLabel": "Buka Dokumen Hasil"
+    },
+    {
+      "day": 6,
+      "date": "Min, 19/04",
+      "title": "Review & Polish",
+      "completed": false,
+      "color": "blue",
+      "work": "Review menyeluruh, konsistensi angka, referensi baru, polish bahasa",
+      "deliverableIcon": "spellcheck",
+      "deliverable": "Paper final pre-submission"
+    },
+    {
+      "day": 7,
+      "date": "Sen, 20/04",
+      "title": "Buffer & Final Submission",
+      "completed": false,
+      "color": "purple",
+      "work": "Buffer: perbaikan minor + format IJIES + submit/kirim ke promotor",
+      "deliverableIcon": "send",
+      "deliverable": "File final siap kirim"
+    }
+  ]
+}

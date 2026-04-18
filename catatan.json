@@ -1,0 +1,114 @@
+[
+  {
+    "date": "17 April 2026",
+    "icon": "feedback",
+    "color": "fuchsia",
+    "tag": "Review & Feedback",
+    "content": "<strong>Review dari Promotor Prof. Nova & Co-Promotor Dr. Ruri</strong> - <strong>Prof. Nova (6 poin):</strong> (1) Reframing Introduction dengan konteks preservasi struktur edge/topologi, perkuat gap analysis, tambah referensi JCTA (Rosyadi et al.). (2) Penyesuaian terminologi: ubah \"boundary detection\" → \"edge-based boundary detection\", fokus efisiensi ke konteks resource-constrained/edge computing/real-time processing. (3) Penajaman kontribusi utama: angkat bukti redundansi komponen real Gabor sebagai klaim sentral, jangan tenggelam di detail eksperimen. (4) Penambahan metrik evaluasi: Precision, Recall, F1-score, PFOM (Pratt's Figure of Merit) sebagai bukti kualitas edge detection. (5) Penambahan pembanding modern: minimal 2 metode non-deep-learning yang lebih modern (Phase Congruency & Edge Drawing) sebagai pelengkap baseline Canny/Sobel/LoG. (6) Eksperimen downstream validation dengan dual thresholding. <strong>Dr. Ruri (3 poin):</strong> (1) Menanggapi Judul: sederhanakan, fokus pada objective dan approach yang memunculkan novelty (bukan level teknis). (2) Principal Contribution: ubah format poin menjadi pernyataan deskriptif di bagian introduction. (3) Fungsi GWi: detail lebih lengkap di introduction section."
+  },
+  {
+    "date": "16 April 2026",
+    "icon": "settings_backup_restore",
+    "color": "violet",
+    "tag": "Technical",
+    "content": "<strong>Restrukturisasi Data Eksperimen (1)</strong> - Jadikan satu semua code ke notebook master Colab yang menjalankan seluruh eksperimen dalam satu session: (1) GWC/GWi utama, (2) Dual thresholding (Adaptive vs Otsu), (3) Modern comparison (PC, ED, Canny, Sobel, LoG). Catat semua angka dari satu run ini."
+  },
+  {
+    "date": "15 April 2026",
+    "icon": "lightbulb",
+    "color": "cyan",
+    "tag": "Revisi dari Promotor",
+    "content": "<strong>Revisi dari Promotor - Perbandingan Metode Edge Detection</strong> - Membandingkan GWC & GWi dengan metode modern: <strong>Phase Congruency (PC)</strong> — frequency-based, contrast-invariant; <strong>Edge Drawing (ED)</strong> — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection. Untuk ditambahkan di paper section 7.6 guna memperkuat validasi komparatif."
+  },
+  {
+    "date": "14 April 2026",
+    "icon": "receipt",
+    "color": "indigo",
+    "tag": "Meeting",
+    "content": "<strong>Menerima & Mempelajari Catatan Review Draft</strong> - Menerima catatan review lengkap draft Paper 1 dari co-promotor Dr. Ruri. Mempelajari dan menganalisis setiap feedback, notes, dan saran perbaikan yang diberikan untuk mengarahkan revisi berikutnya."
+  },
+  {
+    "date": "14 April 2026",
+    "icon": "info",
+    "color": "yellow",
+    "tag": "Informasi",
+    "content": "<strong>Mapping Paper ke SDG 11 — Sustainable Cities and Communities</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>city, cities, human settlement/settlements, urban, urbanization, housing, slum*</strong>. Paper 1 secara eksplisit menggunakan <strong>tiga dataset urban</strong>: ShanghaiTech (dense crowd/kota padat), PatternNet (formal residential/perumahan), Kampung Warna Warni (informal settlements/permukiman informal). Analisis edge detection pada citra permukiman padat & informal langsung relevan dengan <strong>pemantauan & pemetaan sustainable cities</strong>."
+  },
+  {
+    "date": "14 April 2026",
+    "icon": "info",
+    "color": "yellow",
+    "tag": "Informasi",
+    "content": "<strong>Mapping Paper ke SDG 9 — Industry, Innovation and Infrastructure</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>process innovation, product innovation, inclusive innovation, manufacturing innovation</strong>. Paper 1 mengusulkan <strong>inovasi proses</strong> (GWi sebagai pengganti GWC) yang merupakan bentuk process innovation di bidang image processing serta kontribusi pada <strong>efisiensi komputasi</strong> dan optimasi algoritma."
+  },
+  {
+    "date": "14 April 2026",
+    "icon": "lightbulb",
+    "color": "teal",
+    "tag": "Revisi dari Promotor",
+    "content": "<strong>Revisi dari Promotor - Eksperimen Downstream Sederhana</strong> - Mengerjakan feedback dari Prof Nova: Tambahkan satu eksperimen sederhana untuk menunjukkan bahwa hasil edge yang dihasilkan tidak hanya mirip secara numerik, tapi juga tetap berguna pada tahap lanjutan (downstream task). Gunakan pendekatan ringan seperti <strong>thresholding sederhana (Otsu)</strong> untuk validasi praktis hasil edge detection."
+  },
+  {
+    "date": "14 April 2026",
+    "icon": "checklist",
+    "color": "lime",
+    "tag": "Analysis",
+    "content": "<strong>Analisis Respon Promotor & Rencana Tindak Lanjut</strong> - Menganalisis respon dan masukan dari promotor, serta merencanakan tindak lanjut untuk setiap feedback. Dokumentasi lengkap tersedia di menu <strong>Dokumentasi Feedback</strong> pada <a href=\"https://kdc-2026.vercel.app/\" target=\"_blank\" class=\"text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800\">KDC Dashboard</a>."
+  },
+  {
+    "date": "13-14 April 2026",
+    "icon": "edit",
+    "color": "rose",
+    "tag": "Writing",
+    "content": "<strong>Positioning & Penyederhanaan Paper</strong> - (1) Positioning riset pada metode trending saat ini yaitu <strong>Deep Learning</strong> di bagian Related work and state of the art, (2) Penghapusan gambar-gambar eksperimen yang redundan dan penggantiannya dengan penjelasan paragraf & tabel. Target: ringkas paper maksimal 12 halaman sesuai format IJIES."
+  },
+  {
+    "date": "11 April 2026",
+    "icon": "send",
+    "color": "orange",
+    "tag": "Communication",
+    "content": "<strong>Kirim Update ke Pembimbing</strong> - Mengirimkan update lengkap Paper 1 kepada Prof Nova terkait: hasil uji dataset, perbaikan discussion/limitasi/conclusion, status siap format final Inass."
+  },
+  {
+    "date": "10 April 2026",
+    "icon": "upload",
+    "color": "indigo",
+    "tag": "Mandiri",
+    "content": "<strong>Input Hasil Dataset ke Paper</strong> - Memasukkan hasil uji dataset ke subbab 7 Paper 1. Tulis ulang hasil eksperimen dengan detail lengkap, penambahan tabel & grafik. Cross-checking dengan Pipeline Algorithm Diagram."
+  },
+  {
+    "date": "7-9 April 2026",
+    "icon": "code",
+    "color": "cyan",
+    "tag": "Mandiri",
+    "content": "<strong>Perbaikan Coding & Pipeline</strong> - Buat ulang diagram pipeline, ganti image dataset ShanghaiTech, eksperimen ulang dengan Histogram Equalization untuk: (a) kontras lokal, (b) respons Gabor, (c) efek iluminasi. Seluruh eksperimen diulang."
+  },
+  {
+    "date": "6 April 2026",
+    "icon": "flag",
+    "color": "red",
+    "tag": "Mandiri",
+    "content": "<strong>Hapus Plot & Target Selesai</strong> - Hapus penjelasan plot gamma comparison. <strong>Target:</strong> Penyelesaian Paper 1 akhir 12 April, format Inass 19 April. Fokus: streamline narrative, fokus kontribusi utama."
+  },
+  {
+    "date": "20 Maret 2026",
+    "icon": "edit",
+    "color": "amber",
+    "tag": "Writing",
+    "content": "<strong>Edit Paper & Promotor</strong> - (1) Promotor urutan terakhir pada nama OK ✓ (2) Edit text paper untuk clarity dan consistency. Review struktur bab dan flow tulisan."
+  },
+  {
+    "date": "19 Maret 2026",
+    "icon": "build",
+    "color": "purple",
+    "tag": "Technical",
+    "content": "<strong>Self Progress - Referensi</strong> - Pengecekan sitasi (duplikat, konteks), ganti referensi tidak sesuai, verifikasi Q1-Q3, tambah 2 paper Inass baru, urutkan sitasi, import ke Mendeley"
+  },
+  {
+    "date": "18 Maret 2026",
+    "icon": "person",
+    "color": "green",
+    "tag": "Meeting",
+    "content": "<strong>Feedback Prof Nova</strong> - 3 action items: (1) Sitasi dari jurnal submit Inass (Selesai), (2) Subbab 7 tambah deskriptif, (3) Promotor urutan terakhir pada nama"
+  }
+]

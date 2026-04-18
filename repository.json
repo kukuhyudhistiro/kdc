@@ -1,0 +1,50 @@
+[
+  {
+    "title": "GWC vs GWi Comparison Pipeline",
+    "description": "Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)",
+    "platform": "Google Colab",
+    "url": "https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing",
+    "status": "Active",
+    "gradient": "from-orange-400 to-orange-500",
+    "statusColor": "orange",
+    "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
+    "buttonBg": "bg-orange-500 hover:bg-orange-600",
+    "buttonLabel": "Buka di Colab"
+  },
+  {
+    "title": "GWC vs GWi with Dual Thresholding",
+    "description": "Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).",
+    "platform": "Google Colab",
+    "url": "https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing",
+    "status": "Active",
+    "gradient": "from-orange-400 to-orange-500",
+    "statusColor": "orange",
+    "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
+    "buttonBg": "bg-orange-500 hover:bg-orange-600",
+    "buttonLabel": "Buka di Colab"
+  },
+  {
+    "title": "Comparative Edge Detection Methods",
+    "description": "Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.",
+    "platform": "Google Colab",
+    "url": "https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing",
+    "status": "Active",
+    "gradient": "from-orange-400 to-orange-500",
+    "statusColor": "orange",
+    "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
+    "buttonBg": "bg-orange-500 hover:bg-orange-600",
+    "buttonLabel": "Buka di Colab"
+  },
+  {
+    "title": "Master Paper 1",
+    "description": "Code Eksperimen keseluruhan (1 Console)",
+    "platform": "Google Colab",
+    "url": "https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing",
+    "status": "In Progress",
+    "gradient": "from-red-400 to-red-500",
+    "statusColor": "red",
+    "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
+    "buttonBg": "bg-red-500 hover:bg-red-600",
+    "buttonLabel": "Buka di Colab"
+  }
+]
