@@ -522,6 +522,58 @@
                         Buka Folder di Google Drive
                     </a>
                 </div>
+
+                <!-- setelah tombol Google Drive -->
+                <div class="mt-10">
+                    <!-- Toolbar: judul + search + per-page -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Daftar Referensi (Paper 1)</h3>
+                        <div class="flex items-center gap-3 flex-wrap">
+                            <!-- Per-page selector -->
+                            <div class="flex items-center gap-2">
+                                <label for="refPerPage" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Tampilkan:</label>
+                                <select id="refPerPage" class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-2 py-1.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+                            <!-- Search input -->
+                            <div class="relative">
+                                <span class="material-icons absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 text-base pointer-events-none">search</span>
+                                <input id="refSearch" type="text" placeholder="Cari referensi..." class="pl-8 pr-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 w-52"/>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap" id="refCount"></span>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Group</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Publication Title</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Publisher</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Year</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Journal Source</th>
+                                        <th class="px-4 py-3 text-center text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="referenceTableBody" class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800">
+                                    <!-- Data akan diisi oleh JavaScript -->
+                                    <tr><td colspan="6" class="text-center py-8 text-gray-500">Memuat data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Pagination Controls -->
+                    <div id="refPagination" class="flex items-center justify-between mt-4 flex-wrap gap-2">
+                        <span id="refPaginationInfo" class="text-sm text-gray-500 dark:text-gray-400"></span>
+                        <div id="refPaginationBtns" class="flex gap-1 flex-wrap"></div>
+                    </div>
+                </div>
+
             </section>
 
             <section id="dokumentasi-feedback" class="content-section section-fade hidden">
@@ -564,206 +616,8 @@
                         <p class="text-sm text-blue-800 dark:text-blue-300">14 April 2026 - Periode Aksi: 14-20 April 2026</p>
                     </div>
 
-                    <div class="space-y-4">
-                        <!-- Day 1 -->
-                        <div class="agenda-day-card group bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
-                                        <span class="material-icons text-lg">check</span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex items-center gap-2 flex-wrap">
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Sel, 14/04</h4>
-                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai dan Disetujui 14/04</span>
-                                        </div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Downstream Validation & Dual Thresholding</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen downstream validation + dual thresholding (Poin 6) + tulis hasil ke paper</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-2"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">table_chart</span>Deliverable: Script + tabel hasil segmentasi Adaptive vs Otsu</p>
-                                    <p class="text-xs text-green-700 dark:text-green-400 font-semibold italic mb-4">✓ Persetujuan Pembimbing: Fokus ke eksperimen terlebih dahulu, writing dilanjutkan dengan data dari eksperimen tambahan</p>
-                                    <a href="https://docs.google.com/document/d/1NGkbESy2u9LpwS3XH9hh0r8IX2ixVRma/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
-                                        <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 2 -->
-                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
-                                        <span class="material-icons text-lg">check</span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex items-center gap-2 flex-wrap">
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Rab, 15/04</h4>
-                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
-                                        </div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Eksperimen Metrik Baru</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen metrik baru: Precision, Recall, F1, PFOM — coding + running di 3 dataset (Poin 4)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-4"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data hasil metrik baru</p>
-                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
-                                        <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 3 -->
-                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
-                                        <span class="material-icons text-lg">check</span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex items-center gap-2 flex-wrap">
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Kam, 16/04</h4>
-                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
-                                        </div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Eksperimen Pembanding Modern</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Eksperimen pembanding modern: Phase Congruency + Edge Drawing di 3 dataset (Poin 5)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-4"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">code</span>Deliverable: Script Python + data perbandingan</p>
-                                    <a href="https://docs.google.com/document/d/1vjd8cwfvaCrrsaTRJP4Gz6cz99R3B6Fe/edit?usp=sharing&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors">
-                                        <span class="material-icons text-sm">file_open</span> Buka Dokumen Hasil
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 4 -->
-                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
-                                        <span class="material-icons text-lg">check</span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex items-center gap-2 flex-wrap">
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Jum, 17/04</h4>
-                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
-                                        </div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Reframing Introduction</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Reframing Introduction + penyesuaian terminologi + penajaman kontribusi (Poin 1–3)</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">check</span>Deliverable: Draf teks Introduction, Abstract, Conclusion yang sudah direvisi</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 5 -->
-                        <div class="agenda-day-card group bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
-                                        <span class="material-icons text-lg">check</span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex items-center gap-2 flex-wrap">
-                                            <h4 class="font-bold text-gray-800 dark:text-white">Sab, 18/04</h4>
-                                            <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">Selesai & Disetujui</span>
-                                        </div>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Integrasi Semua Hasil</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Integrasi semua hasil eksperimen ke paper + tabel/figur baru</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold mb-4"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">description</span>Deliverable: Draf paper lengkap dengan semua tambahan</p>
-                                    <a href="https://docs.google.com/document/d/1AUedzXXYoWOkk_w6X6WEsp3vjzH_Q89F/edit?usp=drive_link&ouid=118098576419995352944&rtpof=true&sd=true" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600 text-white rounded-lg font-semibold text-sm transition-colors">
-                                        <span class="material-icons text-base">description</span>
-                                        Buka Dokumen Hasil
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 6 -->
-                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 font-bold text-sm">6</div>
-                                    <div class="min-w-0">
-                                        <h4 class="font-bold text-gray-800 dark:text-white">Min, 19/04</h4>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Review & Polish</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-blue-600" />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Review menyeluruh, konsistensi angka, referensi baru, polish bahasa</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">spellcheck</span>Deliverable: Paper final pre-submission</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 7 -->
-                        <div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 border-purple-500 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3">
-                                <div class="flex items-center gap-3 min-w-0 flex-1">
-                                    <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 font-bold text-sm">7</div>
-                                    <div class="min-w-0">
-                                        <h4 class="font-bold text-gray-800 dark:text-white">Sen, 20/04</h4>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 truncate">Buffer & Final Submission</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 flex-shrink-0">
-                                    <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
-                                    <input type="checkbox" class="w-6 h-6 rounded text-purple-600" />
-                                </div>
-                            </div>
-                            <div class="agenda-card-body">
-                                <div class="px-5 pb-5 ml-12">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> Buffer: perbaikan minor + format IJIES + submit/kirim ke promotor</p>
-                                    <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display: inline;">send</span>Deliverable: File final siap kirim</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="space-y-4" id="agenda-cards-container">
+                        <div class="text-center py-8 text-gray-500">Memuat agenda...</div>
                     </div>
 
                     <!-- Progress Bar -->
@@ -996,231 +850,7 @@
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Catatan Harian (Logboard)</h2>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
-
-                    <div class="catatan-card bg-fuchsia-200 dark:bg-fuchsia-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-fuchsia-300/50 dark:border-fuchsia-700/50 pb-2">
-                            <span class="font-bold text-sm">17 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-fuchsia-600 dark:text-fuchsia-400 text-sm">feedback</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Review dari Promotor Prof. Nova & Co-Promotor Dr. Ruri</strong> - <strong>Prof. Nova (6 poin):</strong> (1) Reframing Introduction dengan konteks preservasi struktur edge/topologi, perkuat gap analysis, tambah referensi JCTA (Rosyadi et al.). (2) Penyesuaian terminologi: ubah "boundary detection" → "edge-based boundary detection", fokus efisiensi ke konteks resource-constrained/edge computing/real-time processing. (3) Penajaman kontribusi utama: angkat bukti redundansi komponen real Gabor sebagai klaim sentral, jangan tenggelam di detail eksperimen. (4) Penambahan metrik evaluasi: Precision, Recall, F1-score, PFOM (Pratt's Figure of Merit) sebagai bukti kualitas edge detection. (5) Penambahan pembanding modern: minimal 2 metode non-deep-learning yang lebih modern (Phase Congruency & Edge Drawing) sebagai pelengkap baseline Canny/Sobel/LoG. (6) Eksperimen downstream validation dengan dual thresholding. <strong>Dr. Ruri (3 poin):</strong> (1) Menanggapi Judul: sederhanakan, fokus pada objective dan approach yang memunculkan novelty (bukan level teknis). (2) Principal Contribution: ubah format poin menjadi pernyataan deskriptif di bagian introduction. (3) Fungsi GWi: detail lebih lengkap di introduction section.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-fuchsia-300/50 dark:bg-fuchsia-800/50 px-2 py-1 rounded inline-block">Review & Feedback</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-violet-200 dark:bg-violet-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-violet-300/50 dark:border-violet-700/50 pb-2">
-                            <span class="font-bold text-sm">16 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-violet-600 dark:text-violet-400 text-sm">settings_backup_restore</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Restrukturisasi Data Eksperimen (1)</strong> - Jadikan satu semua code ke notebook master Colab yang menjalankan seluruh eksperimen dalam satu session: (1) GWC/GWi utama, (2) Dual thresholding (Adaptive vs Otsu), (3) Modern comparison (PC, ED, Canny, Sobel, LoG). Catat semua angka dari satu run ini.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-violet-300/50 dark:bg-violet-800/50 px-2 py-1 rounded inline-block">Technical</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-cyan-300/50 dark:border-cyan-700/50 pb-2">
-                            <span class="font-bold text-sm">15 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">lightbulb</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Revisi dari Promotor - Perbandingan Metode Edge Detection</strong> - Membandingkan GWC & GWi dengan metode modern: <strong>Phase Congruency (PC)</strong> — frequency-based, contrast-invariant; <strong>Edge Drawing (ED)</strong> — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection. Untuk ditambahkan di paper section 7.6 guna memperkuat validasi komparatif.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-indigo-300/50 dark:border-indigo-700/50 pb-2">
-                            <span class="font-bold text-sm">14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">receipt</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Menerima & Mempelajari Catatan Review Draft</strong> - Menerima catatan review lengkap draft Paper 1 dari co-promotor Dr. Ruri. Mempelajari dan menganalisis setiap feedback, notes, dan saran perbaikan yang diberikan untuk mengarahkan revisi berikutnya.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Meeting</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-yellow-300/50 dark:border-yellow-700/50 pb-2">
-                            <span class="font-bold text-sm">14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Mapping Paper ke SDG 11 — Sustainable Cities and Communities</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>city, cities, human settlement/settlements, urban, urbanization, housing, slum*</strong>. Paper 1 secara eksplisit menggunakan <strong>tiga dataset urban</strong>: ShanghaiTech (dense crowd/kota padat), PatternNet (formal residential/perumahan), Kampung Warna Warni (informal settlements/permukiman informal). Analisis edge detection pada citra permukiman padat & informal langsung relevan dengan <strong>pemantauan & pemetaan sustainable cities</strong>.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-yellow-200 dark:bg-yellow-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-yellow-300/50 dark:border-yellow-700/50 pb-2">
-                            <span class="font-bold text-sm">14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-yellow-600 dark:text-yellow-400 text-sm">info</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Mapping Paper ke SDG 9 — Industry, Innovation and Infrastructure</strong> - Memasukkan keyword berdasarkan SDG framework. Keywords cocok: <strong>process innovation, product innovation, inclusive innovation, manufacturing innovation</strong>. Paper 1 mengusulkan <strong>inovasi proses</strong> (GWi sebagai pengganti GWC) yang merupakan bentuk process innovation di bidang image processing serta kontribusi pada <strong>efisiensi komputasi</strong> dan optimasi algoritma.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-yellow-300/50 dark:bg-yellow-800/50 px-2 py-1 rounded inline-block">Informasi</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-teal-200 dark:bg-teal-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-teal-300/50 dark:border-teal-700/50 pb-2">
-                            <span class="font-bold text-sm">14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-teal-600 dark:text-teal-400 text-sm">lightbulb</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Revisi dari Promotor - Eksperimen Downstream Sederhana</strong> - Mengerjakan feedback dari Prof Nova: Tambahkan satu eksperimen sederhana untuk menunjukkan bahwa hasil edge yang dihasilkan tidak hanya mirip secara numerik, tapi juga tetap berguna pada tahap lanjutan (downstream task). Gunakan pendekatan ringan seperti <strong>thresholding sederhana (Otsu)</strong> untuk validasi praktis hasil edge detection.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-teal-300/50 dark:bg-teal-800/50 px-2 py-1 rounded inline-block">Revisi dari Promotor</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-lime-200 dark:bg-lime-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-lime-300/50 dark:border-lime-700/50 pb-2">
-                            <span class="font-bold text-sm">14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-lime-600 dark:text-lime-400 text-sm">checklist</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Analisis Respon Promotor & Rencana Tindak Lanjut</strong> - Menganalisis respon dan masukan dari promotor, serta merencanakan tindak lanjut untuk setiap feedback. Dokumentasi lengkap tersedia di menu <strong>Dokumentasi Feedback</strong> pada <a href="https://kdc-2026.vercel.app/" target="_blank" class="text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800">KDC Dashboard</a>.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-lime-300/50 dark:bg-lime-800/50 px-2 py-1 rounded inline-block">Analysis</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-rose-200 dark:bg-rose-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-rose-300/50 dark:border-rose-700/50 pb-2">
-                            <span class="font-bold text-sm">13-14 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-rose-600 dark:text-rose-400 text-sm">edit</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Positioning & Penyederhanaan Paper</strong> - (1) Positioning riset pada metode trending saat ini yaitu <strong>Deep Learning</strong> di bagian Related work and state of the art, (2) Penghapusan gambar-gambar eksperimen yang redundan dan penggantiannya dengan penjelasan paragraf & tabel. Target: ringkas paper maksimal 12 halaman sesuai format IJIES.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-rose-300/50 dark:bg-rose-800/50 px-2 py-1 rounded inline-block">Writing</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-orange-200 dark:bg-orange-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-orange-300/50 dark:border-orange-700/50 pb-2">
-                            <span class="font-bold text-sm">11 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-orange-600 dark:text-orange-400 text-sm">send</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Kirim Update ke Pembimbing</strong> - Mengirimkan update lengkap Paper 1 kepada Prof Nova terkait: hasil uji dataset, perbaikan discussion/limitasi/conclusion, status siap format final Inass.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-orange-300/50 dark:bg-orange-800/50 px-2 py-1 rounded inline-block">Communication</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-indigo-200 dark:bg-indigo-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-indigo-300/50 dark:border-indigo-700/50 pb-2">
-                            <span class="font-bold text-sm">10 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-indigo-600 dark:text-indigo-400 text-sm">upload</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Input Hasil Dataset ke Paper</strong> - Memasukkan hasil uji dataset ke subbab 7 Paper 1. Tulis ulang hasil eksperimen dengan detail lengkap, penambahan tabel & grafik. Cross-checking dengan Pipeline Algorithm Diagram.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-indigo-300/50 dark:bg-indigo-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-cyan-200 dark:bg-cyan-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-cyan-300/50 dark:border-cyan-700/50 pb-2">
-                            <span class="font-bold text-sm">7-9 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-cyan-600 dark:text-cyan-400 text-sm">code</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Perbaikan Coding & Pipeline</strong> - Buat ulang diagram pipeline, ganti image dataset ShanghaiTech, eksperimen ulang dengan Histogram Equalization untuk: (a) kontras lokal, (b) respons Gabor, (c) efek iluminasi. Seluruh eksperimen diulang.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-cyan-300/50 dark:bg-cyan-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-red-200 dark:bg-red-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-red-300/50 dark:border-red-700/50 pb-2">
-                            <span class="font-bold text-sm">6 April 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-red-600 dark:text-red-400 text-sm">flag</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Hapus Plot & Target Selesai</strong> - Hapus penjelasan plot gamma comparison. <strong>Target:</strong> Penyelesaian Paper 1 akhir 12 April, format Inass 19 April. Fokus: streamline narrative, fokus kontribusi utama.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-red-300/50 dark:bg-red-800/50 px-2 py-1 rounded inline-block">Mandiri</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-amber-200 dark:bg-amber-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-amber-300/50 dark:border-amber-700/50 pb-2">
-                            <span class="font-bold text-sm">20 Maret 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-amber-600 dark:text-amber-400 text-sm">edit</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Edit Paper & Promotor</strong> - (1) Promotor urutan terakhir pada nama OK ✓ (2) Edit text paper untuk clarity dan consistency. Review struktur bab dan flow tulisan.</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-amber-300/50 dark:bg-amber-800/50 px-2 py-1 rounded inline-block">Writing</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-purple-200 dark:bg-purple-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-purple-300/50 dark:border-purple-700/50 pb-2">
-                            <span class="font-bold text-sm">19 Maret 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-purple-600 dark:text-purple-400 text-sm">build</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Self Progress - Referensi</strong> - Pengecekan sitasi (duplikat, konteks), ganti referensi tidak sesuai, verifikasi Q1-Q3, tambah 2 paper Inass baru, urutkan sitasi, import ke Mendeley</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-purple-300/50 dark:bg-purple-800/50 px-2 py-1 rounded inline-block">Technical</div>
-                        </div>
-                    </div>
-
-                    <div class="catatan-card bg-green-200 dark:bg-green-900/60 p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
-                        <div class="flex justify-between items-start mb-3 border-b border-green-300/50 dark:border-green-700/50 pb-2">
-                            <span class="font-bold text-sm">18 Maret 2026</span>
-                            <div class="flex items-center gap-1">
-                                <span class="material-icons text-green-600 dark:text-green-400 text-sm">person</span>
-                                <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
-                            </div>
-                        </div>
-                        <p class="catatan-card-text text-sm leading-relaxed"><strong>Feedback Prof Nova</strong> - 3 action items: (1) Sitasi dari jurnal submit Inass (Selesai), (2) Subbab 7 tambah deskriptif, (3) Promotor urutan terakhir pada nama</p>
-                        <div class="catatan-card-extra">
-                            <div class="mt-3 text-xs bg-green-300/50 dark:bg-green-800/50 px-2 py-1 rounded inline-block">Meeting</div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start" id="catatan-grid">
 
                 </div>
             </section>
@@ -1232,117 +862,7 @@
                 </div>
 
                 <!-- Repository Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <!-- Colab - GWC vs GWi Comparison Pipeline -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('GWC vs GWi Comparison Pipeline', 'Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)', 'Google Colab', 'https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing')">
-                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-lg font-bold">GWC vs GWi Comparison Pipeline</h3>
-                                <span class="material-icons text-2xl">code</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-orange-100">
-                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
-                                <span class="text-sm font-medium">Google Colab</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Pipeline perbandingan algoritma GWC (Gabor Wavelet Complex) dengan GWi (Gabor Wavelet Imaginary)</p>
-                            <div class="flex flex-col gap-2">
-                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1zHJogO9jOowFp1a_RRylXeazPZCUy5Ro?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
-                                    <span class="material-icons text-sm">open_in_new</span>
-                                    Buka di Colab
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Colab - GWC vs GWi with Dual Thresholding -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('GWC vs GWi with Dual Thresholding', 'Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).', 'Google Colab', 'https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing')">
-                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-lg font-bold">GWC vs GWi with Dual Thresholding</h3>
-                                <span class="material-icons text-2xl">code</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-orange-100">
-                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
-                                <span class="text-sm font-medium">Google Colab</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Untuk pembuktian bahwa: 1) hasil edge GWi tetap konsisten dengan GWC pada downstream task (segmentasi ringan), 2) Konsistensi tersebut robust terhadap pilihan metode thresholding (Adaptive vs Otsu).</p>
-                            <div class="flex flex-col gap-2">
-                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1S1_rUh21eKp_y6PpYy5LD49Wg5k7zvP2?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
-                                    <span class="material-icons text-sm">open_in_new</span>
-                                    Buka di Colab
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Colab - Comparative Edge Detection -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('Comparative Edge Detection Methods', 'Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.', 'Google Colab', 'https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing')">
-                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 p-4 text-white">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-lg font-bold">Comparative Edge Detection Methods</h3>
-                                <span class="material-icons text-2xl">code</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-orange-100">
-                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
-                                <span class="text-sm font-medium">Google Colab</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Membandingkan GWC & GWi dengan metode modern: Phase Congruency (PC) — frequency-based, contrast-invariant; Edge Drawing (ED) — anchor-based, one-pixel-wide contiguous edges; plus baseline klasik: Canny, Sobel, LoG untuk validasi hasil edge detection.</p>
-                            <div class="flex flex-col gap-2">
-                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-orange-600 dark:text-orange-400">Active</span></span>
-                                <a href="https://colab.research.google.com/drive/1ksxcwD1CPZrIrCY4TY9U_mXw3QxxRwpS?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
-                                    <span class="material-icons text-sm">open_in_new</span>
-                                    Buka di Colab
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Master Paper 1 -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('Master Paper 1', 'Code Eksperimen keseluruhan (1 Console)', 'Google Colab', 'https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing')">
-                        <div class="bg-gradient-to-r from-red-400 to-red-500 p-4 text-white">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-lg font-bold">Master Paper 1</h3>
-                                <span class="material-icons text-2xl">code</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-red-100">
-                                <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Google Colab" class="w-4 h-4">
-                                <span class="text-sm font-medium">Google Colab</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Code Eksperimen keseluruhan (1 Console)</p>
-                            <div class="flex flex-col gap-2">
-                                <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="text-red-600 dark:text-red-400">In Progress</span></span>
-                                <a href="https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
-                                    <span class="material-icons text-sm">open_in_new</span>
-                                    Buka di Colab
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Template untuk GitHub -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border-2 border-dashed border-gray-300 dark:border-gray-600 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group flex flex-col items-center justify-center p-8 text-center">
-                        <div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
-                            <span class="material-icons text-3xl text-gray-400">add</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">GitHub Repository</h3>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Tambahkan link GitHub untuk kode dan dokumentasi</p>
-                        <button onclick="addRepositoryForm()" class="inline-flex items-center gap-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
-                            <span class="material-icons text-sm">add</span>
-                            Tambah Link
-                        </button>
-                    </div>
-
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="repo-grid">
                 </div>
 
                 <!-- Info Section -->
@@ -1487,6 +1007,15 @@
                     const urlPath = targetId === 'dashboard' ? '/' : '/' + targetId;
                     history.pushState({ section: targetId }, '', urlPath);
                 }
+
+                if (targetId === 'referensi') {
+                    if (referencesData.length > 0) {
+                        renderReferenceTable();
+                        renderPagination();
+                    } else {
+                        loadReferences();
+                    }
+                }
             }
 
             navLinks.forEach(link => {
@@ -1525,46 +1054,7 @@
             history.replaceState({ section: initialSection }, '', initialSection === 'dashboard' ? '/' : '/' + initialSection);
             setActiveSection(initialSection, initialTitle, initialLink, true); // skipPush = true for initial load
 
-            // --- Agenda Checklist Logic ---
-            const agendaCheckboxes = document.querySelectorAll('[id="agenda"] input[type="checkbox"]');
-            const progressBar = document.getElementById('rtl-progress-bar');
-            const progressText = document.getElementById('rtl-progress-text');
-
-            function updateProgress() {
-                const checkedCount = document.querySelectorAll('[id="agenda"] input[type="checkbox"]:checked').length;
-                const totalCount = agendaCheckboxes.length;
-                const percentage = (checkedCount / totalCount) * 100;
-                
-                if (progressBar) {
-                    progressBar.style.width = percentage + '%';
-                }
-                if (progressText) {
-                    progressText.textContent = checkedCount + '/' + totalCount;
-                }
-                
-                // Save to localStorage
-                localStorage.setItem('agenda-progress', JSON.stringify({
-                    checked: checkedCount,
-                    total: totalCount,
-                    lastUpdate: new Date().toISOString()
-                }));
-            }
-
-            agendaCheckboxes.forEach((checkbox, index) => {
-                // Restore checkbox state from localStorage
-                const savedState = localStorage.getItem('agenda-check-' + index);
-                if (savedState === 'true') {
-                    checkbox.checked = true;
-                }
-                
-                checkbox.addEventListener('change', () => {
-                    localStorage.setItem('agenda-check-' + index, checkbox.checked);
-                    updateProgress();
-                });
-            });
-
-            // Initialize progress on page load
-            updateProgress();
+            // Agenda checklist inited after loadAgenda() renders cards
 
             // --- Auto-Update Agenda Based on Current Date ---
             function updateAgendaByCurrentDate() {
@@ -1660,29 +1150,9 @@
                 return card;
             }
             
-            // Call the update function when page loads
-            updateAgendaByCurrentDate();
-
-            // --- Dashboard Agenda Checkbox Sync ---
-            const dashboardAgendaChecks = document.querySelectorAll('.agenda-dashboard-check');
-            dashboardAgendaChecks.forEach((checkbox) => {
-                const day = parseInt(checkbox.getAttribute('data-day'));
-                // Sync state from main agenda
-                const mainAgendaCheck = document.querySelectorAll('[id="agenda"] input[type="checkbox"]')[day];
-                if (mainAgendaCheck && mainAgendaCheck.checked) {
-                    checkbox.checked = true;
-                }
-                
-                checkbox.addEventListener('change', () => {
-                    // Update main agenda checkbox
-                    const mainCheck = document.querySelectorAll('[id="agenda"] input[type="checkbox"]')[day];
-                    if (mainCheck) {
-                        mainCheck.checked = checkbox.checked;
-                        localStorage.setItem('agenda-check-' + day, checkbox.checked);
-                        updateProgress();
-                    }
-                });
-            });
+            // Expose agenda functions for post-render use
+            window._updateAgendaByCurrentDate = updateAgendaByCurrentDate;
+            window._createDashboardCard = createDashboardCard;
 
             // --- Dark/Light Mode Logic ---
             const themeToggleBtn = document.getElementById('themeToggle');
@@ -1749,28 +1219,522 @@
             // Call the function on page load
             updateDaysRemaining();
 
-            // --- Catatan Harian Card Expand/Collapse ---
-            document.querySelectorAll('.catatan-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('open');
-                });
+            // --- Event delegation: Catatan cards ---
+            document.getElementById('catatan-grid').addEventListener('click', (e) => {
+                const card = e.target.closest('.catatan-card');
+                if (card) card.classList.toggle('open');
             });
 
-            // --- Agenda Card Expand/Collapse ---
-            document.querySelectorAll('.agenda-card-header').forEach(header => {
-                header.addEventListener('click', (e) => {
-                    if (e.target.type === 'checkbox') return;
-                    const card = header.closest('.agenda-day-card');
-                    const body = card.querySelector('.agenda-card-body');
-                    body.classList.toggle('open');
-                    card.classList.toggle('open');
-                });
+            // --- Event delegation: Agenda cards ---
+            document.getElementById('agenda-cards-container').addEventListener('click', (e) => {
+                if (e.target.type === 'checkbox') return;
+                const header = e.target.closest('.agenda-card-header');
+                if (!header) return;
+                const card = header.closest('.agenda-day-card');
+                card.querySelector('.agenda-card-body').classList.toggle('open');
+                card.classList.toggle('open');
             });
-            // Stop checkbox click from toggling card
-            document.querySelectorAll('.agenda-day-card input[type="checkbox"]').forEach(cb => {
-                cb.addEventListener('click', e => e.stopPropagation());
-            });
+            document.getElementById('agenda-cards-container').addEventListener('click', (e) => {
+                if (e.target.type === 'checkbox') e.stopPropagation();
+            }, true);
+
+            // --- Load JSON-based sections ---
+            loadAgenda();
+            loadCatatan();
+            loadRepository();
         });
+
+        // --- Reference Table Functions ---
+        // --- Reference Table Functions ---
+let referencesData = [];
+let refFilteredData = [];
+let refCurrentPage = 1;
+let refPerPage = 10;
+
+async function loadReferences() {
+    const tbody = document.getElementById('referenceTableBody');
+    const refCount = document.getElementById('refCount');
+
+    try {
+        console.log('Mencoba fetch ref_paper1_kdc.json...');
+        const response = await fetch('ref_paper1_kdc.json');
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        const text = await response.text();
+        referencesData = JSON.parse(text);
+        refFilteredData = referencesData;
+        renderReferenceTable();
+        renderPagination();
+        console.log(`✅ Berhasil memuat ${referencesData.length} referensi melalui fetch.`);
+    } catch (error) {
+        console.warn('⚠️ Fetch gagal, mencoba fallback...', error.message);
+
+        // Fallback: coba muat dari variabel global jika sudah didefinisikan
+        if (typeof window.__REFERENCE_DATA__ !== 'undefined' && window.__REFERENCE_DATA__.length) {
+            referencesData = window.__REFERENCE_DATA__;
+            refFilteredData = referencesData;
+            renderReferenceTable();
+            renderPagination();
+            console.log(`✅ Menggunakan data fallback (${referencesData.length} item).`);
+        } else {
+            // Jika tidak ada fallback, tampilkan pesan error informatif
+            tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-red-500">
+                <div class="flex flex-col items-center gap-2">
+                    <span class="material-icons text-4xl">error_outline</span>
+                    <span class="font-semibold">Gagal memuat data referensi.</span>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Error: ${error.message}</span>
+                    <div class="mt-2 text-xs text-left bg-gray-100 dark:bg-gray-700 p-3 rounded max-w-md">
+                        <p class="font-medium mb-1">🔧 Cara mengatasi:</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Pastikan file <code class="bg-gray-200 dark:bg-gray-600 px-1 rounded">ref_paper1_kdc.json</code> berada satu folder dengan HTML ini.</li>
+                            <li>Jalankan halaman melalui <strong>server lokal</strong> (misal: ekstensi Live Server di VS Code).</li>
+                            <li>Atau buka terminal di folder ini dan jalankan: <code class="bg-gray-200 dark:bg-gray-600 px-1 rounded">npx http-server</code> lalu akses http://127.0.0.1:8080</li>
+                        </ol>
+                    </div>
+                </div>
+            </td></tr>`;
+            if (refCount) refCount.textContent = `Total: 0 referensi`;
+        }
+    }
+
+    // Pasang event listeners setelah elemen siap
+    const searchEl = document.getElementById('refSearch');
+    const perPageEl = document.getElementById('refPerPage');
+    if (searchEl) searchEl.addEventListener('input', filterReferences);
+    if (perPageEl) perPageEl.addEventListener('change', function() {
+        refPerPage = this.value === 'all' ? 'all' : parseInt(this.value);
+        refCurrentPage = 1;
+        renderReferenceTable();
+        renderPagination();
+    });
+}
+
+        function renderReferenceTable() {
+            const tbody = document.getElementById('referenceTableBody');
+            const refCount = document.getElementById('refCount');
+            const total = refFilteredData.length;
+
+            if (!total) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-gray-500">Tidak ada data yang cocok</td></tr>`;
+                if (refCount) refCount.textContent = `Total: 0 referensi`;
+                const info = document.getElementById('refPaginationInfo');
+                if (info) info.textContent = '';
+                return;
+            }
+
+            let pageData;
+            let start, end;
+            if (refPerPage === 'all') {
+                pageData = refFilteredData;
+                start = 1;
+                end = total;
+            } else {
+                start = (refCurrentPage - 1) * refPerPage + 1;
+                end = Math.min(refCurrentPage * refPerPage, total);
+                pageData = refFilteredData.slice(start - 1, end);
+            }
+
+            tbody.innerHTML = pageData.map(item => `
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.group || '-'}</td>
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" title="${item.publicationTitle.replace(/"/g, '&quot;')}">${item.publicationTitle}</td>
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.publisher || '-'}</td>
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.year || '-'}</td>
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.rq1 || '-'}</td>
+                    <td class="px-4 py-3 text-center">
+                        <button onclick='showReferenceDetail(${JSON.stringify(item).replace(/'/g, "\\'")})' class="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-medium hover:bg-blue-200 dark:hover:bg-blue-800/50 transition-colors">
+                            <span class="material-icons text-sm">visibility</span> Detail
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+
+            if (refCount) refCount.textContent = `Total: ${total} referensi`;
+            const info = document.getElementById('refPaginationInfo');
+            if (info) info.textContent = `Menampilkan ${start}–${end} dari ${total} referensi`;
+        }
+
+        function renderPagination() {
+            const btns = document.getElementById('refPaginationBtns');
+            const pagination = document.getElementById('refPagination');
+            if (!btns || !pagination) return;
+
+            if (refPerPage === 'all' || refFilteredData.length === 0) {
+                btns.innerHTML = '';
+                return;
+            }
+
+            const totalPages = Math.ceil(refFilteredData.length / refPerPage);
+            if (totalPages <= 1) { btns.innerHTML = ''; return; }
+
+            const btnClass = 'px-3 py-1 text-sm rounded-lg border transition-colors';
+            const activeClass = 'bg-blue-600 text-white border-blue-600';
+            const normalClass = 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700';
+            const disabledClass = 'bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed';
+
+            let html = '';
+            // Prev
+            html += `<button onclick="goRefPage(${refCurrentPage - 1})" ${refCurrentPage === 1 ? 'disabled' : ''} class="${btnClass} ${refCurrentPage === 1 ? disabledClass : normalClass}">‹</button>`;
+
+            // Page numbers (show max 7 with ellipsis)
+            const delta = 2;
+            const range = [];
+            for (let i = Math.max(1, refCurrentPage - delta); i <= Math.min(totalPages, refCurrentPage + delta); i++) range.push(i);
+            if (range[0] > 1) { html += `<button onclick="goRefPage(1)" class="${btnClass} ${normalClass}">1</button>`; if (range[0] > 2) html += `<span class="px-2 py-1 text-gray-400">…</span>`; }
+            range.forEach(p => {
+                html += `<button onclick="goRefPage(${p})" class="${btnClass} ${p === refCurrentPage ? activeClass : normalClass}">${p}</button>`;
+            });
+            if (range[range.length - 1] < totalPages) { if (range[range.length - 1] < totalPages - 1) html += `<span class="px-2 py-1 text-gray-400">…</span>`; html += `<button onclick="goRefPage(${totalPages})" class="${btnClass} ${normalClass}">${totalPages}</button>`; }
+
+            // Next
+            html += `<button onclick="goRefPage(${refCurrentPage + 1})" ${refCurrentPage === totalPages ? 'disabled' : ''} class="${btnClass} ${refCurrentPage === totalPages ? disabledClass : normalClass}">›</button>`;
+
+            btns.innerHTML = html;
+        }
+
+        function goRefPage(page) {
+            const totalPages = refPerPage === 'all' ? 1 : Math.ceil(refFilteredData.length / refPerPage);
+            if (page < 1 || page > totalPages) return;
+            refCurrentPage = page;
+            renderReferenceTable();
+            renderPagination();
+        }
+
+        function filterReferences() {
+            const query = (document.getElementById('refSearch').value || '').toLowerCase().trim();
+            if (!query) {
+                refFilteredData = referencesData;
+            } else {
+                refFilteredData = referencesData.filter(item =>
+                    (item.publicationTitle || '').toLowerCase().includes(query) ||
+                    (item.publisher || '').toLowerCase().includes(query) ||
+                    (item.group || '').toLowerCase().includes(query) ||
+                    String(item.year || '').includes(query) ||
+                    (item.rq1 || '').toLowerCase().includes(query)
+                );
+            }
+            refCurrentPage = 1;
+            renderReferenceTable();
+            renderPagination();
+        }
+
+        window.goRefPage = goRefPage;
+
+        function showReferenceDetail(item) {
+            const modal = document.getElementById('referenceModal');
+            const content = document.getElementById('referenceModalContent');
+            
+            // Helper untuk menampilkan field jika ada
+            const field = (label, value) => {
+                if (!value || value === '-') return '';
+                return `<div class="border-b border-gray-100 dark:border-gray-700 pb-2"><span class="font-semibold text-gray-700 dark:text-gray-300">${label}:</span> <span class="text-gray-600 dark:text-gray-400">${value}</span></div>`;
+            };
+
+            content.innerHTML = `
+                <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-2">${item.publicationTitle}</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                        ${field('Group', item.group)}
+                        ${field('Publisher', item.publisher)}
+                        ${field('Year', item.year)}
+                        ${field('RQ-1 (Journal Source)', item.rq1)}
+                        ${field('RQ-2 (Author)', item.rq2)}
+                        ${field('RQ-3 (Data/Dataset)', item.rq3)}
+                        ${field('RQ-4 (Topic)', item.rq4)}
+                        ${field('RQ-5 (Method)', item.rq5)}
+                        ${field('RQ-6 (Preprocessing)', item.rq6)}
+                        ${field('RQ-7 (Problem)', item.rq7)}
+                        ${field('RQ-8 (Evaluation)', item.rq8)}
+                        ${field('RQ-9 (Feature)', item.rq9)}
+                        ${field('Publication Result', item.publicationResult)}
+                        ${field('Future Work', item.futureWork)}
+                    </div>
+                    ${item.doiUrl ? `
+                    <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-600">
+                        <a href="${item.doiUrl}" target="_blank" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                            <span class="material-icons text-sm">link</span> ${item.doiUrl}
+                        </a>
+                    </div>
+                    ` : ''}
+                    ${item.notes ? `
+                    <div class="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 rounded text-sm">
+                        <span class="font-semibold text-yellow-800 dark:text-yellow-300">Notes:</span>
+                        <p class="text-yellow-700 dark:text-yellow-400 mt-1">${item.notes}</p>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReferenceModal() {
+            const modal = document.getElementById('referenceModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Tambahkan ke global scope
+        window.showReferenceDetail = showReferenceDetail;
+        window.closeReferenceModal = closeReferenceModal;
+
+        // Panggil loadReferences saat halaman Referensi diakses atau saat pertama kali load
+        // Kita bisa panggil di dalam event listener navigasi, atau langsung setelah DOM ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cek apakah section referensi aktif? Atau kita load saja saat inisialisasi
+            // Karena data tidak terlalu besar, kita bisa load langsung.
+            loadReferences();
+            
+            // ... kode lainnya ...
+        });
+
+        // Untuk memastikan data dimuat ulang jika diperlukan (misal saat navigasi ke Referensi)
+        // Kita bisa modifikasi fungsi setActiveSection untuk memanggil loadReferences jika targetId === 'referensi'
+
+        // =====================================================================
+        // AGENDA — Load from agenda.json
+        // =====================================================================
+        function updateProgress() {
+            const progressBar = document.getElementById('rtl-progress-bar');
+            const progressText = document.getElementById('rtl-progress-text');
+            const allCb = document.querySelectorAll('[id="agenda"] input[type="checkbox"]');
+            const checkedCount = document.querySelectorAll('[id="agenda"] input[type="checkbox"]:checked').length;
+            const totalCount = allCb.length;
+            if (!totalCount) return;
+            if (progressBar) progressBar.style.width = (checkedCount / totalCount * 100) + '%';
+            if (progressText) progressText.textContent = checkedCount + '/' + totalCount;
+            localStorage.setItem('agenda-progress', JSON.stringify({ checked: checkedCount, total: totalCount, lastUpdate: new Date().toISOString() }));
+        }
+        window.updateProgress = updateProgress;
+
+        function renderAgendaCard(item) {
+            const pendingColors = {
+                blue:   { border: 'border-blue-500',   circleBg: 'bg-blue-100 dark:bg-blue-900/50',     circleText: 'text-blue-700 dark:text-blue-400',     cb: 'text-blue-600' },
+                purple: { border: 'border-purple-500', circleBg: 'bg-purple-100 dark:bg-purple-900/50', circleText: 'text-purple-700 dark:text-purple-400', cb: 'text-purple-600' }
+            };
+            if (item.completed) {
+                const grad = item.gradient || 'from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20';
+                return `<div class="agenda-day-card group bg-gradient-to-r ${grad} border-l-4 border-green-500 rounded-lg shadow-sm hover:shadow-md transition-shadow ring-1 ring-green-200 dark:ring-green-800/50">
+                    <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3 cursor-pointer">
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
+                                <span class="material-icons text-lg">check</span>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <h4 class="font-bold text-gray-800 dark:text-white">${item.date}</h4>
+                                    <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-0.5 rounded font-semibold">${item.statusLabel}</span>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 truncate">${item.title}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                            <input type="checkbox" class="w-6 h-6 rounded text-green-600 cursor-not-allowed" checked disabled />
+                        </div>
+                    </div>
+                    <div class="agenda-card-body">
+                        <div class="px-5 pb-5 ml-12">
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> ${item.work}</p>
+                            <p class="text-sm text-green-700 dark:text-green-400 font-semibold ${item.docUrl ? 'mb-2' : ''}"><span class="material-icons text-sm align-middle mr-1" style="display:inline">${item.deliverableIcon}</span>Deliverable: ${item.deliverable}</p>
+                            ${item.approvalNote ? `<p class="text-xs text-green-700 dark:text-green-400 font-semibold italic mb-4">✓ Persetujuan Pembimbing: ${item.approvalNote}</p>` : ''}
+                            ${item.docUrl ? `<a href="${item.docUrl}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium text-sm transition-colors"><span class="material-icons text-sm">file_open</span> ${item.docLabel || 'Buka Dokumen Hasil'}</a>` : ''}
+                        </div>
+                    </div>
+                </div>`;
+            } else {
+                const c = pendingColors[item.color] || pendingColors.blue;
+                return `<div class="agenda-day-card group bg-white dark:bg-gray-800 border-l-4 ${c.border} rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="agenda-card-header flex items-center justify-between px-5 py-4 gap-3 cursor-pointer">
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-full ${c.circleBg} ${c.circleText} font-bold text-sm">${item.day}</div>
+                            <div class="min-w-0">
+                                <h4 class="font-bold text-gray-800 dark:text-white">${item.date}</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 truncate">${item.title}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <span class="material-icons agenda-card-chevron text-gray-400 dark:text-gray-500 text-lg">expand_more</span>
+                            <input type="checkbox" class="w-6 h-6 rounded ${c.cb}" />
+                        </div>
+                    </div>
+                    <div class="agenda-card-body">
+                        <div class="px-5 pb-5 ml-12">
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-3"><strong>Pekerjaan:</strong> ${item.work}</p>
+                            <p class="text-sm text-green-700 dark:text-green-400 font-semibold"><span class="material-icons text-sm align-middle mr-1" style="display:inline">${item.deliverableIcon}</span>Deliverable: ${item.deliverable}</p>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        }
+
+        async function loadAgenda() {
+            const container = document.getElementById('agenda-cards-container');
+            try {
+                const res = await fetch('agenda.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                container.innerHTML = data.items.map(renderAgendaCard).join('');
+                // Init checkboxes
+                const checkboxes = container.querySelectorAll('input[type="checkbox"]:not([disabled])');
+                checkboxes.forEach((cb, i) => {
+                    const idx = Array.from(document.querySelectorAll('[id="agenda"] input[type="checkbox"]')).indexOf(cb);
+                    const key = 'agenda-check-' + (idx >= 0 ? idx : i);
+                    if (localStorage.getItem(key) === 'true') cb.checked = true;
+                    cb.addEventListener('change', () => { localStorage.setItem(key, cb.checked); updateProgress(); });
+                });
+                updateProgress();
+                // Date highlight
+                if (window._updateAgendaByCurrentDate) window._updateAgendaByCurrentDate();
+                // Dashboard checkbox sync
+                document.querySelectorAll('.agenda-dashboard-check').forEach((cb) => {
+                    const day = parseInt(cb.getAttribute('data-day'));
+                    const mainCb = document.querySelectorAll('[id="agenda"] input[type="checkbox"]')[day];
+                    if (mainCb && mainCb.checked) cb.checked = true;
+                    cb.addEventListener('change', () => {
+                        const mc = document.querySelectorAll('[id="agenda"] input[type="checkbox"]')[day];
+                        if (mc) { mc.checked = cb.checked; localStorage.setItem('agenda-check-' + day, cb.checked); updateProgress(); }
+                    });
+                });
+            } catch (e) {
+                container.innerHTML = `<div class="text-center py-8 text-red-500"><span class="material-icons text-4xl">error_outline</span><p class="mt-2">Gagal memuat agenda: ${e.message}</p></div>`;
+            }
+        }
+
+        // =====================================================================
+        // CATATAN HARIAN — Load from catatan.json
+        // =====================================================================
+        const _catatanColors = {
+            fuchsia: { card: 'bg-fuchsia-200 dark:bg-fuchsia-900/60', border: 'border-fuchsia-300/50 dark:border-fuchsia-700/50', icon: 'text-fuchsia-600 dark:text-fuchsia-400', tag: 'bg-fuchsia-300/50 dark:bg-fuchsia-800/50' },
+            violet:  { card: 'bg-violet-200 dark:bg-violet-900/60',   border: 'border-violet-300/50 dark:border-violet-700/50',   icon: 'text-violet-600 dark:text-violet-400',   tag: 'bg-violet-300/50 dark:bg-violet-800/50' },
+            cyan:    { card: 'bg-cyan-200 dark:bg-cyan-900/60',       border: 'border-cyan-300/50 dark:border-cyan-700/50',       icon: 'text-cyan-600 dark:text-cyan-400',       tag: 'bg-cyan-300/50 dark:bg-cyan-800/50' },
+            indigo:  { card: 'bg-indigo-200 dark:bg-indigo-900/60',   border: 'border-indigo-300/50 dark:border-indigo-700/50',   icon: 'text-indigo-600 dark:text-indigo-400',   tag: 'bg-indigo-300/50 dark:bg-indigo-800/50' },
+            yellow:  { card: 'bg-yellow-200 dark:bg-yellow-900/60',   border: 'border-yellow-300/50 dark:border-yellow-700/50',   icon: 'text-yellow-600 dark:text-yellow-400',   tag: 'bg-yellow-300/50 dark:bg-yellow-800/50' },
+            teal:    { card: 'bg-teal-200 dark:bg-teal-900/60',       border: 'border-teal-300/50 dark:border-teal-700/50',       icon: 'text-teal-600 dark:text-teal-400',       tag: 'bg-teal-300/50 dark:bg-teal-800/50' },
+            lime:    { card: 'bg-lime-200 dark:bg-lime-900/60',       border: 'border-lime-300/50 dark:border-lime-700/50',       icon: 'text-lime-600 dark:text-lime-400',       tag: 'bg-lime-300/50 dark:bg-lime-800/50' },
+            rose:    { card: 'bg-rose-200 dark:bg-rose-900/60',       border: 'border-rose-300/50 dark:border-rose-700/50',       icon: 'text-rose-600 dark:text-rose-400',       tag: 'bg-rose-300/50 dark:bg-rose-800/50' },
+            orange:  { card: 'bg-orange-200 dark:bg-orange-900/60',   border: 'border-orange-300/50 dark:border-orange-700/50',   icon: 'text-orange-600 dark:text-orange-400',   tag: 'bg-orange-300/50 dark:bg-orange-800/50' },
+            red:     { card: 'bg-red-200 dark:bg-red-900/60',         border: 'border-red-300/50 dark:border-red-700/50',         icon: 'text-red-600 dark:text-red-400',         tag: 'bg-red-300/50 dark:bg-red-800/50' },
+            amber:   { card: 'bg-amber-200 dark:bg-amber-900/60',     border: 'border-amber-300/50 dark:border-amber-700/50',     icon: 'text-amber-600 dark:text-amber-400',     tag: 'bg-amber-300/50 dark:bg-amber-800/50' },
+            purple:  { card: 'bg-purple-200 dark:bg-purple-900/60',   border: 'border-purple-300/50 dark:border-purple-700/50',   icon: 'text-purple-600 dark:text-purple-400',   tag: 'bg-purple-300/50 dark:bg-purple-800/50' },
+            green:   { card: 'bg-green-200 dark:bg-green-900/60',     border: 'border-green-300/50 dark:border-green-700/50',     icon: 'text-green-600 dark:text-green-400',     tag: 'bg-green-300/50 dark:bg-green-800/50' }
+        };
+
+        function renderCatatanCard(item) {
+            const c = _catatanColors[item.color] || _catatanColors.indigo;
+            return `<div class="catatan-card ${c.card} p-5 rounded-xl text-gray-800 dark:text-gray-200 sticky-note">
+                <div class="flex justify-between items-start mb-3 border-b ${c.border} pb-2">
+                    <span class="font-bold text-sm">${item.date}</span>
+                    <div class="flex items-center gap-1">
+                        <span class="material-icons ${c.icon} text-sm">${item.icon}</span>
+                        <span class="material-icons catatan-chevron text-gray-500 dark:text-gray-400 text-base">expand_more</span>
+                    </div>
+                </div>
+                <p class="catatan-card-text text-sm leading-relaxed">${item.content}</p>
+                <div class="catatan-card-extra">
+                    <div class="mt-3 text-xs ${c.tag} px-2 py-1 rounded inline-block">${item.tag}</div>
+                </div>
+            </div>`;
+        }
+
+        async function loadCatatan() {
+            const grid = document.getElementById('catatan-grid');
+            try {
+                const res = await fetch('catatan.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                grid.innerHTML = data.map(renderCatatanCard).join('');
+            } catch (e) {
+                grid.innerHTML = `<div class="col-span-4 text-center py-8 text-red-500"><span class="material-icons text-4xl">error_outline</span><p class="mt-2">Gagal memuat catatan: ${e.message}</p></div>`;
+            }
+        }
+
+        // =====================================================================
+        // REPOSITORY — Load from repository.json
+        // =====================================================================
+        function renderRepositoryCard(item) {
+            const statusColorMap = {
+                orange: 'text-orange-600 dark:text-orange-400',
+                red:    'text-red-600 dark:text-red-400',
+                green:  'text-green-600 dark:text-green-400',
+                blue:   'text-blue-600 dark:text-blue-400'
+            };
+            const platformTextColor = item.gradient.includes('orange') ? 'text-orange-100' : item.gradient.includes('red') ? 'text-red-100' : 'text-blue-100';
+            const statusColor = statusColorMap[item.statusColor] || 'text-gray-600';
+            const safeDesc = item.description.replace(/'/g, "\\'");
+            const safeTitle = item.title.replace(/'/g, "\\'");
+            return `<div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group cursor-pointer" onclick="showRepositoryDetail('${safeTitle}', '${safeDesc}', '${item.platform}', '${item.url}')">
+                <div class="bg-gradient-to-r ${item.gradient} p-4 text-white">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-lg font-bold">${item.title}</h3>
+                        <span class="material-icons text-2xl">code</span>
+                    </div>
+                    <div class="flex items-center gap-2 ${platformTextColor}">
+                        <img src="${item.platformIcon}" alt="${item.platform}" class="w-4 h-4">
+                        <span class="text-sm font-medium">${item.platform}</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${item.description}</p>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-xs text-gray-500 dark:text-gray-500 font-medium">Status: <span class="${statusColor}">${item.status}</span></span>
+                        <a href="${item.url}" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center justify-center gap-2 ${item.buttonBg} text-white px-4 py-2.5 rounded-lg font-semibold transition-colors">
+                            <span class="material-icons text-sm">open_in_new</span>
+                            ${item.buttonLabel}
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        async function loadRepository() {
+            const grid = document.getElementById('repo-grid');
+            try {
+                const res = await fetch('repository.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                const addCard = `<div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border-2 border-dashed border-gray-300 dark:border-gray-600 hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden group flex flex-col items-center justify-center p-8 text-center">
+                    <div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
+                        <span class="material-icons text-3xl text-gray-400">add</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">GitHub Repository</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Tambahkan link GitHub untuk kode dan dokumentasi</p>
+                    <button onclick="addRepositoryForm()" class="inline-flex items-center gap-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                        <span class="material-icons text-sm">add</span>
+                        Tambah Link
+                    </button>
+                </div>`;
+                grid.innerHTML = data.map(renderRepositoryCard).join('') + addCard;
+            } catch (e) {
+                grid.innerHTML = `<div class="col-span-3 text-center py-8 text-red-500"><span class="material-icons text-4xl">error_outline</span><p class="mt-2">Gagal memuat repository: ${e.message}</p></div>`;
+            }
+        }
+
     </script>
+
+    <!-- Reference Detail Modal -->
+    <div id="referenceModal" class="modal" onclick="if(event.target === this) closeReferenceModal()">
+        <div class="modal-content max-w-4xl">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold text-gray-800 dark:text-white">Detail Referensi</h2>
+                <button onclick="closeReferenceModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body max-h-[70vh] overflow-y-auto">
+                <div class="space-y-4" id="referenceModalContent">
+                    <!-- Isi detail akan diisi dinamis -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeReferenceModal()" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
