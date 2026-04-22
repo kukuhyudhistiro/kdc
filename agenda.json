@@ -72,8 +72,9 @@
       "day": 6,
       "date": "Min, 19/04",
       "title": "Review & Polish",
-      "completed": false,
-      "color": "blue",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
       "work": "Review menyeluruh, konsistensi angka, referensi baru, polish bahasa",
       "deliverableIcon": "spellcheck",
       "deliverable": "Paper final pre-submission"
@@ -82,11 +83,14 @@
       "day": 7,
       "date": "Sen, 20/04",
       "title": "Buffer & Final Submission",
-      "completed": false,
-      "color": "purple",
+      "completed": true,
+      "statusLabel": "Selesai & Disetujui",
+      "gradient": "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
       "work": "Buffer: perbaikan minor + format IJIES + submit/kirim ke promotor",
       "deliverableIcon": "send",
-      "deliverable": "File final siap kirim"
+      "deliverable": "File final siap kirim",
+      "docUrl": "https://drive.google.com/file/d/1O9zR0KtVSDt7DU4ATHh-KJrY4OG3r97Z/view?usp=sharing",
+      "docLabel": "Buka Dokumen Hasil"
     }
   ]
 }
