@@ -1329,7 +1329,7 @@ async function loadReferences() {
                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.year || '-'}</td>
                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.rq1 || '-'}</td>
                     <td class="px-4 py-3 text-center">
-                        <button onclick='showReferenceDetail(${JSON.stringify(item).replace(/'/g, "\\'")})' class="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-medium hover:bg-blue-200 dark:hover:bg-blue-800/50 transition-colors">
+                        <button onclick="showReferenceByNo(${item.no})" class="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-medium hover:bg-blue-200 dark:hover:bg-blue-800/50 transition-colors">
                             <span class="material-icons text-sm">visibility</span> Detail
                         </button>
                     </td>
@@ -1407,6 +1407,12 @@ async function loadReferences() {
         }
 
         window.goRefPage = goRefPage;
+
+        function showReferenceByNo(no) {
+            const item = referencesData.find(r => r.no === no);
+            if (item) showReferenceDetail(item);
+        }
+        window.showReferenceByNo = showReferenceByNo;
 
         function showReferenceDetail(item) {
             const modal = document.getElementById('referenceModal');
