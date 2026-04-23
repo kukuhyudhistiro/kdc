@@ -563,8 +563,8 @@
     "publicationResult": "Persistent homology-based denoising preserves critical topological features while achieving competitive PSNR/SSIM",
     "futureWork": "Extend to 3D volumetric data; integrate with deep learning pipelines",
     "doiUrl": "https://doi.org/10.62411/jcta.11448",
-    "notes": "Topological denoising; feature preservation – alternatif pendekatan denoising berbasis topologi, relevan untuk preprocessing pipeline",
-    "researchGap": "Topological denoising via persistent homology preserves features but is unrelated to filter-based edge detection; provides a reference for information-preservation criteria in filtering."
+    "notes": "Topological denoising; feature preservation — alternatif pendekatan denoising berbasis topologi, relevan untuk preprocessing pipeline. Disitasi di Section 2 Related Work sebagai komplemen terhadap filter-based edge detection.",
+    "researchGap": "Topological denoising via cubical persistent homology offers an alternative preprocessing strategy that preserves structural features under noise, complementary to GWi's filter-based approach. While [27] targets upstream denoising in the preprocessing pipeline, GWi operates at the edge-detection stage itself. Both approaches share the goal of information preservation but occupy different positions in the vision pipeline. This reference establishes that topology-aware preprocessing exists as an alternative path, though GWi's Gaussian envelope already provides adequate noise robustness for urban imagery without requiring topological preprocessing."
   },
   {
     "no": 28,
