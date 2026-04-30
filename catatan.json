@@ -1,5 +1,12 @@
 [
   {
+    "date": "30 April 2026",
+    "icon": "send",
+    "color": "green",
+    "tag": "Submission",
+    "content": "<strong>Submit Manuscript ke IJIES (Inass)</strong> - Paper 1 berhasil disubmit ke International Journal of Intelligent Engineering and Systems (IJIES/Inass). Manuscript telah melalui proses formatting sesuai template IJIES, review dari Promotor & Co-Promotor, serta finalisasi seluruh konten."
+  },
+  {
     "date": "19-22 April 2026",
     "icon": "article",
     "color": "lime",
