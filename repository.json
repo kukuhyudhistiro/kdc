@@ -36,8 +36,9 @@
     "buttonLabel": "Buka di Colab"
   },
   {
-    "title": "Kerangka Dasar GW dan Adaptive GWi",
-    "description": "Kerangka Dasar GW dan AGWi",
+    "title": "Kerangka Dasar GWC dan GWi",
+    "description": "Kerangka Dasar GWC dan GWi: 1) Ekstraksi fitur dengan Gabor Wavelet, 2) Perhitungan magnitude untuk GWC dan komponen imajiner untuk GWi, 3) Thresholding adaptif untuk menghasilkan peta edge biner, 4) Evaluasi kinerja menggunakan metrik seperti Precision, Recall, F1-Score terhadap ground truth.",
+    
     "platform": "Google Colab",
     "url": "https://colab.research.google.com/drive/19PhTzntevu0CElMhtjUQeO4zolwtl6vS?usp=sharing",
     "status": "Active",
