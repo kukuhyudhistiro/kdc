@@ -36,15 +36,27 @@
     "buttonLabel": "Buka di Colab"
   },
   {
+    "title": "Kerangka Dasar GW dan Adaptive GWi",
+    "description": "Kerangka Dasar GW dan AGWi",
+    "platform": "Google Colab",
+    "url": "https://colab.research.google.com/drive/19PhTzntevu0CElMhtjUQeO4zolwtl6vS?usp=sharing",
+    "status": "Active",
+    "gradient": "from-orange-400 to-orange-500",
+    "statusColor": "orange",
+    "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
+    "buttonBg": "bg-orange-500 hover:bg-orange-600",
+    "buttonLabel": "Buka di Colab"
+  },
+  {
     "title": "Master Paper 1",
     "description": "Code Eksperimen keseluruhan (1 Console)",
     "platform": "Google Colab",
     "url": "https://colab.research.google.com/drive/1mVGlCPa_n1tQQDzNKnB01i9U4Fc-GSjQ?usp=sharing",
-    "status": "In Progress",
-    "gradient": "from-red-400 to-red-500",
-    "statusColor": "red",
+    "status": "Active",
+    "gradient": "from-orange-400 to-orange-500",
+    "statusColor": "orange",
     "platformIcon": "https://colab.research.google.com/img/colab_favicon_256px.png",
-    "buttonBg": "bg-red-500 hover:bg-red-600",
+    "buttonBg": "bg-orange-500 hover:bg-orange-600",
     "buttonLabel": "Buka di Colab"
   }
 ]
