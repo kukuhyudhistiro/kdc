@@ -1,5 +1,47 @@
 [
   {
+    "date": "20 Mei 2026",
+    "icon": "done_all",
+    "color": "green",
+    "tag": "Completion & Submission",
+    "content": "<strong>Integrasi Semua Data ke Paper & Deploy GitHub</strong> - Integrasi seluruh data eksperimen ke paper baru dengan judul: <strong>\"Imaginary-Only Wavelet with Orientation-Aware Double-Peak Suppression for Lightweight Edge Detection\"</strong> (pengganti Paper 1). Melakukan pengecekan akhir konsistensi data, kalimat, dan format. Deploy seluruh repository ke GitHub: <a href=\"https://github.com/kukuhyudhistiro/gwi-odps\" target=\"_blank\" class=\"text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800\">https://github.com/kukuhyudhistiro/gwi-odps</a> dengan memastikan seluruh data eksperimen konsisten dengan hasil paper. Pengecekan turnitin ulang dan pengiriman ke semua promotor."
+  },
+  {
+    "date": "19 Mei 2026",
+    "icon": "pending",
+    "color": "amber",
+    "tag": "Experiment Monitoring",
+    "content": "<strong>Monitoring Hasil Run Evaluate All Model</strong> - Menunggu penyelesaian eksekusi evaluate dengan n=99 default untuk seluruh model. Hasil terkini menunjukkan konsistensi nilai ODS, OIS, dan AP untuk dataset BSDS dan BIPED, dengan selisih ~0.001 pada sebagian nilai. Setelah selesai (~21:00), lanjut generate figure 2 untuk paper (PR Curve + figure sample), integrasi datatable, dan penyusunan narasi lengkap."
+  },
+  {
+    "date": "18 Mei 2026",
+    "icon": "build",
+    "color": "purple",
+    "tag": "Technical & Experiment",
+    "content": "<strong>Penyelesaian Ablasi Kernel Parameter & Re-run Eksperimen</strong> - Penyelesaian ablasi kernel parameter untuk 3 dataset (BSDS500, BIPED, UDED) menghasilkan parameter optimal: <strong>k=5, lambda tetap 4</strong>. Teori dan parameter ODPS tidak berubah. Backup output GWi dan GWi+ODPS k7. Re-run 02_run_all_methods.py untuk GWC, dan 02b_run_gwi_odps.py untuk GWi + GWi+ODPS (~3 jam). Penyatuan kedua coding run 02. Eksekusi runtime total untuk 2241 runtime (200 BSDS, 50 BIPED, 30 UDED × semua method). Optimasi file evaluate 04c. Eksekusi run eksperimen ulang evaluate n=99 default seluruh model dimulai jam 12:30."
+  },
+  {
+    "date": "17 Mei 2026",
+    "icon": "fact_check",
+    "color": "cyan",
+    "tag": "QA & Validation",
+    "content": "<strong>Pengecekan Konsistensi Eksperimen & Paper</strong> - Pengecekan total seluruh hasil angka dan kekonsistenan data eksperimen dengan narasi di paper. Pengecekan redundansi narasi, verifikasi seluruh referensi, perbaikan narasi penjelasan rumus, figure, dan tabel. Perbaikan proses ablasi parameter kernel (08_kernel_ablation_corrected) dengan mengimpor evaluator yang benar dari 04c_evaluate_bsds_v2.py. Ablasi kernel menggunakan seluruh image BSDS500, BIPED, UDED. Merangking parameter k dan lambda optimal berdasarkan ODS dan runtime. Memasukkan output ablasi table CSV ke Table 1 paper. Mengganti seluruh parameter lambda termasuk untuk ODPS dan figurnya."
+  },
+  {
+    "date": "15-16 Mei 2026",
+    "icon": "settings",
+    "color": "indigo",
+    "tag": "Setup & Preparation",
+    "content": "<strong>Persiapan Environment Eksperimen Baru - Dataset BSDS, UDED, BIPED</strong> - Persiapan environment untuk eksperimen baru menggunakan tiga dataset: <strong>BSDS500</strong> (Berkeley Segmentation Dataset), <strong>UDED</strong> (Ultra-High-Definition Edge Detection), dan <strong>BIPED</strong> (Bridging the Gap between Foreground and Background). Setup semua dependency, konfigurasi path dataset, dan validasi struktur eksperimen untuk eksekusi tahap ablasi kernel parameter dan full evaluation."
+  },
+  {
+    "date": "9 Mei 2026",
+    "icon": "highlight_off",
+    "color": "red",
+    "tag": "Desk Review Rejection",
+    "content": "<strong>Rejection - Desk Review Inass: Dataset Harus Human Annotation</strong> - Submission Paper 1 di-reject pada tahap desk review oleh Inass. Feedback: dataset yang digunakan dalam eksperimen harus memiliki human annotation untuk validasi ground truth. Selain itu, peneliti diminta menyediakan petunjuk reproduksi eksperimen yang lengkap dan detail untuk memastikan reproducibility hasil penelitian. Feedback ini menjadi dasar untuk revisi berkelanjutan."
+  },
+  {
     "date": "6 Mei 2026",
     "icon": "rate_review",
     "color": "blue",
