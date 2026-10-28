@@ -114,6 +114,10 @@
             transform: rotate(180deg);
         }
 
+        /* Sidebar collapsible groups */
+        .nav-group-toggle[aria-expanded="true"] .nav-group-chevron { transform: rotate(180deg); }
+        .nav-group-toggle { cursor: pointer; }
+
         /* Repository Card Line Clamp */
         .line-clamp-2 {
             display: -webkit-box;
@@ -203,55 +207,117 @@
                 <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Drive Folders Paper 1 GWi+ODPS</div>
-            <a href="/paper1-manuscript" data-target="paper1-manuscript" data-title="Paper 1 GWi+ODPS: Manuscript" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">article</span> Manuscript
-            </a>
+            <div class="nav-group" data-group="proposal">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-proposal">
+                    <span class="text-left">Proposal</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-proposal" class="nav-group-items space-y-1 hidden">
+                <a href="/proposal-manuscript" data-target="proposal-manuscript" data-title="Proposal: Manuscript" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">article</span> Manuscript
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Drive Folders Paper 2 A-GWi</div>
-            <a href="/paper2-manuscript" data-target="paper2-manuscript" data-title="Paper 2 A-GWi: Manuscript" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">article</span> Manuscript
-            </a>
+            <div class="nav-group" data-group="paper1">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-paper1">
+                    <span class="text-left">Drive Folders Paper 1 GWi+ODPS</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-paper1" class="nav-group-items space-y-1 hidden">
+                <a href="/paper1-manuscript" data-target="paper1-manuscript" data-title="Paper 1 GWi+ODPS: Manuscript" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">article</span> Manuscript
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Referensi</div>
-            <a href="/referensi" data-target="referensi" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">library_books</span> Referensi
-            </a>
+            <div class="nav-group" data-group="paper2">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-paper2">
+                    <span class="text-left">Drive Folders Paper 2 A-GWi</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-paper2" class="nav-group-items space-y-1 hidden">
+                <a href="/paper2-manuscript" data-target="paper2-manuscript" data-title="Paper 2 A-GWi: Manuscript" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">article</span> Manuscript
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Drive Folders Arsip</div>
-            <a href="/manuscript" data-target="manuscript" data-title="Arsip: Manuscript (IJIES, reject)" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">article</span> Manuscript
-            </a>
-            <a href="/image-gallery" data-target="image-gallery" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">collections</span> Image Gallery
-            </a>
-            <a href="/eksperimen" data-target="eksperimen" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">science</span> Eksperimen
-            </a>
-            <a href="/dokumentasi-feedback" data-target="dokumentasi-feedback" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">comment</span> Dokumentasi Feedback
-            </a>
+            <div class="nav-group" data-group="referensi">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-referensi">
+                    <span class="text-left">Referensi</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-referensi" class="nav-group-items space-y-1 hidden">
+                <a href="/referensi" data-target="referensi" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">library_books</span> Referensi
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Tracking & Planning</div>
-            <a href="/agenda" data-target="agenda" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">checklist</span> Agenda
-            </a>
-            <a href="/gantt" data-target="gantt" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">timeline</span> Gantt Timeline
-            </a>
-            <a href="/catatan" data-target="catatan" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">edit_note</span> Catatan Harian
-            </a>
+            <div class="nav-group" data-group="arsip">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-arsip">
+                    <span class="text-left">Drive Folders Arsip</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-arsip" class="nav-group-items space-y-1 hidden">
+                <a href="/manuscript" data-target="manuscript" data-title="Arsip: Manuscript (IJIES, reject)" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">article</span> Manuscript
+                </a>
+                <a href="/image-gallery" data-target="image-gallery" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">collections</span> Image Gallery
+                </a>
+                <a href="/eksperimen" data-target="eksperimen" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">science</span> Eksperimen
+                </a>
+                <a href="/dokumentasi-feedback" data-target="dokumentasi-feedback" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">comment</span> Dokumentasi Feedback
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Reminder</div>
-            <a href="/reminder" data-target="reminder" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">notifications</span> Target & Deadline
-            </a>
+            <div class="nav-group" data-group="tracking">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-tracking">
+                    <span class="text-left">Tracking & Planning</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-tracking" class="nav-group-items space-y-1 hidden">
+                <a href="/agenda" data-target="agenda" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">checklist</span> Agenda
+                </a>
+                <a href="/gantt" data-target="gantt" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">timeline</span> Gantt Timeline
+                </a>
+                <a href="/catatan" data-target="catatan" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">edit_note</span> Catatan Harian
+                </a>
+                </div>
+            </div>
 
-            <div class="pt-4 pb-2 px-3 text-xs font-semibold text-blue-200 uppercase tracking-wider">Resources</div>
-            <a href="/repository-links" data-target="repository-links" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
-                <span class="material-icons-outlined">link</span> Repository Links
-            </a>
+            <div class="nav-group" data-group="reminder">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-reminder">
+                    <span class="text-left">Reminder</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-reminder" class="nav-group-items space-y-1 hidden">
+                <a href="/reminder" data-target="reminder" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">notifications</span> Target & Deadline
+                </a>
+                </div>
+            </div>
+
+            <div class="nav-group" data-group="resources">
+                <button type="button" class="nav-group-toggle w-full flex items-center justify-between pt-3 pb-2 px-3 text-xs font-semibold text-blue-200 hover:text-white uppercase tracking-wider transition-colors" aria-expanded="false" aria-controls="navgroup-resources">
+                    <span class="text-left">Resources</span>
+                    <span class="material-icons nav-group-chevron text-base transition-transform">expand_more</span>
+                </button>
+                <div id="navgroup-resources" class="nav-group-items space-y-1 hidden">
+                <a href="/repository-links" data-target="repository-links" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-white/10 hover:text-white transition-colors">
+                    <span class="material-icons-outlined">link</span> Repository Links
+                </a>
+        
+                </div>
+            </div>
         </nav>
 
         <div class="p-4 border-t border-blue-800/50 text-xs text-center text-blue-200">
@@ -475,6 +541,27 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="proposal-manuscript" class="content-section section-fade hidden">
+                <div class="max-w-2xl mx-auto mt-8 text-center">
+                    <div class="w-24 h-24 bg-orange-100 dark:bg-orange-900/50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="material-icons text-5xl text-orange-600 dark:text-orange-400">article</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Manuscript Proposal Disertasi</h2>
+                    <p class="text-sm font-medium text-orange-700 dark:text-orange-300 mb-4">KG-Wavelet (Kernel-Guided Wavelet), versi Oktober 2026</p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">Folder Google Drive untuk draft, revisi, dan versi final proposal disertasi.</p>
+                    <!-- LINK DRIVE PROPOSAL: ganti blok <span> di bawah dengan:
+                    <a href="https://drive.google.com/drive/folders/ISI_ID_FOLDER" target="_blank" class="inline-flex items-center gap-3 bg-kdcPrimary hover:bg-blue-800 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-900/20 transition-all hover:-translate-y-1">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Drive" class="w-6 h-6">
+                        Buka Folder di Google Drive
+                    </a>
+                    -->
+                    <span class="inline-flex items-center gap-3 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-8 py-4 rounded-xl font-semibold cursor-not-allowed" title="Link Google Drive belum ditambahkan">
+                        <span class="material-icons">schedule</span>
+                        Link Google Drive menyusul
+                    </span>
                 </div>
             </section>
 
@@ -1046,12 +1133,46 @@
 
             // Valid sections for routing
             const VALID_SECTIONS = [
-                'dashboard','paper1-manuscript','paper2-manuscript','manuscript','image-gallery','eksperimen','referensi',
+                'dashboard','proposal-manuscript','paper1-manuscript','paper2-manuscript','manuscript','image-gallery','eksperimen','referensi',
                 'dokumentasi-feedback','agenda','gantt','reminder','isi-catatan',
                 'catatan','repository-links'
             ];
 
+
+            // --- Sidebar collapsible groups ---
+            const NAV_STATE_KEY = 'kdc.navGroups';
+            const navGroups = document.querySelectorAll('.nav-group');
+            function loadNavState() {
+                try { return JSON.parse(localStorage.getItem(NAV_STATE_KEY)) || {}; } catch (e) { return {}; }
+            }
+            function saveNavState() {
+                const st = {};
+                navGroups.forEach(g => { st[g.dataset.group] = g.querySelector('.nav-group-toggle').getAttribute('aria-expanded') === 'true'; });
+                try { localStorage.setItem(NAV_STATE_KEY, JSON.stringify(st)); } catch (e) {}
+            }
+            function setGroupOpen(group, open) {
+                group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+                group.querySelector('.nav-group-items').classList.toggle('hidden', !open);
+            }
+            function expandGroupFor(targetId) {
+                const link = document.querySelector('.nav-group [data-target="' + targetId + '"]');
+                const group = link ? link.closest('.nav-group') : null;
+                if (group) { setGroupOpen(group, true); saveNavState(); }
+            }
+            (function initNavGroups() {
+                const saved = loadNavState();
+                navGroups.forEach(g => {
+                    setGroupOpen(g, saved[g.dataset.group] === true);
+                    g.querySelector('.nav-group-toggle').addEventListener('click', () => {
+                        const open = g.querySelector('.nav-group-toggle').getAttribute('aria-expanded') !== 'true';
+                        setGroupOpen(g, open);
+                        saveNavState();
+                    });
+                });
+            })();
+
             function setActiveSection(targetId, titleText, clickedLink, skipPush = false) {
+                expandGroupFor(targetId);
                 // Hide all sections
                 sections.forEach(sec => sec.classList.add('hidden'));
                 // Show target
