@@ -1,0 +1,598 @@
+// ══════════════════════════════════════════════════════════════
+//  KDM (Kukuh Dissertation Monitoring) — Prisma Schema
+//  Progressive Framework Development: KG-Wavelet
+//  Dibuat oleh KY 2026
+//
+//  Kompatibel dengan: Next.js + NextAuth.js + MySQL
+//  Jalankan: npx prisma migrate dev --name init
+// ══════════════════════════════════════════════════════════════
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── ENUMS ───
+
+enum UserRole {
+  mahasiswa
+  promotor
+  co_promotor
+  admin
+}
+
+enum Theme {
+  light
+  dark
+  system
+}
+
+enum DissertationStatus {
+  active
+  on_hold
+  completed
+  extended
+}
+
+enum SupervisorRole {
+  promotor
+  co_promotor
+  penguji
+}
+
+enum MilestoneStatus {
+  not_started
+  in_progress
+  delayed
+  completed
+  blocked
+}
+
+enum TaskStatus {
+  todo
+  in_progress
+  done
+  skipped
+}
+
+enum Priority {
+  low
+  medium
+  high
+  critical
+}
+
+enum LinkType {
+  drive
+  repo
+  dataset
+  paper
+  reference
+  other
+}
+
+enum TargetStatus {
+  pending
+  acknowledged
+  in_progress
+  completed
+  overdue
+}
+
+enum ConsultationStatus {
+  scheduled
+  completed
+  cancelled
+  rescheduled
+}
+
+enum RescheduleStatus {
+  draft
+  pending_approval
+  approved
+  rejected
+}
+
+enum NotificationType {
+  reminder
+  target
+  deadline
+  approval
+  info
+  system
+}
+
+enum AuditAction {
+  create
+  update
+  delete
+  login
+  logout
+  reschedule
+  approve
+  reject
+  complete
+  assign
+}
+
+// ══════════════════════════════════════════════════════════════
+//  1. USER & AUTH (NextAuth.js compatible)
+// ══════════════════════════════════════════════════════════════
+
+model User {
+  id            String    @id @default(uuid())
+  name          String    @db.VarChar(150)
+  email         String    @unique @db.VarChar(255)
+  emailVerified DateTime? @map("email_verified")
+  passwordHash  String?   @map("password_hash") @db.VarChar(255)
+  image         String?   @db.VarChar(500)
+  role          UserRole  @default(mahasiswa)
+  title         String?   @db.VarChar(100)
+  nip           String?   @db.VarChar(30)
+  nim           String?   @db.VarChar(30)
+  phone         String?   @db.VarChar(20)
+  theme         Theme     @default(dark)
+  locale        String    @default("id") @db.VarChar(10)
+  isActive      Boolean   @default(true) @map("is_active")
+  lastLoginAt   DateTime? @map("last_login_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  accounts              Account[]
+  sessions              Session[]
+  passwordResetTokens   PasswordResetToken[]
+  dissertationsAsStudent Dissertation[]       @relation("StudentDissertation")
+  supervisorAssignments DissertationSupervisor[] @relation("SupervisorAssignment")
+  createdTasks          Task[]               @relation("TaskCreator")
+  assignedTasks         Task[]               @relation("TaskAssignee")
+  createdReminders      Reminder[]           @relation("ReminderCreator")
+  assignedReminders     Reminder[]           @relation("ReminderAssignee")
+  createdLinks          DriveLink[]
+  supervisorTargetsGiven SupervisorTarget[]  @relation("TargetSupervisor")
+  supervisorTargetsReceived SupervisorTarget[] @relation("TargetStudent")
+  consultationsAsStudent Consultation[]      @relation("ConsultationStudent")
+  consultationsAsSupervisor Consultation[]   @relation("ConsultationSupervisor")
+  triggeredReschedules  RescheduleLog[]      @relation("RescheduleTrigger")
+  approvedReschedules   RescheduleLog[]      @relation("RescheduleApprover")
+  notifications         Notification[]
+  auditLogs             AuditLog[]
+  preferences           UserPreference[]
+
+  @@index([role])
+  @@index([isActive])
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String  @map("user_id")
+  type              String  @db.VarChar(50)
+  provider          String  @db.VarChar(100)
+  providerAccountId String  @map("provider_account_id") @db.VarChar(255)
+  refreshToken      String? @map("refresh_token") @db.Text
+  accessToken       String? @map("access_token") @db.Text
+  expiresAt         Int?    @map("expires_at")
+  tokenType         String? @map("token_type") @db.VarChar(50)
+  scope             String? @db.VarChar(500)
+  idToken           String? @map("id_token") @db.Text
+  sessionState      String? @map("session_state") @db.VarChar(255)
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique @map("session_token") @db.VarChar(255)
+  userId       String   @map("user_id")
+  expires      DateTime
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String @db.VarChar(255)
+  token      String @db.VarChar(255)
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  token     String    @unique @db.VarChar(255)
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  2. DISSERTATION & SUPERVISORS
+// ══════════════════════════════════════════════════════════════
+
+model Dissertation {
+  id              String             @id @default(uuid())
+  studentId       String             @map("student_id")
+  title           String             @db.VarChar(500)
+  titleShort      String?            @map("title_short") @db.VarChar(100)
+  description     String?            @db.Text
+  startDate       DateTime           @map("start_date") @db.Date
+  expectedEnd     DateTime?          @map("expected_end") @db.Date
+  totalMonths     Int                @default(36) @map("total_months")
+  currentMonth    Int                @default(1) @map("current_month")
+  currentSemester Int                @default(1) @map("current_semester")
+  delayMonths     Int                @default(0) @map("delay_months")
+  status          DissertationStatus @default(active)
+  createdAt       DateTime           @default(now()) @map("created_at")
+  updatedAt       DateTime           @updatedAt @map("updated_at")
+
+  student      User                    @relation("StudentDissertation", fields: [studentId], references: [id], onDelete: Cascade)
+  supervisors  DissertationSupervisor[]
+  semesters    Semester[]
+  milestones   Milestone[]
+  tasks        Task[]
+  reminders    Reminder[]
+  driveLinks   DriveLink[]
+  targets      SupervisorTarget[]
+  consultations Consultation[]
+  reschedules  RescheduleLog[]
+  notifications Notification[]
+
+  @@index([studentId])
+  @@index([status])
+  @@map("dissertations")
+}
+
+model DissertationSupervisor {
+  id              String         @id @default(uuid())
+  dissertationId  String         @map("dissertation_id")
+  supervisorId    String         @map("supervisor_id")
+  role            SupervisorRole @default(promotor)
+  assignedAt      DateTime       @default(now()) @map("assigned_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  supervisor   User         @relation("SupervisorAssignment", fields: [supervisorId], references: [id], onDelete: Cascade)
+
+  @@unique([dissertationId, supervisorId])
+  @@index([supervisorId])
+  @@map("dissertation_supervisors")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  3. SEMESTERS & MILESTONES
+// ══════════════════════════════════════════════════════════════
+
+model Semester {
+  id              String   @id @default(uuid())
+  dissertationId  String   @map("dissertation_id")
+  semesterNumber  Int      @map("semester_number")
+  label           String   @db.VarChar(100)
+  monthStart      Int      @map("month_start")
+  monthEnd        Int      @map("month_end")
+  color           String   @default("#1565C0") @db.VarChar(7)
+  description     String?  @db.Text
+  sortOrder       Int      @default(0) @map("sort_order")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  milestones   Milestone[]
+
+  @@unique([dissertationId, semesterNumber])
+  @@map("semesters")
+}
+
+model Milestone {
+  id              String          @id @default(uuid())
+  semesterId      String          @map("semester_id")
+  dissertationId  String          @map("dissertation_id")
+  title           String          @db.VarChar(255)
+  description     String?         @db.Text
+  monthStart      Int             @map("month_start")
+  monthEnd        Int             @map("month_end")
+  shiftedStart    Int?            @map("shifted_start")
+  shiftedEnd      Int?            @map("shifted_end")
+  status          MilestoneStatus @default(not_started)
+  progressPct     Decimal         @default(0) @map("progress_pct") @db.Decimal(5, 2)
+  isCurrent       Boolean         @default(false) @map("is_current")
+  hasAlert        Boolean         @default(false) @map("has_alert")
+  alertMessage    String?         @map("alert_message") @db.VarChar(500)
+  sortOrder       Int             @default(0) @map("sort_order")
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  semester     Semester          @relation(fields: [semesterId], references: [id], onDelete: Cascade)
+  dissertation Dissertation      @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  tasks        Task[]
+  reminders    Reminder[]
+  driveLinks   DriveLink[]
+  targets      SupervisorTarget[]
+
+  @@index([semesterId])
+  @@index([dissertationId])
+  @@index([status])
+  @@index([isCurrent])
+  @@map("milestones")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  4. TASKS
+// ══════════════════════════════════════════════════════════════
+
+model Task {
+  id              String     @id @default(uuid())
+  milestoneId     String     @map("milestone_id")
+  dissertationId  String     @map("dissertation_id")
+  assignedTo      String?    @map("assigned_to")
+  createdBy       String     @map("created_by")
+  title           String     @db.VarChar(500)
+  description     String?    @db.Text
+  status          TaskStatus @default(todo)
+  priority        Priority   @default(medium)
+  dueDate         DateTime?  @map("due_date") @db.Date
+  completedAt     DateTime?  @map("completed_at")
+  sortOrder       Int        @default(0) @map("sort_order")
+  createdAt       DateTime   @default(now()) @map("created_at")
+  updatedAt       DateTime   @updatedAt @map("updated_at")
+
+  milestone    Milestone    @relation(fields: [milestoneId], references: [id], onDelete: Cascade)
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  assignee     User?        @relation("TaskAssignee", fields: [assignedTo], references: [id], onDelete: SetNull)
+  creator      User         @relation("TaskCreator", fields: [createdBy], references: [id], onDelete: Cascade)
+
+  @@index([milestoneId])
+  @@index([dissertationId])
+  @@index([status])
+  @@index([assignedTo])
+  @@index([priority])
+  @@map("tasks")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  5. REMINDERS
+// ══════════════════════════════════════════════════════════════
+
+model Reminder {
+  id              String   @id @default(uuid())
+  dissertationId  String   @map("dissertation_id")
+  milestoneId     String?  @map("milestone_id")
+  createdBy       String   @map("created_by")
+  assignedTo      String?  @map("assigned_to")
+  text            String   @db.Text
+  priority        Priority @default(medium)
+  targetMonth     Int?     @map("target_month")
+  targetDate      DateTime? @map("target_date") @db.Date
+  icon            String   @default("notifications") @db.VarChar(50)
+  isDone          Boolean  @default(false) @map("is_done")
+  isAuto          Boolean  @default(false) @map("is_auto")
+  doneAt          DateTime? @map("done_at")
+  notifyEmail     Boolean  @default(false) @map("notify_email")
+  notifiedAt      DateTime? @map("notified_at")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  milestone    Milestone?   @relation(fields: [milestoneId], references: [id], onDelete: SetNull)
+  creator      User         @relation("ReminderCreator", fields: [createdBy], references: [id], onDelete: Cascade)
+  assignee     User?        @relation("ReminderAssignee", fields: [assignedTo], references: [id], onDelete: SetNull)
+
+  @@index([dissertationId])
+  @@index([milestoneId])
+  @@index([assignedTo])
+  @@index([priority])
+  @@index([isDone])
+  @@index([targetMonth])
+  @@map("reminders")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  6. DRIVE LINKS
+// ══════════════════════════════════════════════════════════════
+
+model DriveLink {
+  id              String   @id @default(uuid())
+  dissertationId  String   @map("dissertation_id")
+  milestoneId     String?  @map("milestone_id")
+  createdBy       String   @map("created_by")
+  label           String   @db.VarChar(255)
+  url             String?  @db.VarChar(2000)
+  type            LinkType @default(drive)
+  description     String?  @db.Text
+  icon            String   @default("link") @db.VarChar(50)
+  isPinned        Boolean  @default(false) @map("is_pinned")
+  sortOrder       Int      @default(0) @map("sort_order")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  milestone    Milestone?   @relation(fields: [milestoneId], references: [id], onDelete: SetNull)
+  creator      User         @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+
+  @@index([dissertationId])
+  @@index([milestoneId])
+  @@index([type])
+  @@map("drive_links")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  7. SUPERVISOR TARGETS
+// ══════════════════════════════════════════════════════════════
+
+model SupervisorTarget {
+  id              String       @id @default(uuid())
+  dissertationId  String       @map("dissertation_id")
+  supervisorId    String       @map("supervisor_id")
+  studentId       String       @map("student_id")
+  milestoneId     String?      @map("milestone_id")
+  title           String       @db.VarChar(500)
+  description     String?      @db.Text
+  deadline        DateTime?    @db.Date
+  priority        Priority     @default(high)
+  status          TargetStatus @default(pending)
+  studentNotes    String?      @map("student_notes") @db.Text
+  completedAt     DateTime?    @map("completed_at")
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @updatedAt @map("updated_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  supervisor   User         @relation("TargetSupervisor", fields: [supervisorId], references: [id], onDelete: Cascade)
+  student      User         @relation("TargetStudent", fields: [studentId], references: [id], onDelete: Cascade)
+  milestone    Milestone?   @relation(fields: [milestoneId], references: [id], onDelete: SetNull)
+
+  @@index([dissertationId])
+  @@index([supervisorId])
+  @@index([studentId])
+  @@index([status])
+  @@map("supervisor_targets")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  8. CONSULTATIONS (Bimbingan)
+// ══════════════════════════════════════════════════════════════
+
+model Consultation {
+  id              String             @id @default(uuid())
+  dissertationId  String             @map("dissertation_id")
+  studentId       String             @map("student_id")
+  supervisorId    String             @map("supervisor_id")
+  date            DateTime           @db.Date
+  timeStart       DateTime?          @map("time_start") @db.Time()
+  timeEnd         DateTime?          @map("time_end") @db.Time()
+  location        String?            @db.VarChar(255)
+  agenda          String?            @db.Text
+  notes           String?            @db.Text
+  actionItems     String?            @map("action_items") @db.Text
+  driveLink       String?            @map("drive_link") @db.VarChar(2000)
+  status          ConsultationStatus @default(scheduled)
+  createdAt       DateTime           @default(now()) @map("created_at")
+  updatedAt       DateTime           @updatedAt @map("updated_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  student      User         @relation("ConsultationStudent", fields: [studentId], references: [id], onDelete: Cascade)
+  supervisor   User         @relation("ConsultationSupervisor", fields: [supervisorId], references: [id], onDelete: Cascade)
+
+  @@index([dissertationId])
+  @@index([studentId])
+  @@index([supervisorId])
+  @@index([date])
+  @@map("consultations")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  9. RESCHEDULE LOG
+// ══════════════════════════════════════════════════════════════
+
+model RescheduleLog {
+  id                   String           @id @default(uuid())
+  dissertationId       String           @map("dissertation_id")
+  triggeredBy          String           @map("triggered_by")
+  reason               String           @db.Text
+  delayMonths          Int              @map("delay_months")
+  affectedMilestones   Json             @map("affected_milestones")
+  snapshotBefore       Json             @map("snapshot_before")
+  snapshotAfter        Json             @map("snapshot_after")
+  approvedBy           String?          @map("approved_by")
+  approvedAt           DateTime?        @map("approved_at")
+  status               RescheduleStatus @default(draft)
+  createdAt            DateTime         @default(now()) @map("created_at")
+
+  dissertation Dissertation @relation(fields: [dissertationId], references: [id], onDelete: Cascade)
+  trigger      User         @relation("RescheduleTrigger", fields: [triggeredBy], references: [id], onDelete: Cascade)
+  approver     User?        @relation("RescheduleApprover", fields: [approvedBy], references: [id], onDelete: SetNull)
+
+  @@index([dissertationId])
+  @@index([status])
+  @@map("reschedule_logs")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  10. NOTIFICATIONS
+// ══════════════════════════════════════════════════════════════
+
+model Notification {
+  id              String           @id @default(uuid())
+  userId          String           @map("user_id")
+  dissertationId  String?          @map("dissertation_id")
+  type            NotificationType @default(info)
+  title           String           @db.VarChar(255)
+  message         String           @db.Text
+  icon            String           @default("notifications") @db.VarChar(50)
+  actionUrl       String?          @map("action_url") @db.VarChar(500)
+  isRead          Boolean          @default(false) @map("is_read")
+  readAt          DateTime?        @map("read_at")
+  createdAt       DateTime         @default(now()) @map("created_at")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dissertation Dissertation? @relation(fields: [dissertationId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([isRead])
+  @@index([type])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  11. AUDIT LOG
+// ══════════════════════════════════════════════════════════════
+
+model AuditLog {
+  id              String      @id @default(uuid())
+  userId          String      @map("user_id")
+  dissertationId  String?     @map("dissertation_id")
+  action          AuditAction
+  entityType      String      @map("entity_type") @db.VarChar(50)
+  entityId        String      @map("entity_id") @db.VarChar(36)
+  oldValue        Json?       @map("old_value")
+  newValue        Json?       @map("new_value")
+  ipAddress       String?     @map("ip_address") @db.VarChar(45)
+  userAgent       String?     @map("user_agent") @db.VarChar(500)
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([dissertationId])
+  @@index([action])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ══════════════════════════════════════════════════════════════
+//  12. USER PREFERENCES
+// ══════════════════════════════════════════════════════════════
+
+model UserPreference {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  prefKey   String   @map("pref_key") @db.VarChar(100)
+  prefValue String   @map("pref_value") @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, prefKey])
+  @@map("user_preferences")
+}

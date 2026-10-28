@@ -519,8 +519,18 @@
                 <div class="mt-10">
                     <!-- Toolbar: judul + search + per-page -->
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Daftar Referensi (Paper 1)</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Daftar Referensi (Paper 1 &amp; Paper 2)</h3>
                         <div class="flex items-center gap-3 flex-wrap">
+                            <!-- Group filter -->
+                            <div class="flex items-center gap-2">
+                                <label for="refGroupFilter" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Paper:</label>
+                                <select id="refGroupFilter" class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-2 py-1.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Semua</option>
+                                    <option value="Paper 1 (DSP)">Paper 1 (DSP, under review)</option>
+                                    <option value="Paper 2 (JESA)">Paper 2 (JESA, accepted)</option>
+                                    <option value="Paper 1 lama (INASS, reject)">Paper 1 lama (INASS, reject)</option>
+                                </select>
+                            </div>
                             <!-- Per-page selector -->
                             <div class="flex items-center gap-2">
                                 <label for="refPerPage" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Tampilkan:</label>
@@ -1326,6 +1336,8 @@ async function loadReferences() {
     const searchEl = document.getElementById('refSearch');
     const perPageEl = document.getElementById('refPerPage');
     if (searchEl) searchEl.addEventListener('input', filterReferences);
+    const groupEl = document.getElementById('refGroupFilter');
+    if (groupEl) groupEl.addEventListener('change', filterReferences);
     if (perPageEl) perPageEl.addEventListener('change', function() {
         refPerPage = this.value === 'all' ? 'all' : parseInt(this.value);
         refCurrentPage = 1;
@@ -1361,7 +1373,7 @@ async function loadReferences() {
 
             tbody.innerHTML = pageData.map(item => `
                 <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.group || '-'}</td>
+                    <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${renderRefGroupBadges(item)}</td>
                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" title="${item.publicationTitle.replace(/"/g, '&quot;')}">${item.publicationTitle}</td>
                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.publisher || '-'}</td>
                     <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">${item.year || '-'}</td>
@@ -1425,18 +1437,40 @@ async function loadReferences() {
             renderPagination();
         }
 
+        function renderRefGroupBadges(item) {
+            const papers = Array.isArray(item.papers) && item.papers.length ? item.papers : (item.group ? [item.group] : []);
+            if (!papers.length) return '-';
+            const style = {
+                'Paper 1 (DSP)': 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200',
+                'Paper 2 (JESA)': 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200',
+                'Paper 1 lama (INASS, reject)': 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 line-through decoration-gray-400'
+            };
+            const label = {
+                'Paper 1 (DSP)': 'P1 · DSP',
+                'Paper 2 (JESA)': 'P2 · JESA',
+                'Paper 1 lama (INASS, reject)': 'P1 lama · INASS'
+            };
+            return '<div class="flex flex-wrap gap-1">' + papers.map(p =>
+                `<span title="${p}" class="inline-block whitespace-nowrap px-2 py-0.5 rounded-full text-xs font-medium ${style[p] || 'bg-gray-100 text-gray-700'}">${label[p] || p}</span>`
+            ).join('') + '</div>';
+        }
+        window.renderRefGroupBadges = renderRefGroupBadges;
+
         function filterReferences() {
             const query = (document.getElementById('refSearch').value || '').toLowerCase().trim();
+            const groupSel = (document.getElementById('refGroupFilter') || {}).value || '';
+            const byGroup = groupSel ? referencesData.filter(item => (Array.isArray(item.papers) ? item.papers : [item.group]).includes(groupSel)) : referencesData;
             if (!query) {
-                refFilteredData = referencesData;
+                refFilteredData = byGroup;
             } else {
-                refFilteredData = referencesData.filter(item =>
+                refFilteredData = byGroup.filter(item =>
                     (item.publicationTitle || '').toLowerCase().includes(query) ||
                     (item.publisher || '').toLowerCase().includes(query) ||
                     (item.group || '').toLowerCase().includes(query) ||
                     String(item.year || '').includes(query) ||
                     (item.rq1 || '').toLowerCase().includes(query) ||
-                    (item.researchGap || '').toLowerCase().includes(query)
+                    (item.researchGap || '').toLowerCase().includes(query) ||
+                    (item.rq2 || '').toLowerCase().includes(query)
                 );
             }
             refCurrentPage = 1;
@@ -1701,9 +1735,10 @@ async function loadReferences() {
                 orange: 'text-orange-600 dark:text-orange-400',
                 red:    'text-red-600 dark:text-red-400',
                 green:  'text-green-600 dark:text-green-400',
-                blue:   'text-blue-600 dark:text-blue-400'
+                blue:   'text-blue-600 dark:text-blue-400',
+                gray:   'text-gray-600 dark:text-gray-400'
             };
-            const platformTextColor = item.gradient.includes('orange') ? 'text-orange-100' : item.gradient.includes('red') ? 'text-red-100' : 'text-blue-100';
+            const platformTextColor = item.gradient.includes('orange') ? 'text-orange-100' : item.gradient.includes('red') ? 'text-red-100' : item.gradient.includes('gray') ? 'text-gray-300' : 'text-blue-100';
             const statusColor = statusColorMap[item.statusColor] || 'text-gray-600';
             const safeDesc = item.description.replace(/'/g, "\\'");
             const safeTitle = item.title.replace(/'/g, "\\'");
@@ -1714,7 +1749,7 @@ async function loadReferences() {
                         <span class="material-icons text-2xl">code</span>
                     </div>
                     <div class="flex items-center gap-2 ${platformTextColor}">
-                        <img src="${item.platformIcon}" alt="${item.platform}" class="w-4 h-4">
+                        <img src="${item.platformIcon}" alt="${item.platform}" class="w-4 h-4 ${item.iconClass || ''}">
                         <span class="text-sm font-medium">${item.platform}</span>
                     </div>
                 </div>
