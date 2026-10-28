@@ -56,6 +56,13 @@
     "content": "<strong>Paper 2 JESA: Major Revision</strong> - Hasil review Paper 2 (<strong>Adaptive GWi</strong>) di IIETA Journal of Energy Systems and Applications (JESA) berupa <strong>major revision</strong>."
   },
   {
+    "date": "26 Juni 2026",
+    "icon": "send",
+    "color": "green",
+    "tag": "Submission",
+    "content": "<strong>Paper 2 JESA: Submit</strong> - Manuscript Paper 2 (<strong>Adaptive GWi</strong>) disubmit ke IIETA Journal of Energy Systems and Applications (JESA)."
+  },
+  {
     "date": "27 Juli 2026",
     "icon": "rate_review",
     "color": "blue",
