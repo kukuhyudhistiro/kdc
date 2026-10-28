@@ -1063,7 +1063,7 @@
                             <span class="material-icons text-sm">close</span> Tampilkan semua
                         </button>
                     </div>
-                    <div id="catatan-tl-scroll" class="catatan-tl-scroll overflow-x-auto pb-1">
+                    <div id="catatan-tl-scroll" class="catatan-tl-scroll overflow-x-auto overscroll-x-contain snap-x pb-1 max-w-full">
                         <div id="catatan-tl-inner" class="flex items-stretch min-w-full"></div>
                     </div>
                     <p class="text-[11px] text-gray-400 dark:text-gray-500 mt-2">Klik titik untuk membuka catatannya, klik nama bulan untuk menyaring.</p>
@@ -1259,6 +1259,11 @@
                 if (!skipPush) {
                     const urlPath = targetId === 'dashboard' ? '/' : '/' + targetId;
                     history.pushState({ section: targetId }, '', urlPath);
+                }
+
+                if (targetId === 'catatan') {
+                    const tl = document.getElementById('catatan-tl-scroll');
+                    if (tl) requestAnimationFrame(() => { tl.scrollLeft = tl.scrollWidth; });
                 }
 
                 if (targetId === 'referensi') {
@@ -2017,7 +2022,7 @@ async function loadReferences() {
                         title="${seg.item.date} — ${judul}" aria-label="${seg.item.date}"></button>`;
                 }).join('');
                 const kosong = perMonth[key].length ? '' : '<span class="block h-[11px] w-[11px] rounded-full border border-dashed border-gray-300 dark:border-gray-600"></span>';
-                return `<div class="catatan-tl-month flex flex-col flex-1 min-w-[64px] px-1" data-month="${key}">
+                return `<div class="catatan-tl-month flex flex-col flex-1 shrink-0 min-w-[104px] px-1 snap-start" data-month="${key}">
                     <div class="flex flex-wrap content-end justify-center gap-1 flex-1 min-h-[13px] pb-1">${segs || kosong}</div>
                     <div class="h-px bg-gray-200 dark:bg-gray-600"></div>
                     <button type="button" class="catatan-tl-label w-full mt-1 py-1 rounded text-[11px] font-medium leading-tight text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
@@ -2032,7 +2037,7 @@ async function loadReferences() {
 
             // mulai dari sisi terbaru
             const scroller = document.getElementById('catatan-tl-scroll');
-            if (scroller) scroller.scrollLeft = scroller.scrollWidth;
+            if (scroller && scroller.clientWidth) scroller.scrollLeft = scroller.scrollWidth;
         }
 
         function filterCatatanByMonth(key) {
