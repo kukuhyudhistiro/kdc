@@ -678,7 +678,7 @@
                 <div class="mt-10">
                     <!-- Toolbar: judul + search + per-page -->
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Daftar Referensi (Paper 1 &amp; Paper 2)</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Daftar Referensi (Paper 1, Paper 2 &amp; Proposal)</h3>
                         <div class="flex items-center gap-3 flex-wrap">
                             <!-- Group filter -->
                             <div class="flex items-center gap-2">
@@ -688,6 +688,7 @@
                                     <option value="Paper 1 (DSP)">Paper 1 (DSP, under review)</option>
                                     <option value="Paper 2 (JESA)">Paper 2 (JESA, accepted)</option>
                                     <option value="Paper 1 lama (INASS, reject)">Paper 1 lama (INASS, reject)</option>
+                                    <option value="Proposal (tambahan)">Proposal (referensi tambahan)</option>
                                 </select>
                             </div>
                             <!-- Per-page selector -->
@@ -1672,12 +1673,14 @@ async function loadReferences() {
             const style = {
                 'Paper 1 (DSP)': 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200',
                 'Paper 2 (JESA)': 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200',
-                'Paper 1 lama (INASS, reject)': 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 line-through decoration-gray-400'
+                'Paper 1 lama (INASS, reject)': 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 line-through decoration-gray-400',
+                'Proposal (tambahan)': 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200'
             };
             const label = {
                 'Paper 1 (DSP)': 'P1 · DSP',
                 'Paper 2 (JESA)': 'P2 · JESA',
-                'Paper 1 lama (INASS, reject)': 'P1 lama · INASS'
+                'Paper 1 lama (INASS, reject)': 'P1 lama · INASS',
+                'Proposal (tambahan)': 'Proposal'
             };
             return '<div class="flex flex-wrap gap-1">' + papers.map(p =>
                 `<span title="${p}" class="inline-block whitespace-nowrap px-2 py-0.5 rounded-full text-xs font-medium ${style[p] || 'bg-gray-100 text-gray-700'}">${label[p] || p}</span>`
