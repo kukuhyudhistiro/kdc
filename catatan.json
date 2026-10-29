@@ -14,6 +14,13 @@
     "content": "<strong>Penyusunan Research Topic Proposal</strong> - Penyusunan Research Topic proposal untuk semester berjalan. Pembayaran SPP semester 3."
   },
   {
+    "date": "30 September 2026",
+    "icon": "menu_book",
+    "color": "green",
+    "tag": "Publication",
+    "content": "<strong>Paper 2 JESA: Published</strong> - Manuscript Paper 2 (<strong>Adaptive GWi</strong>) terbit di IIETA Journal Européen des Systèmes Automatisés (JESA) Vol. 59, No. 9, September 2026, hlm. 2495–2508. <strong>Artikel:</strong> <a href=\"https://www.iieta.org/journals/jesa/paper/10.18280/jesa.590906\" target=\"_blank\" class=\"text-blue-600 dark:text-blue-400 underline font-semibold hover:text-blue-800\">DOI 10.18280/jesa.590906</a>"
+  },
+  {
     "date": "17-18 September 2026",
     "icon": "task_alt",
     "color": "green",

@@ -47,7 +47,7 @@
     "publicationResult": "Widely used 3×3 gradient kernel; reproduced in Duda & Hart (1973)",
     "futureWork": "Not stated",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Report/memo. Sitasi lengkap: Sobel, I., Feldman, G. (1968). A 3×3 isotropic gradient operator for image processing. Presentasi pada Stanford Artificial Intelligence Project, Stanford University.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Report/memo. Sitasi lengkap: Sobel, I., Feldman, G. (1968). A 3×3 isotropic gradient operator for image processing. Presentasi pada Stanford Artificial Intelligence Project, Stanford University.",
     "researchGap": "Fixed 3×3 scale and two orientations; used as a baseline in Paper 1 and as the density estimator ρL in Paper 2, where its fixed support limits how well ρL reflects texture at larger scales."
   },
   {
@@ -72,7 +72,7 @@
     "publicationResult": "Proposes LoG zero-crossings and the idea that edges must be found at several scales",
     "futureWork": "Combining zero-crossings across scales",
     "doiUrl": "https://doi.org/10.1098/rspb.1980.0020",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Marr, D., Hildreth, E. (1980). Theory of edge detection. Proceedings of the Royal Society of London. Series B, 207(1167): 187–217. https://doi.org/10.1098/rspb.1980.0020",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Marr, D., Hildreth, E. (1980). Theory of edge detection. Proceedings of the Royal Society of London. Series B, 207(1167): 187–217. https://doi.org/10.1098/rspb.1980.0020",
     "researchGap": "Isotropic operator with no orientation selectivity and one global σ per channel; Paper 2 instead sets scale per pixel from local gradient activity."
   },
   {
@@ -97,7 +97,7 @@
     "publicationResult": "Shows that 2D receptive fields are jointly tuned in orientation and spatial frequency, motivating 2D Gabor filters",
     "futureWork": "Formalised in Daugman (1985) uncertainty relation",
     "doiUrl": "https://doi.org/10.1016/0042-6989(80)90065-6",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Daugman, J.G. (1980). Two-dimensional spectral analysis of cortical receptive field profiles. Vision Research, 20(10): 847–856. https://doi.org/10.1016/0042-6989(80)90065-6",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Daugman, J.G. (1980). Two-dimensional spectral analysis of cortical receptive field profiles. Vision Research, 20(10): 847–856. https://doi.org/10.1016/0042-6989(80)90065-6",
     "researchGap": "Models the receptive field as a complex (even+odd) filter pair; does not ask whether the odd part alone suffices for step-edge boundaries, which Paper 1 tests."
   },
   {
@@ -148,7 +148,7 @@
     "publicationResult": "Derives the first derivative of Gaussian as near-optimal step detector; NMS + hysteresis became the standard pipeline",
     "futureWork": "Multi-scale feature synthesis (discussed in the paper)",
     "doiUrl": "https://doi.org/10.1109/TPAMI.1986.4767851",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Canny, J. (1986). A computational approach to edge detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 8(6): 679–698. https://doi.org/10.1109/TPAMI.1986.4767851",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Canny, J. (1986). A computational approach to edge detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 8(6): 679–698. https://doi.org/10.1109/TPAMI.1986.4767851",
     "researchGap": "Optimal only for step edges under one global σ and two thresholds; Canny remains the strongest classical baseline in Papers 1–2 (BSDS500 ODS 0.533), so any Gabor operator must justify itself against it."
   },
   {
@@ -173,7 +173,7 @@
     "publicationResult": "Dimensionless feature measure invariant to contrast and illumination",
     "futureWork": "Feature classification from phase",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Kovesi, P. (1999). Image features from phase congruency. Videre: Journal of Computer Vision Research, 1(3): 1–26.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Kovesi, P. (1999). Image features from phase congruency. Videre: Journal of Computer Vision Research, 1(3): 1–26.",
     "researchGap": "Requires FFT and several scales and orientations (Paper 1: 326.5 ms vs 25.9 ms for GWi+ODPS on BSDS500); strongest non-Gabor handcrafted baseline in Papers 1–2."
   },
   {
@@ -198,7 +198,7 @@
     "publicationResult": "gPb-owt-ucm: BSDS500 ODS 0.73, OIS 0.76, AP 0.73; human agreement ODS 0.80",
     "futureWork": "Higher-level reasoning for segmentation",
     "doiUrl": "https://doi.org/10.1109/TPAMI.2010.161",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Arbeláez, P., Maire, M., Fowlkes, C., Malik, J. (2011). Contour detection and hierarchical image segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 33(5): 898–916. https://doi.org/10.1109/TPAMI.2010.161",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Arbeláez, P., Maire, M., Fowlkes, C., Malik, J. (2011). Contour detection and hierarchical image segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 33(5): 898–916. https://doi.org/10.1109/TPAMI.2010.161",
     "researchGap": "Defines the evaluation protocol used in Papers 1–2; its tolerance (0.0075 × diagonal) absorbs ±2-px side lobes, so protocol effects must be separated from method effects."
   },
   {
@@ -223,7 +223,7 @@
     "publicationResult": "BSDS500 ODS 0.782, OIS 0.804; about 0.4 s per image on GPU",
     "futureWork": "Crisper boundaries; better use of intermediate layers",
     "doiUrl": "https://doi.org/10.1109/ICCV.2015.164",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Xie, S., Tu, Z. (2015). Holistically-nested edge detection. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 1395–1403. https://doi.org/10.1109/ICCV.2015.164",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Xie, S., Tu, Z. (2015). Holistically-nested edge detection. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 1395–1403. https://doi.org/10.1109/ICCV.2015.164",
     "researchGap": "Needs ImageNet-pretrained VGG-16 and GPU; Papers 1–2 position GWi/A-GWi as training-free CPU alternatives, not competitors on absolute ODS."
   },
   {
@@ -248,7 +248,7 @@
     "publicationResult": "GCNs reach lower error with fewer parameters than baseline CNNs, notably under rotation",
     "futureWork": "(inferred) Learnable Gabor parameters (realised in AGCN)",
     "doiUrl": "https://doi.org/10.1109/TIP.2018.2835143",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Luan, S., Chen, C., Zhang, B., Han, J., Liu, J. (2018). Gabor convolutional networks. IEEE Transactions on Image Processing, 27(9): 4357–4366. https://doi.org/10.1109/TIP.2018.2835143",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Luan, S., Chen, C., Zhang, B., Han, J., Liu, J. (2018). Gabor convolutional networks. IEEE Transactions on Image Processing, 27(9): 4357–4366. https://doi.org/10.1109/TIP.2018.2835143",
     "researchGap": "Modulates learned kernels with a fixed Gabor bank (real part) and fixed orientations/scales for classification; does not test component selection for edge detection."
   },
   {
@@ -273,7 +273,7 @@
     "publicationResult": "Gabor layers give a consistent robustness gain at negligible parameter and clean-accuracy cost",
     "futureWork": "(inferred) Combining with adversarial training",
     "doiUrl": "https://doi.org/10.1007/978-3-030-58545-7_26",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Pérez, J.C., Alfarra, M., Jeanneret, G., Bibi, A., Thabet, A., Ghanem, B., Arbeláez, P. (2020). Gabor layers enhance network robustness. In Computer Vision – ECCV 2020, LNCS vol. 12354, pp. 450–466. Cham: Springer. https://doi.org/10.1007/978-3-030-58545-7_26",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Pérez, J.C., Alfarra, M., Jeanneret, G., Bibi, A., Thabet, A., Ghanem, B., Arbeláez, P. (2020). Gabor layers enhance network robustness. In Computer Vision – ECCV 2020, LNCS vol. 12354, pp. 450–466. Cham: Springer. https://doi.org/10.1007/978-3-030-58545-7_26",
     "researchGap": "Shows the Gabor prior helps learned models, but parameters are global per filter; neither spatial adaptation nor odd/even component roles are studied."
   },
   {
@@ -298,7 +298,7 @@
     "publicationResult": "BSDS500 ODS 0.807 / OIS 0.823 at 92 FPS with 710K params; PiDiNet-Tiny ODS 0.789 with 73K params",
     "futureWork": "(inferred) Hardware-specific deployment",
     "doiUrl": "https://doi.org/10.1109/ICCV48922.2021.00507",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Su, Z., Liu, W., Yu, Z., Hu, D., Liao, Q., Tian, Q., Pietikäinen, M., Liu, L. (2021). Pixel difference networks for efficient edge detection. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 5117–5127. https://doi.org/10.1109/ICCV48922.2021.00507",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Su, Z., Liu, W., Yu, Z., Hu, D., Liao, Q., Tian, Q., Pietikäinen, M., Liu, L. (2021). Pixel difference networks for efficient edge detection. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 5117–5127. https://doi.org/10.1109/ICCV48922.2021.00507",
     "researchGap": "Still needs GPU training and labelled data."
   },
   {
@@ -323,7 +323,7 @@
     "publicationResult": "674K parameters (<4% of the reference models); BIPED ODS 0.889 and UDED ODS 0.817 (Papers with Code)",
     "futureWork": "(inferred) Further size reduction (realised in TEED)",
     "doiUrl": "https://doi.org/10.1109/ACCESS.2022.3186344",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Soria, X., Pomboza-Junez, G., Sappa, A.D. (2022). LDC: Lightweight dense CNN for edge detection. IEEE Access, 10: 68281–68290. https://doi.org/10.1109/ACCESS.2022.3186344",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Soria, X., Pomboza-Junez, G., Sappa, A.D. (2022). LDC: Lightweight dense CNN for edge detection. IEEE Access, 10: 68281–68290. https://doi.org/10.1109/ACCESS.2022.3186344",
     "researchGap": "Lightweight but still learned and GPU-trained; the comparison point for Paper 1's claim of a training-free CPU detector."
   },
   {
@@ -348,7 +348,7 @@
     "publicationResult": "Canny best overall with suitable range ≈0.30–0.45; Roberts/Sobel/Prewitt ≈0.1–0.45; all weak on high-frequency images",
     "futureWork": "(inferred) Adaptive threshold selection",
     "doiUrl": "https://doi.org/10.18280/ts.390536",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Avci, I. (2022). Threshold values of different classical edge detection algorithms. Traitement du Signal, 39(5): 1775–1780. https://doi.org/10.18280/ts.390536",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Avci, I. (2022). Threshold values of different classical edge detection algorithms. Traitement du Signal, 39(5): 1775–1780. https://doi.org/10.18280/ts.390536",
     "researchGap": "Reference maps come from the same detector on clean images, not human ground truth; it supports sweep density in Papers 1–2 only indirectly, and its step size is reported inconsistently (0.001 vs 0.01)."
   },
   {
@@ -1125,7 +1125,7 @@
     "publicationResult": "Introduces the Wilcoxon signed-rank and rank-sum tests",
     "futureWork": "Not stated",
     "doiUrl": "https://doi.org/10.2307/3001968",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Wilcoxon, F. (1945). Individual comparisons by ranking methods. Biometrics Bulletin, 1(6): 80–83. https://doi.org/10.2307/3001968",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Wilcoxon, F. (1945). Individual comparisons by ranking methods. Biometrics Bulletin, 1(6): 80–83. https://doi.org/10.2307/3001968",
     "researchGap": "Paper 2 uses the signed-rank test on per-image F; per-image observations from one dataset are not independent samples of scenes, so p-values must be read with effect size (Cliff's δ) and CI."
   },
   {
@@ -1149,7 +1149,7 @@
     "publicationResult": "Proposes δ as an ordinal effect size with inference procedures",
     "futureWork": "Not stated",
     "doiUrl": "https://doi.org/10.1037/0033-2909.114.3.494",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Cliff, N. (1993). Dominance statistics: Ordinal analyses to answer ordinal questions. Psychological Bulletin, 114(3): 494–509. https://doi.org/10.1037/0033-2909.114.3.494",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Cliff, N. (1993). Dominance statistics: Ordinal analyses to answer ordinal questions. Psychological Bulletin, 114(3): 494–509. https://doi.org/10.1037/0033-2909.114.3.494",
     "researchGap": "Used in Paper 2 to report effect size next to the Wilcoxon test; thresholds for 'small/medium/large' δ are conventions, not derived from the edge-detection task."
   },
   {
@@ -1173,7 +1173,7 @@
     "publicationResult": "Enhancement with locally tuned Gabor filters improves minutiae extraction and verification",
     "futureWork": "(inferred) Faster implementation",
     "doiUrl": "https://doi.org/10.1109/34.709565",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Hong, L., Wan, Y., Jain, A. (1998). Fingerprint image enhancement: Algorithm and performance evaluation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 20(8): 777–789. https://doi.org/10.1109/34.709565",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Hong, L., Wan, Y., Jain, A. (1998). Fingerprint image enhancement: Algorithm and performance evaluation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 20(8): 777–789. https://doi.org/10.1109/34.709565",
     "researchGap": "Closest classical precedent for content-tuned Gabor parameters (Paper 2), but tuning is block-wise and relies on a quasi-periodic ridge pattern that natural images do not have."
   },
   {
@@ -1197,7 +1197,7 @@
     "publicationResult": "Constant-time per-pixel adaptive threshold using the integral image",
     "futureWork": "Not stated",
     "doiUrl": "https://doi.org/10.1080/2151237X.2007.10129236",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Bradley, D., Roth, G. (2007). Adaptive thresholding using the integral image. Journal of Graphics Tools, 12(2): 13–21. https://doi.org/10.1080/2151237X.2007.10129236",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Bradley, D., Roth, G. (2007). Adaptive thresholding using the integral image. Journal of Graphics Tools, 12(2): 13–21. https://doi.org/10.1080/2151237X.2007.10129236",
     "researchGap": "Adapts the threshold, not the filter; Paper 2 cites it as threshold-level adaptation, the gap A-GWi addresses by adapting kernel parameters."
   },
   {
@@ -1246,7 +1246,7 @@
     "publicationResult": "Dynamic filters outperform static-filter baselines on video and stereo prediction with fewer parameters",
     "futureWork": "(inferred) Other dense prediction tasks",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Jia, X., De Brabandere, B., Tuytelaars, T., Van Gool, L. (2016). Dynamic filter networks. In Advances in Neural Information Processing Systems 29 (NeurIPS 2016).",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Jia, X., De Brabandere, B., Tuytelaars, T., Van Gool, L. (2016). Dynamic filter networks. In Advances in Neural Information Processing Systems 29 (NeurIPS 2016).",
     "researchGap": "Spatially varying kernels are generated by a trained network; A-GWi (Paper 2) obtains per-pixel kernels from a closed-form mapping without training."
   },
   {
@@ -1270,7 +1270,7 @@
     "publicationResult": "ShanghaiTech Part A MAE 110.2, Part B MAE 26.4",
     "futureWork": "(inferred) Better density map generation",
     "doiUrl": "https://doi.org/10.1109/CVPR.2016.70",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Zhang, Y., Zhou, D., Chen, S., Gao, S., Ma, Y. (2016). Single-image crowd counting via multi-column convolutional neural network. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 589–597. https://doi.org/10.1109/CVPR.2016.70",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Zhang, Y., Zhou, D., Chen, S., Gao, S., Ma, Y. (2016). Single-image crowd counting via multi-column convolutional neural network. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 589–597. https://doi.org/10.1109/CVPR.2016.70",
     "researchGap": "Kernel width conditioned on local object spacing is the principle Paper 2 transfers to Gabor kernels; MCNN applies it only to ground-truth generation inside a learned model."
   },
   {
@@ -1294,7 +1294,7 @@
     "publicationResult": "About 78.5% fewer multiplications and 75.1% fewer additions than the conventional bank; low-rank step saves a further ~26%/18%",
     "futureWork": "(inferred) Hardware implementation",
     "doiUrl": "https://doi.org/10.1007/s11265-017-1246-6",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Lee, G.G.C., Huang, C.H., Chen, C.F., Wang, T.P. (2017). Complexity-aware Gabor filter bank architecture using principal component analysis. Journal of Signal Processing Systems, 89(3): 431–444. https://doi.org/10.1007/s11265-017-1246-6",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Lee, G.G.C., Huang, C.H., Chen, C.F., Wang, T.P. (2017). Complexity-aware Gabor filter bank architecture using principal component analysis. Journal of Signal Processing Systems, 89(3): 431–444. https://doi.org/10.1007/s11265-017-1246-6",
     "researchGap": "Reduces cost by approximating the full complex bank; Paper 1 halves it by dropping the real component, and the two reductions could be combined."
   },
   {
@@ -1318,7 +1318,7 @@
     "publicationResult": "Consistent mAP/mIoU gains over fixed-grid convolution on detection and segmentation",
     "futureWork": "Modulated deformable convolution (DCNv2)",
     "doiUrl": "https://doi.org/10.1109/ICCV.2017.89",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Dai, J., Qi, H., Xiong, Y., Li, Y., Zhang, G., Hu, H., Wei, Y. (2017). Deformable convolutional networks. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 764–773. https://doi.org/10.1109/ICCV.2017.89",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Dai, J., Qi, H., Xiong, Y., Li, Y., Zhang, G., Hu, H., Wei, Y. (2017). Deformable convolutional networks. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 764–773. https://doi.org/10.1109/ICCV.2017.89",
     "researchGap": "Adapts where the kernel samples, not its frequency or scale, and needs training; A-GWi adapts kernel parameters on a fixed grid."
   },
   {
@@ -1342,7 +1342,7 @@
     "publicationResult": "ShanghaiTech Part A MAE 68.2, Part B MAE 10.6",
     "futureWork": "(inferred) Application to vehicles and other objects",
     "doiUrl": "https://doi.org/10.1109/CVPR.2018.00120",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Li, Y., Zhang, X., Chen, D. (2018). CSRNet: Dilated convolutional neural networks for understanding the highly congested scenes. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1091–1100. https://doi.org/10.1109/CVPR.2018.00120",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Li, Y., Zhang, X., Chen, D. (2018). CSRNet: Dilated convolutional neural networks for understanding the highly congested scenes. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1091–1100. https://doi.org/10.1109/CVPR.2018.00120",
     "researchGap": "Density is a learned output, not a control signal for filter parameters; Paper 2 uses a handcrafted density proxy to drive kernel parameters."
   },
   {
@@ -1366,7 +1366,7 @@
     "publicationResult": "Hybrid design keeps accuracy with fewer parameters",
     "futureWork": "(inferred) Choosing where Gabor modulation helps",
     "doiUrl": "https://doi.org/10.1016/j.patrec.2018.10.014",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Liu, C., Ding, W., Wang, X., Zhang, B. (2018). Hybrid Gabor convolutional networks. Pattern Recognition Letters, 116: 164–169. https://doi.org/10.1016/j.patrec.2018.10.014",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Liu, C., Ding, W., Wang, X., Zhang, B. (2018). Hybrid Gabor convolutional networks. Pattern Recognition Letters, 116: 164–169. https://doi.org/10.1016/j.patrec.2018.10.014",
     "researchGap": "Layer allocation is manual and task is classification; no evidence on edge detection or on odd/even component roles."
   },
   {
@@ -1390,7 +1390,7 @@
     "publicationResult": "Learned density maps lower counting error over fixed-kernel maps",
     "futureWork": "(inferred) Density maps for other tasks",
     "doiUrl": "https://doi.org/10.1109/ICCV.2019.00122",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Wan, J., Chan, A.B. (2019). Adaptive density map generation for crowd counting. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 1130–1139. https://doi.org/10.1109/ICCV.2019.00122",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Wan, J., Chan, A.B. (2019). Adaptive density map generation for crowd counting. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 1130–1139. https://doi.org/10.1109/ICCV.2019.00122",
     "researchGap": "Shows kernel width should follow local content; adaptation is learned end-to-end, whereas Paper 2 uses a closed-form sigmoid of ρL."
   },
   {
@@ -1414,7 +1414,7 @@
     "publicationResult": "Gabor-constrained first layer improves accuracy and convergence over a standard CNN",
     "futureWork": "(inferred) Gabor constraints in deeper layers",
     "doiUrl": "https://doi.org/10.1109/EnT47717.2019.9030571",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Alekseev, A., Bobe, A. (2019). GaborNet: Gabor filters with learnable parameters in deep convolutional neural networks. In 2019 International Conference on Engineering and Telecommunication (EnT), pp. 1–4. IEEE. https://doi.org/10.1109/EnT47717.2019.9030571",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Alekseev, A., Bobe, A. (2019). GaborNet: Gabor filters with learnable parameters in deep convolutional neural networks. In 2019 International Conference on Engineering and Telecommunication (EnT), pp. 1–4. IEEE. https://doi.org/10.1109/EnT47717.2019.9030571",
     "researchGap": "Learns global Gabor parameters per filter for classification; no per-pixel modulation and no edge benchmark."
   },
   {
@@ -1438,7 +1438,7 @@
     "publicationResult": "PAC improves joint upsampling and segmentation as a drop-in layer and CRF component",
     "futureWork": "(inferred) Other content-adaptive operations",
     "doiUrl": "https://doi.org/10.1109/CVPR.2019.01142",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Su, H., Jampani, V., Sun, D., Gallo, O., Learned-Miller, E., Kautz, J. (2019). Pixel-adaptive convolutional neural networks. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 11166–11175. https://doi.org/10.1109/CVPR.2019.01142",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Su, H., Jampani, V., Sun, D., Gallo, O., Learned-Miller, E., Kautz, J. (2019). Pixel-adaptive convolutional neural networks. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 11166–11175. https://doi.org/10.1109/CVPR.2019.01142",
     "researchGap": "Adapts kernel weights through a learned guidance kernel; A-GWi changes kernel frequency and scale through a closed-form mapping of a handcrafted density."
   },
   {
@@ -1462,7 +1462,7 @@
     "publicationResult": "Higher accuracy and recall than comparison detectors on small-sample data (no numbers in abstract)",
     "futureWork": "(inferred) Learnable kernel library",
     "doiUrl": "https://doi.org/10.1016/j.dt.2019.12.002",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Hu, X.-D., Wang, X.-Q., Meng, F.-J., Hua, X., Yan, Y.-J., Li, Y.-Y., Huang, J., Jiang, X.-L. (2020). Gabor-CNN for object detection based on small samples. Defence Technology, 16(6): 1116–1129. https://doi.org/10.1016/j.dt.2019.12.002",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Hu, X.-D., Wang, X.-Q., Meng, F.-J., Hua, X., Yan, Y.-J., Li, Y.-Y., Huang, J., Jiang, X.-L. (2020). Gabor-CNN for object detection based on small samples. Defence Technology, 16(6): 1116–1129. https://doi.org/10.1016/j.dt.2019.12.002",
     "researchGap": "Gabor kernels are selected once from a fixed library and applied globally; supports Paper 2's point that Gabor structure helps when labels are scarce."
   },
   {
@@ -1486,7 +1486,7 @@
     "publicationResult": "MNIST-rot accuracy 0.9950; LGCN-RCF BSD500 ODS 0.727 vs 0.726 for parameter-matched RCF (1.88M params)",
     "futureWork": "Multi-scale approaches; new architectures",
     "doiUrl": "https://doi.org/10.48550/arXiv.2011.11734",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Preprint. Sitasi lengkap: Richards, F., Paiement, A., Xie, X., Sola, E., Duc, P.-A. (2020). Learnable Gabor modulated complex-valued networks for orientation robustness. arXiv preprint arXiv:2011.11734. https://doi.org/10.48550/arXiv.2011.11734",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Preprint. Sitasi lengkap: Richards, F., Paiement, A., Xie, X., Sola, E., Duc, P.-A. (2020). Learnable Gabor modulated complex-valued networks for orientation robustness. arXiv preprint arXiv:2011.11734. https://doi.org/10.48550/arXiv.2011.11734",
     "researchGap": "Its BSD500 gain over the matched baseline is 0.001 ODS from one run, so it gives no evidence that complex modulation helps boundaries."
   },
   {
@@ -1510,7 +1510,7 @@
     "publicationResult": "DGFN outperforms CNN, GCN and DCN baselines on both datasets with a compact model",
     "futureWork": "(inferred) Segmentation and 3D extension",
     "doiUrl": "https://doi.org/10.1109/WACV48630.2021.00405",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Gong, X., Xia, X., Zhu, W., Zhang, B., Doermann, D., Zhuo, L.-A. (2021). Deformable Gabor feature networks for biomedical image classification. In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV). https://doi.org/10.1109/WACV48630.2021.00405",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Gong, X., Xia, X., Zhu, W., Zhang, B., Doermann, D., Zhuo, L.-A. (2021). Deformable Gabor feature networks for biomedical image classification. In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV). https://doi.org/10.1109/WACV48630.2021.00405",
     "researchGap": "Spatial adaptation of Gabor features exists in learned form; Paper 2's claim is limited to the training-free, closed-form case."
   },
   {
@@ -1534,7 +1534,7 @@
     "publicationResult": "AGCNs improve accuracy over GCN and standard CNN baselines",
     "futureWork": "(inferred) Detection and segmentation",
     "doiUrl": "https://doi.org/10.1016/j.patcog.2021.108495",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Yuan, Y., Wang, L.-N., Zhong, G., et al. (2022). Adaptive Gabor convolutional networks. Pattern Recognition, 124: 108495. https://doi.org/10.1016/j.patcog.2021.108495",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Yuan, Y., Wang, L.-N., Zhong, G., et al. (2022). Adaptive Gabor convolutional networks. Pattern Recognition, 124: 108495. https://doi.org/10.1016/j.patcog.2021.108495",
     "researchGap": "'Adaptive' means learned per filter, not per pixel; one of the learnable-adaptation methods Paper 2 contrasts with A-GWi."
   },
   {
@@ -1583,7 +1583,7 @@
     "publicationResult": "",
     "futureWork": "",
     "doiUrl": "https://doi.org/10.1016/j.patrec.2022.08.010",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Yao, X., Song, T. (2022). Rotation invariant Gabor convolutional neural network for image classification. Pattern Recognition Letters, 162: 22–30. https://doi.org/10.1016/j.patrec.2022.08.010",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Yao, X., Song, T. (2022). Rotation invariant Gabor convolutional neural network for image classification. Pattern Recognition Letters, 162: 22–30. https://doi.org/10.1016/j.patrec.2022.08.010",
     "researchGap": "Pools over orientation to obtain invariance, which discards the orientation map that ODPS (Paper 1) reuses for suppression."
   },
   {
@@ -1607,7 +1607,7 @@
     "publicationResult": "Gabor branch improves accuracy over a convolution-only branch",
     "futureWork": "(inferred) Dense prediction",
     "doiUrl": "https://doi.org/10.1109/ICCV51070.2023.00156",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Conference. Sitasi lengkap: Zhu, L., Chen, T., Yin, J., See, S., Liu, J. (2023). Learning Gabor texture features for fine-grained recognition. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 1621–1631. https://doi.org/10.1109/ICCV51070.2023.00156",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Zhu, L., Chen, T., Yin, J., See, S., Liu, J. (2023). Learning Gabor texture features for fine-grained recognition. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 1621–1631. https://doi.org/10.1109/ICCV51070.2023.00156",
     "researchGap": "Gabor parameters are learned and shared over regions; no edge task and no per-pixel parameter choice."
   },
   {
@@ -1631,7 +1631,7 @@
     "publicationResult": "BSDS500 ODS 0.799, 3.7% above Tang's bio-inspired method; competitive with VGG-based methods without pretraining",
     "futureWork": "(inferred) Explicit V1 filter models",
     "doiUrl": "https://doi.org/10.1007/s40747-024-01393-4",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Lin, C., Zhang, Z., Peng, J., Li, F., Pan, Y., Zhang, Y. (2024). A lightweight contour detection network inspired by biology. Complex & Intelligent Systems, 10(3): 4275–4291. https://doi.org/10.1007/s40747-024-01393-4",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Lin, C., Zhang, Z., Peng, J., Li, F., Pan, Y., Zhang, Y. (2024). A lightweight contour detection network inspired by biology. Complex & Intelligent Systems, 10(3): 4275–4291. https://doi.org/10.1007/s40747-024-01393-4",
     "researchGap": "Receptive-field ideas are learned approximations, not explicit Gabor kernels."
   },
   {
@@ -1655,7 +1655,7 @@
     "publicationResult": "Dice gains of about 0.3–2% over 3D U-Net",
     "futureWork": "(inferred) Other modalities; lower overhead",
     "doiUrl": "https://doi.org/10.3390/app14114919",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Cao, Y., Song, Y. (2024). New approach for brain tumor segmentation based on Gabor convolution and attention mechanism. Applied Sciences, 14(11): 4919. https://doi.org/10.3390/app14114919",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Cao, Y., Song, Y. (2024). New approach for brain tumor segmentation based on Gabor convolution and attention mechanism. Applied Sciences, 14(11): 4919. https://doi.org/10.3390/app14114919",
     "researchGap": "Gabor parameters are set once and attention acts after filtering; supports Paper 2's claim that Gabor structure appears in task networks that require training."
   },
   {
@@ -1679,7 +1679,7 @@
     "publicationResult": "",
     "futureWork": "",
     "doiUrl": "https://doi.org/10.1038/s41598-025-86860-9",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Li, H., Xu, K. (2025). Innovative adaptive edge detection for noisy images using wavelet and Gaussian method. Scientific Reports, 15: 5838. https://doi.org/10.1038/s41598-025-86860-9",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Li, H., Xu, K. (2025). Innovative adaptive edge detection for noisy images using wavelet and Gaussian method. Scientific Reports, 15: 5838. https://doi.org/10.1038/s41598-025-86860-9",
     "researchGap": "Adaptation is in the threshold; filter parameters stay fixed (Paper 2, Gap 1)."
   },
   {
@@ -1703,7 +1703,7 @@
     "publicationResult": "Identifies spectral imaging + ML as the main direction for non-invasive screening",
     "futureWork": "Low-cost, field-deployable screening",
     "doiUrl": "https://doi.org/10.1016/j.tifs.2025.105055",
-    "notes": "Tercantum di daftar pustaka Paper 2 (JESA, accepted 15 Sep 2026). Jenis: Journal. Sitasi lengkap: Deshmukh, M.T., Wankhede, P.R., Chakole, N., Kale, P.D., Jadhav, M.R., Kulkarni, M.B., Bhaiyya, M. (2025). Towards intelligent food safety: Machine learning approaches for aflatoxin detection and risk prediction. Trends in Food Science & Technology, 161: 105055. https://doi.org/10.1016/j.tifs.2025.105055",
+    "notes": "Tercantum di daftar pustaka Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Deshmukh, M.T., Wankhede, P.R., Chakole, N., Kale, P.D., Jadhav, M.R., Kulkarni, M.B., Bhaiyya, M. (2025). Towards intelligent food safety: Machine learning approaches for aflatoxin detection and risk prediction. Trends in Food Science & Technology, 161: 105055. https://doi.org/10.1016/j.tifs.2025.105055",
     "researchGap": "Methods surveyed rely on spectral hardware or trained models; motivates the low-cost RGB/UV route of the dissertation (counting + BGY attribution per kernel)."
   },
   {
