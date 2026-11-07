@@ -809,15 +809,140 @@
                     
                     <!-- Tabs -->
                     <div class="flex gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
-                        <button class="agenda-tab active px-4 py-3 font-semibold text-gray-700 dark:text-gray-300 border-b-2 border-kdcPrimary transition-colors" data-tab="paper1">
+                        <button type="button" class="agenda-tab active px-4 py-3 font-semibold text-gray-700 dark:text-gray-300 border-b-2 border-kdcPrimary transition-colors" data-tab="revisi-dsp">
+                            <span class="material-icons-outlined align-middle mr-2" style="display: inline;">edit_note</span>
+                            Paper GWi+ODPS Revisi
+                        </button>
+                        <button type="button" class="agenda-tab px-4 py-3 font-semibold text-gray-500 dark:text-gray-400 border-b-2 border-transparent hover:text-gray-700 dark:hover:text-gray-300 transition-colors" data-tab="paper1">
                             <span class="material-icons-outlined align-middle mr-2" style="display: inline;">article</span>
-                            Paper 1 RTL
+                            Paper 1 (Inass Reject)
                         </button>
                     </div>
                 </div>
 
-                <!-- Paper 1 RTL Content -->
-                <div id="paper1-tab" class="agenda-content">
+                <!-- Paper GWi+ODPS Revisi Content -->
+                <div id="revisi-dsp-tab" class="agenda-content">
+                    <div class="mb-8 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border border-amber-200 dark:border-amber-800/50">
+                        <h3 class="text-xl font-bold text-amber-900 dark:text-amber-200 mb-2">Jadwal Tindak Lanjut Revisi Paper 1 DSP (GWi+ODPS)</h3>
+                        <p class="text-sm text-amber-800 dark:text-amber-300">Naskah DSP-D-26-02462, Digital Signal Processing (Elsevier) &mdash; major revision (3 Nopember 2026). Batas akhir dari editor: <strong>24 November 2026</strong>.</p>
+                        <p class="text-xs text-amber-700 dark:text-amber-400 mt-1">Sumber: Laporan_Review_dan_Rencana_Revisi_DSP-D-26-02462 (7 November 2026), bagian 6. Disusun mundur dari batas 24 November, dengan hari telaah untuk Promotor dan Ko-promotor.</p>
+                        <p class="text-sm font-semibold text-amber-900 dark:text-amber-200 mt-3" id="revisi-dsp-countdown"></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="revisi-dsp-cards">
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center">1</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">7–9 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Persiapan data &amp; eksperimen</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Penyiapan data train dan validasi, pemeriksaan protokol, eksperimen pembanding kontrol, dan pemilihan parameter pada data train dan validasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center">2</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">10 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Penetapan konfigurasi &amp; evaluasi uji</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Penetapan konfigurasi dan bentuk klaim, lalu evaluasi pada data uji.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center">3</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">11–14 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Analisis &amp; pengukuran</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Analisis statistik, ablasi preprocessing, detektor berbasis learning, pengukuran waktu, dan analisis lokalisasi. <strong>Semua angka fix pada 14 November.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center justify-center">4</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">15–18 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Penulisan ulang</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Penulisan ulang naskah dan surat tanggapan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-amber-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 font-bold text-xs flex items-center justify-center">5</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300">19 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Kirim draf</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Draf naskah dan surat tanggapan dikirim kepada Promotor, Ko-promotor, dan corresponding author.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-amber-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 font-bold text-xs flex items-center justify-center">6</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300">20–21 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Telaah Promotor &amp; Ko-promotor</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Telaah oleh Promotor dan Ko-promotor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center justify-center">7</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">22 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Perbaikan akhir</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Perbaikan akhir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-green-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 font-bold text-xs flex items-center justify-center">8</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300">23 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Unggah revisi</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Pengunggahan revisi oleh corresponding author.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 border-l-4 border-red-500 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 shrink-0 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 font-bold text-xs flex items-center justify-center">9</div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300">24 Nov</span>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">Batas akhir dari editor</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Batas akhir dari editor.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper 1 (Inass Reject) RTL Content -->
+                <div id="paper1-tab" class="agenda-content hidden">
                     <div class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800/50">
                         <h3 class="text-xl font-bold text-blue-900 dark:text-blue-200 mb-2">RTL dari Feedback Promotor & co-Promotor</h3>
                         <p class="text-sm text-blue-800 dark:text-blue-300">14 April 2026 - Periode Aksi: 14-20 April 2026</p>
@@ -1583,6 +1708,35 @@
             document.getElementById('agenda-cards-container').addEventListener('click', (e) => {
                 if (e.target.type === 'checkbox') e.stopPropagation();
             }, true);
+
+            // --- Agenda: tab switching & countdown revisi DSP ---
+            (function () {
+                const tabs = document.querySelectorAll('#agenda .agenda-tab');
+                const activeCls = ['active', 'text-gray-700', 'dark:text-gray-300', 'border-kdcPrimary'];
+                const inactiveCls = ['text-gray-500', 'dark:text-gray-400', 'border-transparent', 'hover:text-gray-700', 'dark:hover:text-gray-300'];
+                tabs.forEach((tab) => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach((t) => {
+                            const on = t === tab;
+                            t.classList.remove(...(on ? inactiveCls : activeCls));
+                            t.classList.add(...(on ? activeCls : inactiveCls));
+                            const panel = document.getElementById(t.dataset.tab + '-tab');
+                            if (panel) panel.classList.toggle('hidden', !on);
+                        });
+                    });
+                });
+
+                const cd = document.getElementById('revisi-dsp-countdown');
+                if (cd) {
+                    const now = new Date();
+                    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    const deadline = new Date(2026, 10, 24);
+                    const diff = Math.round((deadline - today) / 86400000);
+                    cd.textContent = diff > 0 ? 'Sisa ' + diff + ' hari menuju batas akhir dari editor (24 November 2026)'
+                        : diff === 0 ? 'Hari ini batas akhir dari editor (24 November 2026)'
+                        : 'Batas akhir dari editor (24 November 2026) telah terlewati';
+                }
+            })();
 
             // --- Load JSON-based sections ---
             loadAgenda();
