@@ -47,7 +47,7 @@
     "publicationResult": "Widely used 3×3 gradient kernel; reproduced in Duda & Hart (1973)",
     "futureWork": "Not stated",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Report/memo. Sitasi lengkap: Sobel, I., Feldman, G. (1968). A 3×3 isotropic gradient operator for image processing. Presentasi pada Stanford Artificial Intelligence Project, Stanford University.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Report/memo. Sitasi lengkap: Sobel, I., Feldman, G. (1968). A 3×3 isotropic gradient operator for image processing. Presentasi pada Stanford Artificial Intelligence Project, Stanford University.",
     "researchGap": "Fixed 3×3 scale and two orientations; used as a baseline in Paper 1 and as the density estimator ρL in Paper 2, where its fixed support limits how well ρL reflects texture at larger scales."
   },
   {
@@ -72,7 +72,7 @@
     "publicationResult": "Proposes LoG zero-crossings and the idea that edges must be found at several scales",
     "futureWork": "Combining zero-crossings across scales",
     "doiUrl": "https://doi.org/10.1098/rspb.1980.0020",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Marr, D., Hildreth, E. (1980). Theory of edge detection. Proceedings of the Royal Society of London. Series B, 207(1167): 187–217. https://doi.org/10.1098/rspb.1980.0020",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Marr, D., Hildreth, E. (1980). Theory of edge detection. Proceedings of the Royal Society of London. Series B, 207(1167): 187–217. https://doi.org/10.1098/rspb.1980.0020",
     "researchGap": "Isotropic operator with no orientation selectivity and one global σ per channel; Paper 2 instead sets scale per pixel from local gradient activity."
   },
   {
@@ -97,7 +97,7 @@
     "publicationResult": "Shows that 2D receptive fields are jointly tuned in orientation and spatial frequency, motivating 2D Gabor filters",
     "futureWork": "Formalised in Daugman (1985) uncertainty relation",
     "doiUrl": "https://doi.org/10.1016/0042-6989(80)90065-6",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Daugman, J.G. (1980). Two-dimensional spectral analysis of cortical receptive field profiles. Vision Research, 20(10): 847–856. https://doi.org/10.1016/0042-6989(80)90065-6",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Daugman, J.G. (1980). Two-dimensional spectral analysis of cortical receptive field profiles. Vision Research, 20(10): 847–856. https://doi.org/10.1016/0042-6989(80)90065-6",
     "researchGap": "Models the receptive field as a complex (even+odd) filter pair; does not ask whether the odd part alone suffices for step-edge boundaries, which Paper 1 tests."
   },
   {
@@ -148,7 +148,7 @@
     "publicationResult": "Derives the first derivative of Gaussian as near-optimal step detector; NMS + hysteresis became the standard pipeline",
     "futureWork": "Multi-scale feature synthesis (discussed in the paper)",
     "doiUrl": "https://doi.org/10.1109/TPAMI.1986.4767851",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Canny, J. (1986). A computational approach to edge detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 8(6): 679–698. https://doi.org/10.1109/TPAMI.1986.4767851",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Canny, J. (1986). A computational approach to edge detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 8(6): 679–698. https://doi.org/10.1109/TPAMI.1986.4767851",
     "researchGap": "Optimal only for step edges under one global σ and two thresholds; Canny remains the strongest classical baseline in Papers 1–2 (BSDS500 ODS 0.533), so any Gabor operator must justify itself against it."
   },
   {
@@ -173,7 +173,7 @@
     "publicationResult": "Dimensionless feature measure invariant to contrast and illumination",
     "futureWork": "Feature classification from phase",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Kovesi, P. (1999). Image features from phase congruency. Videre: Journal of Computer Vision Research, 1(3): 1–26.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Kovesi, P. (1999). Image features from phase congruency. Videre: Journal of Computer Vision Research, 1(3): 1–26.",
     "researchGap": "Requires FFT and several scales and orientations (Paper 1: 326.5 ms vs 25.9 ms for GWi+ODPS on BSDS500); strongest non-Gabor handcrafted baseline in Papers 1–2."
   },
   {
@@ -198,7 +198,7 @@
     "publicationResult": "gPb-owt-ucm: BSDS500 ODS 0.73, OIS 0.76, AP 0.73; human agreement ODS 0.80",
     "futureWork": "Higher-level reasoning for segmentation",
     "doiUrl": "https://doi.org/10.1109/TPAMI.2010.161",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Arbeláez, P., Maire, M., Fowlkes, C., Malik, J. (2011). Contour detection and hierarchical image segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 33(5): 898–916. https://doi.org/10.1109/TPAMI.2010.161",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Arbeláez, P., Maire, M., Fowlkes, C., Malik, J. (2011). Contour detection and hierarchical image segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 33(5): 898–916. https://doi.org/10.1109/TPAMI.2010.161",
     "researchGap": "Defines the evaluation protocol used in Papers 1–2; its tolerance (0.0075 × diagonal) absorbs ±2-px side lobes, so protocol effects must be separated from method effects."
   },
   {
@@ -223,7 +223,7 @@
     "publicationResult": "BSDS500 ODS 0.782, OIS 0.804; about 0.4 s per image on GPU",
     "futureWork": "Crisper boundaries; better use of intermediate layers",
     "doiUrl": "https://doi.org/10.1109/ICCV.2015.164",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Xie, S., Tu, Z. (2015). Holistically-nested edge detection. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 1395–1403. https://doi.org/10.1109/ICCV.2015.164",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Xie, S., Tu, Z. (2015). Holistically-nested edge detection. In Proceedings of the IEEE International Conference on Computer Vision (ICCV), pp. 1395–1403. https://doi.org/10.1109/ICCV.2015.164",
     "researchGap": "Needs ImageNet-pretrained VGG-16 and GPU; Papers 1–2 position GWi/A-GWi as training-free CPU alternatives, not competitors on absolute ODS."
   },
   {
@@ -248,7 +248,7 @@
     "publicationResult": "GCNs reach lower error with fewer parameters than baseline CNNs, notably under rotation",
     "futureWork": "(inferred) Learnable Gabor parameters (realised in AGCN)",
     "doiUrl": "https://doi.org/10.1109/TIP.2018.2835143",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Luan, S., Chen, C., Zhang, B., Han, J., Liu, J. (2018). Gabor convolutional networks. IEEE Transactions on Image Processing, 27(9): 4357–4366. https://doi.org/10.1109/TIP.2018.2835143",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Luan, S., Chen, C., Zhang, B., Han, J., Liu, J. (2018). Gabor convolutional networks. IEEE Transactions on Image Processing, 27(9): 4357–4366. https://doi.org/10.1109/TIP.2018.2835143",
     "researchGap": "Modulates learned kernels with a fixed Gabor bank (real part) and fixed orientations/scales for classification; does not test component selection for edge detection."
   },
   {
@@ -273,7 +273,7 @@
     "publicationResult": "Gabor layers give a consistent robustness gain at negligible parameter and clean-accuracy cost",
     "futureWork": "(inferred) Combining with adversarial training",
     "doiUrl": "https://doi.org/10.1007/978-3-030-58545-7_26",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Pérez, J.C., Alfarra, M., Jeanneret, G., Bibi, A., Thabet, A., Ghanem, B., Arbeláez, P. (2020). Gabor layers enhance network robustness. In Computer Vision – ECCV 2020, LNCS vol. 12354, pp. 450–466. Cham: Springer. https://doi.org/10.1007/978-3-030-58545-7_26",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Pérez, J.C., Alfarra, M., Jeanneret, G., Bibi, A., Thabet, A., Ghanem, B., Arbeláez, P. (2020). Gabor layers enhance network robustness. In Computer Vision – ECCV 2020, LNCS vol. 12354, pp. 450–466. Cham: Springer. https://doi.org/10.1007/978-3-030-58545-7_26",
     "researchGap": "Shows the Gabor prior helps learned models, but parameters are global per filter; neither spatial adaptation nor odd/even component roles are studied."
   },
   {
@@ -298,7 +298,7 @@
     "publicationResult": "BSDS500 ODS 0.807 / OIS 0.823 at 92 FPS with 710K params; PiDiNet-Tiny ODS 0.789 with 73K params",
     "futureWork": "(inferred) Hardware-specific deployment",
     "doiUrl": "https://doi.org/10.1109/ICCV48922.2021.00507",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Su, Z., Liu, W., Yu, Z., Hu, D., Liao, Q., Tian, Q., Pietikäinen, M., Liu, L. (2021). Pixel difference networks for efficient edge detection. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 5117–5127. https://doi.org/10.1109/ICCV48922.2021.00507",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Conference. Sitasi lengkap: Su, Z., Liu, W., Yu, Z., Hu, D., Liao, Q., Tian, Q., Pietikäinen, M., Liu, L. (2021). Pixel difference networks for efficient edge detection. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp. 5117–5127. https://doi.org/10.1109/ICCV48922.2021.00507",
     "researchGap": "Still needs GPU training and labelled data."
   },
   {
@@ -323,7 +323,7 @@
     "publicationResult": "674K parameters (<4% of the reference models); BIPED ODS 0.889 and UDED ODS 0.817 (Papers with Code)",
     "futureWork": "(inferred) Further size reduction (realised in TEED)",
     "doiUrl": "https://doi.org/10.1109/ACCESS.2022.3186344",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Soria, X., Pomboza-Junez, G., Sappa, A.D. (2022). LDC: Lightweight dense CNN for edge detection. IEEE Access, 10: 68281–68290. https://doi.org/10.1109/ACCESS.2022.3186344",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Soria, X., Pomboza-Junez, G., Sappa, A.D. (2022). LDC: Lightweight dense CNN for edge detection. IEEE Access, 10: 68281–68290. https://doi.org/10.1109/ACCESS.2022.3186344",
     "researchGap": "Lightweight but still learned and GPU-trained; the comparison point for Paper 1's claim of a training-free CPU detector."
   },
   {
@@ -348,7 +348,7 @@
     "publicationResult": "Canny best overall with suitable range ≈0.30–0.45; Roberts/Sobel/Prewitt ≈0.1–0.45; all weak on high-frequency images",
     "futureWork": "(inferred) Adaptive threshold selection",
     "doiUrl": "https://doi.org/10.18280/ts.390536",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Avci, I. (2022). Threshold values of different classical edge detection algorithms. Traitement du Signal, 39(5): 1775–1780. https://doi.org/10.18280/ts.390536",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision) dan Paper 2 (JESA 59(9), 2026, published). Jenis: Journal. Sitasi lengkap: Avci, I. (2022). Threshold values of different classical edge detection algorithms. Traitement du Signal, 39(5): 1775–1780. https://doi.org/10.18280/ts.390536",
     "researchGap": "Reference maps come from the same detector on clean images, not human ground truth; it supports sweep density in Papers 1–2 only indirectly, and its step size is reported inconsistently (0.001 vs 0.01)."
   },
   {
@@ -450,7 +450,7 @@
     "publicationResult": "Defines simple and complex cells with orientation-selective receptive fields arranged in columns; most cells binocular",
     "futureWork": "(inferred) Quantitative receptive-field models; hierarchy beyond V1",
     "doiUrl": "https://doi.org/10.1113/jphysiol.1962.sp006837",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Hubel, D.H., Wiesel, T.N. (1962). Receptive fields, binocular interaction and functional architecture in the cat's visual cortex. The Journal of Physiology, 160(1): 106–154. https://doi.org/10.1113/jphysiol.1962.sp006837",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Hubel, D.H., Wiesel, T.N. (1962). Receptive fields, binocular interaction and functional architecture in the cat's visual cortex. The Journal of Physiology, 160(1): 106–154. https://doi.org/10.1113/jphysiol.1962.sp006837",
     "researchGap": "Describes orientation-selective, antisymmetric (edge-type) and symmetric (bar-type) receptive fields but gives no computational criterion for which type a boundary detector needs — the question Paper 1 tests with the imaginary-only kernel."
   },
   {
@@ -474,7 +474,7 @@
     "publicationResult": "First computational edge operator used as front end of a recognition pipeline",
     "futureWork": "(inferred) Noise-robust operators; curved objects",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Thesis. Sitasi lengkap: Roberts, L.G. (1963). Machine perception of three-dimensional solids. Disertasi Ph.D., Massachusetts Institute of Technology.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Thesis. Sitasi lengkap: Roberts, L.G. (1963). Machine perception of three-dimensional solids. Disertasi Ph.D., Massachusetts Institute of Technology.",
     "researchGap": "The 2×2 operator has no smoothing or orientation tuning, so it is noise-sensitive; it serves in Paper 1 only as the historical start of single-orientation gradient detectors."
   },
   {
@@ -498,7 +498,7 @@
     "publicationResult": "Defines the Prewitt operator used as a classical gradient baseline",
     "futureWork": "Not stated",
     "doiUrl": "",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Book chapter. Sitasi lengkap: Prewitt, J.M.S. (1970). Object enhancement and extraction. Dalam Lipkin, B.S., Rosenfeld, A. (Eds.), Picture Processing and Psychopictorics, pp. 75–149. New York: Academic Press.",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Book chapter. Sitasi lengkap: Prewitt, J.M.S. (1970). Object enhancement and extraction. Dalam Lipkin, B.S., Rosenfeld, A. (Eds.), Picture Processing and Psychopictorics, pp. 75–149. New York: Academic Press.",
     "researchGap": "Same limitation as Sobel: fixed scale and two orientations, no orientation-selective response; cited in Paper 1 for the history of 3×3 operators."
   },
   {
@@ -522,7 +522,7 @@
     "publicationResult": "Thinning algorithm still used in edge benchmarks and skeleton analysis",
     "futureWork": "(inferred) Reducing spurious branches",
     "doiUrl": "https://doi.org/10.1145/357994.358023",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Zhang, T.Y., Suen, C.Y. (1984). A fast parallel algorithm for thinning digital patterns. Communications of the ACM, 27(3): 236–239. https://doi.org/10.1145/357994.358023",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Zhang, T.Y., Suen, C.Y. (1984). A fast parallel algorithm for thinning digital patterns. Communications of the ACM, 27(3): 236–239. https://doi.org/10.1145/357994.358023",
     "researchGap": "Produces spur branches on noisy masks; Paper 1 uses it inside the Berkeley evaluation, and PTBM (Paper 3) must validate skeleton branches before treating them as contact creases."
   },
   {
@@ -546,7 +546,7 @@
     "publicationResult": "Standard reference for analytic-signal interpretation of quadrature pairs",
     "futureWork": "Part 2 on estimation algorithms",
     "doiUrl": "https://doi.org/10.1109/5.135376",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Boashash, B. (1992). Estimating and interpreting the instantaneous frequency of a signal, Part 1: Fundamentals. Proceedings of the IEEE, 80(4): 520–538. https://doi.org/10.1109/5.135376",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Boashash, B. (1992). Estimating and interpreting the instantaneous frequency of a signal, Part 1: Fundamentals. Proceedings of the IEEE, 80(4): 520–538. https://doi.org/10.1109/5.135376",
     "researchGap": "Theory is 1D; cited in Paper 1 to justify that the odd (imaginary) part of an analytic Gabor pair vanishes at symmetric features and peaks at antisymmetric ones."
   },
   {
@@ -570,7 +570,7 @@
     "publicationResult": "Gabor features yield correct object segmentation and a distinctive object signature; applications include vehicles, reconnaissance, fingerprints",
     "futureWork": "(inferred) Automatic filter selection",
     "doiUrl": "https://doi.org/10.1016/S0031-3203(96)00068-4",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Jain, A.K., Ratha, N.K., Lakshmanan, S. (1997). Object detection using Gabor filters. Pattern Recognition, 30(2): 295–309. https://doi.org/10.1016/S0031-3203(96)00068-4",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Jain, A.K., Ratha, N.K., Lakshmanan, S. (1997). Object detection using Gabor filters. Pattern Recognition, 30(2): 295–309. https://doi.org/10.1016/S0031-3203(96)00068-4",
     "researchGap": "Uses only even-symmetric (real) Gabor channels for texture; the opposite component choice to Paper 1, which keeps only the odd channel for boundaries."
   },
   {
@@ -594,7 +594,7 @@
     "publicationResult": "Argues PC gives a threshold that can be set independently of image contrast",
     "futureWork": "Not stated",
     "doiUrl": "https://doi.org/10.1007/s004260000024",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Kovesi, P. (2000). Phase congruency: A low-level image invariant. Psychological Research, 64(2): 136–148. https://doi.org/10.1007/s004260000024",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Kovesi, P. (2000). Phase congruency: A low-level image invariant. Psychological Research, 64(2): 136–148. https://doi.org/10.1007/s004260000024",
     "researchGap": "Feature-type information from phase is reported but not used as an operator for segmentation; PTBM (Paper 3) uses the odd/even pair to type boundaries at grain contacts."
   },
   {
@@ -618,7 +618,7 @@
     "publicationResult": "Surround inhibition suppresses texture edges and improves contour detection over Canny on the RuG set",
     "futureWork": "(inferred) Adaptive inhibition strength",
     "doiUrl": "https://doi.org/10.1109/TIP.2003.814250",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Grigorescu, C., Petkov, N., Westenberg, M.A. (2003). Contour detection based on nonclassical receptive field inhibition. IEEE Transactions on Image Processing, 12(7): 729–739. https://doi.org/10.1109/TIP.2003.814250",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Grigorescu, C., Petkov, N., Westenberg, M.A. (2003). Contour detection based on nonclassical receptive field inhibition. IEEE Transactions on Image Processing, 12(7): 729–739. https://doi.org/10.1109/TIP.2003.814250",
     "researchGap": "Uses complex Gabor energy (real+imaginary) at a single global scale; neither the real-component cost nor per-pixel scale is examined."
   },
   {
@@ -642,7 +642,7 @@
     "publicationResult": "Scale multiplication improves localisation and noise robustness over single-scale responses",
     "futureWork": "Not identified",
     "doiUrl": "https://doi.org/10.1016/j.jvcir.2006.11.001",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Zhu, Z., Lu, H., Zhao, Y. (2007). Scale multiplication in odd Gabor transform domain for edge detection. Journal of Visual Communication and Image Representation, 18(1): 68–80. https://doi.org/10.1016/j.jvcir.2006.11.001",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Zhu, Z., Lu, H., Zhao, Y. (2007). Scale multiplication in odd Gabor transform domain for edge detection. Journal of Visual Communication and Image Representation, 18(1): 68–80. https://doi.org/10.1016/j.jvcir.2006.11.001",
     "researchGap": "Closest prior use of odd Gabor for edges (as Paper 1 states), but needs at least two scales per orientation and was not evaluated on BSDS500 under the Berkeley protocol."
   },
   {
@@ -666,7 +666,7 @@
     "publicationResult": "SGW reduces computation with edge maps close to standard Gabor",
     "futureWork": "Extended in the 2009 TSMC-B journal version",
     "doiUrl": "https://doi.org/10.1109/ICNNSP.2008.4590418",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Jiang, W., Lam, K.-M., Shen, T.-Z. (2008). Edge detection using simplified Gabor wavelets. In 2008 International Conference on Neural Networks and Signal Processing (ICNNSP), pp. 586–591. https://doi.org/10.1109/ICNNSP.2008.4590418",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Jiang, W., Lam, K.-M., Shen, T.-Z. (2008). Edge detection using simplified Gabor wavelets. In 2008 International Conference on Neural Networks and Signal Processing (ICNNSP), pp. 586–591. https://doi.org/10.1109/ICNNSP.2008.4590418",
     "researchGap": "Reduces cost by coefficient simplification but keeps both real and imaginary parts; Paper 1 reduces cost by removing the real component instead."
   },
   {
@@ -690,7 +690,7 @@
     "publicationResult": "kAS features detect shape classes in cluttered images and outperform earlier shape-based detectors",
     "futureWork": "Learning shape models from images",
     "doiUrl": "https://doi.org/10.1109/TPAMI.2007.1144",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Ferrari, V., Fevrier, L., Jurie, F., Schmid, C. (2008). Groups of adjacent contour segments for object detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 30(1): 36–51. https://doi.org/10.1109/TPAMI.2007.1144",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Ferrari, V., Fevrier, L., Jurie, F., Schmid, C. (2008). Groups of adjacent contour segments for object detection. IEEE Transactions on Pattern Analysis and Machine Intelligence, 30(1): 36–51. https://doi.org/10.1109/TPAMI.2007.1144",
     "researchGap": "Shows downstream detection depends on edge-map quality; cited in Paper 1 to motivate edge detection as a building block, not as a competing method."
   },
   {
@@ -714,7 +714,7 @@
     "publicationResult": "Produces clean contiguous edge chains in real time, faster than Canny",
     "futureWork": "Parameter-free variant (EDPF)",
     "doiUrl": "https://doi.org/10.1016/j.jvcir.2012.05.004",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Topal, C., Akinlar, C. (2012). Edge Drawing: A combined real-time edge and segment detector. Journal of Visual Communication and Image Representation, 23(6): 862–872. https://doi.org/10.1016/j.jvcir.2012.05.004",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Topal, C., Akinlar, C. (2012). Edge Drawing: A combined real-time edge and segment detector. Journal of Visual Communication and Image Representation, 23(6): 862–872. https://doi.org/10.1016/j.jvcir.2012.05.004",
     "researchGap": "Outputs binary chains with no magnitude, so AP is undefined; weakest baseline in Paper 1 (BSDS500 ODS 0.347)."
   },
   {
@@ -738,7 +738,7 @@
     "publicationResult": "Exceeds human ODS on BSDS500 under the standard criterion and outperforms prior methods under stricter tolerances",
     "futureWork": "Higher-level tasks using crisp edges (extended in arXiv 1801.02439)",
     "doiUrl": "https://doi.org/10.1109/CVPR.2017.415",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Wang, Y., Zhao, X., Huang, K. (2017). Deep crisp boundaries. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3892–3900. https://doi.org/10.1109/CVPR.2017.415",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Wang, Y., Zhao, X., Huang, K. (2017). Deep crisp boundaries. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3892–3900. https://doi.org/10.1109/CVPR.2017.415",
     "researchGap": "Shows that matching tolerance changes method rankings; the same issue applies to Paper 1, where ±2-px side lobes fall inside the BSDS500 tolerance (4.34 px)."
   },
   {
@@ -762,7 +762,7 @@
     "publicationResult": "Lower training energy and storage with small accuracy loss",
     "futureWork": "(inferred) Choosing the Gabor/trainable ratio per layer",
     "doiUrl": "https://doi.org/10.1109/ISLPED.2017.8009202",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Sarwar, S.S., Panda, P., Roy, K. (2017). Gabor filter assisted energy efficient fast learning convolutional neural networks. In Proceedings of the IEEE/ACM International Symposium on Low Power Electronics and Design (ISLPED), pp. 1–6. https://doi.org/10.1109/ISLPED.2017.8009202",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Sarwar, S.S., Panda, P., Roy, K. (2017). Gabor filter assisted energy efficient fast learning convolutional neural networks. In Proceedings of the IEEE/ACM International Symposium on Low Power Electronics and Design (ISLPED), pp. 1–6. https://doi.org/10.1109/ISLPED.2017.8009202",
     "researchGap": "Fixed Gabor kernels use both components; no test of whether half the bank (odd only) suffices, which Paper 1 shows for boundaries."
   },
   {
@@ -786,7 +786,7 @@
     "publicationResult": "BSDS500 ODS 0.811 (multi-scale) at about 8 FPS",
     "futureWork": "(inferred) Lighter backbones",
     "doiUrl": "https://doi.org/10.1109/CVPR.2017.622",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Liu, Y., Cheng, M.-M., Hu, X., Wang, K., Bai, X. (2017). Richer convolutional features for edge detection. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3000–3009. https://doi.org/10.1109/CVPR.2017.622",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Liu, Y., Cheng, M.-M., Hu, X., Wang, K., Bai, X. (2017). Richer convolutional features for edge detection. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3000–3009. https://doi.org/10.1109/CVPR.2017.622",
     "researchGap": "Accuracy relies on an ImageNet-pretrained backbone of ~14.8M parameters; no analysis of which low-level filter components are needed for boundaries."
   },
   {
@@ -810,7 +810,7 @@
     "publicationResult": "BSDS500 ODS 0.828, 1.3% above the previous best",
     "futureWork": "(inferred) Efficiency",
     "doiUrl": "https://doi.org/10.1109/CVPR.2019.00395",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: He, J., Zhang, S., Yang, M., Shan, Y., Huang, T. (2019). Bi-directional cascade network for perceptual edge detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3828–3837. https://doi.org/10.1109/CVPR.2019.00395",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: He, J., Zhang, S., Yang, M., Shan, Y., Huang, T. (2019). Bi-directional cascade network for perceptual edge detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3828–3837. https://doi.org/10.1109/CVPR.2019.00395",
     "researchGap": "Scale is handled by fixed dilation rates learned per layer, not per pixel; Paper 2 selects scale per pixel without training."
   },
   {
@@ -834,7 +834,7 @@
     "publicationResult": "",
     "futureWork": "",
     "doiUrl": "https://doi.org/10.1049/iet-ipr.2019.0419",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Lin, C., Li, F., Cao, Y., Zhao, H. (2019). Bio-inspired contour detection model based on multi-bandwidth fusion and logarithmic texture inhibition. IET Image Processing, 13(12): 2304–2313. https://doi.org/10.1049/iet-ipr.2019.0419",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Lin, C., Li, F., Cao, Y., Zhao, H. (2019). Bio-inspired contour detection model based on multi-bandwidth fusion and logarithmic texture inhibition. IET Image Processing, 13(12): 2304–2313. https://doi.org/10.1049/iet-ipr.2019.0419",
     "researchGap": "Uses complex Gabor energy at several bandwidths, adding cost; Paper 1 cites it as a classical Gabor detector that never isolates the imaginary component."
   },
   {
@@ -858,7 +858,7 @@
     "publicationResult": "BIPED ODS 0.859 (DexiNed-a); trained on BIPED and tested on BSDS500 ODS 0.729",
     "futureWork": "Extended in the 2023 Pattern Recognition version",
     "doiUrl": "https://doi.org/10.1109/WACV45572.2020.9093290",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Soria, X., Riba, E., Sappa, A. (2020). Dense Extreme Inception Network: Towards a robust CNN model for edge detection. In 2020 IEEE Winter Conference on Applications of Computer Vision (WACV), pp. 1912–1921. https://doi.org/10.1109/WACV45572.2020.9093290",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Soria, X., Riba, E., Sappa, A. (2020). Dense Extreme Inception Network: Towards a robust CNN model for edge detection. In 2020 IEEE Winter Conference on Applications of Computer Vision (WACV), pp. 1912–1921. https://doi.org/10.1109/WACV45572.2020.9093290",
     "researchGap": "Introduces BIPED, one of Paper 1's benchmarks; its single-annotator, conservative labels favour gradient detectors (Canny ODS 0.641 in Paper 1), a dataset bias to report alongside results."
   },
   {
@@ -882,7 +882,7 @@
     "publicationResult": "TIN1 ODS 0.749 (~0.08M params); TIN2 ODS 0.772 (~0.24M) vs BDCN2 0.766 (0.28M) on BSDS500",
     "futureWork": "(inferred) Further compression",
     "doiUrl": "https://doi.org/10.1109/ICIP40778.2020.9191038",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Wibisono, J.K., Hang, H.-M. (2020). Traditional method inspired deep neural network for edge detection. In Proceedings of the IEEE International Conference on Image Processing (ICIP), pp. 678–682. https://doi.org/10.1109/ICIP40778.2020.9191038",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Wibisono, J.K., Hang, H.-M. (2020). Traditional method inspired deep neural network for edge detection. In Proceedings of the IEEE International Conference on Image Processing (ICIP), pp. 678–682. https://doi.org/10.1109/ICIP40778.2020.9191038",
     "researchGap": "Maps classical stages to learned modules but still needs training; it does not show which classical component is redundant, which Paper 1 tests for the Gabor real part."
   },
   {
@@ -931,7 +931,7 @@
     "publicationResult": "2.0 ms per 640×480 frame (6.1× vs i5 CPU); 8.2 ms at 1280×720 (7.2×); 1024×768@60 fps",
     "futureWork": "(inferred) Other operators on the same fabric",
     "doiUrl": "https://doi.org/10.18280/ts.390436",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Xu, L., Wang, W., Zhang, Z., Ni, S., Bao, Q. (2022). A novel Sobel edge detection accelerator based on reconfigurable architecture. Traitement du Signal, 39(4): 1421–1427. https://doi.org/10.18280/ts.390436",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Xu, L., Wang, W., Zhang, Z., Ni, S., Bao, Q. (2022). A novel Sobel edge detection accelerator based on reconfigurable architecture. Traitement du Signal, 39(4): 1421–1427. https://doi.org/10.18280/ts.390436",
     "researchGap": "Accelerates a 3×3 operator; no study of multi-orientation Gabor banks or of per-pixel kernels such as A-GWi, which a LUT-based FPGA design would need."
   },
   {
@@ -955,7 +955,7 @@
     "publicationResult": "BSDS500 ODS 0.824 (single-scale) to 0.848 (multi-scale + VOC); NYUDv2 RGB 0.774; 2.2 FPS on V100",
     "futureWork": "(inferred) Efficiency of the two-stage design",
     "doiUrl": "https://doi.org/10.1109/CVPR52688.2022.00146",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Pu, M., Huang, Y., Liu, Y., Guan, Q., Ling, H. (2022). EDTER: Edge detection with transformer. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1402–1412. https://doi.org/10.1109/CVPR52688.2022.00146",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Pu, M., Huang, Y., Liu, Y., Guan, Q., Ling, H. (2022). EDTER: Edge detection with transformer. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1402–1412. https://doi.org/10.1109/CVPR52688.2022.00146",
     "researchGap": "Highest-accuracy reference in Paper 1 but at 2.2 FPS on a V100; it marks the accuracy ceiling that a training-free CPU method is not expected to reach."
   },
   {
@@ -1004,7 +1004,7 @@
     "publicationResult": "Trained and tested on BIPED: ODS 0.895; BIPED→MDBD ODS 0.863; cross-dataset drop ~3.7–7.1%",
     "futureWork": "(inferred) Further generalisation studies",
     "doiUrl": "https://doi.org/10.1016/j.patcog.2023.109461",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Soria, X., Sappa, A., Humanante, P., Akbarinia, A. (2023). Dense extreme inception network for edge detection. Pattern Recognition, 139: 109461. https://doi.org/10.1016/j.patcog.2023.109461",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Soria, X., Sappa, A., Humanante, P., Akbarinia, A. (2023). Dense extreme inception network for edge detection. Pattern Recognition, 139: 109461. https://doi.org/10.1016/j.patcog.2023.109461",
     "researchGap": "Defines BIPEDv2 used by Paper 1; cross-dataset drops show dataset bias, which also affects how far Paper 1's BIPED gains generalise."
   },
   {
@@ -1028,7 +1028,7 @@
     "publicationResult": "58K parameters, trained in <30 min; UDED ODS 0.828 vs LDC 0.817 and PiDiNet 0.812",
     "futureWork": "(inferred) Larger cross-domain test sets",
     "doiUrl": "https://doi.org/10.1109/ICCVW60793.2023.00147",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Conference. Sitasi lengkap: Soria, X., Li, Y., Rouhani, M., Sappa, A.D. (2023). Tiny and efficient model for the edge detection generalization. In 2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW), pp. 1356–1365. https://doi.org/10.1109/ICCVW60793.2023.00147",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Conference. Sitasi lengkap: Soria, X., Li, Y., Rouhani, M., Sappa, A.D. (2023). Tiny and efficient model for the edge detection generalization. In 2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW), pp. 1356–1365. https://doi.org/10.1109/ICCVW60793.2023.00147",
     "researchGap": "UDED has only 30 single-annotator images, so ODS differences between methods there carry wide uncertainty — relevant to the UDED claims in Papers 1–2."
   },
   {
@@ -1052,7 +1052,7 @@
     "publicationResult": "BSDS500 ODS 0.860 (multi-scale + VOC), 0.849 single-scale; 20.87 FPS on RTX 4090; NYUDv2 RGB ODS 0.789",
     "futureWork": "(inferred) Smaller variants for deployment",
     "doiUrl": "https://arxiv.org/abs/2408.10527",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Preprint. Sitasi lengkap: Jie, J., Guo, S., Wu, G., Yang, J. (2024). EdgeNAT: Transformer for efficient edge detection. arXiv preprint arXiv:2408.10527. https://arxiv.org/abs/2408.10527",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Preprint. Sitasi lengkap: Jie, J., Guo, S., Wu, G., Yang, J. (2024). EdgeNAT: Transformer for efficient edge detection. arXiv preprint arXiv:2408.10527. https://arxiv.org/abs/2408.10527",
     "researchGap": "Uses Dilated Neighborhood Attention, not architecture search."
   },
   {
@@ -1076,7 +1076,7 @@
     "publicationResult": "",
     "futureWork": "",
     "doiUrl": "https://doi.org/10.1016/j.dsp.2024.104791",
-    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, under review). Jenis: Journal. Sitasi lengkap: Hou, Z., Qu, M., Cheng, M., Ma, S., Wang, Y., Yang, X. (2025). EFRNet: Edge feature refinement network for real-time semantic segmentation of driving scenes. Digital Signal Processing, 156: 104791. https://doi.org/10.1016/j.dsp.2024.104791",
+    "notes": "Tercantum di daftar pustaka Paper 1 (DSP-D-26-02462, major revision). Jenis: Journal. Sitasi lengkap: Hou, Z., Qu, M., Cheng, M., Ma, S., Wang, Y., Yang, X. (2025). EFRNet: Edge feature refinement network for real-time semantic segmentation of driving scenes. Digital Signal Processing, 156: 104791. https://doi.org/10.1016/j.dsp.2024.104791",
     "researchGap": "Cited in Paper 1 only to show segmentation depends on edge cues; no Gabor or training-free component."
   },
   {
