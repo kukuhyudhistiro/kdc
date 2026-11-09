@@ -352,7 +352,7 @@
         </nav>
 
         <div class="p-4 border-t border-blue-800/50 text-xs text-center text-blue-200">
-            Update: 7 Nopember 2026
+            Update: 10 Nopember 2026
         </div>
     </aside>
 
@@ -939,6 +939,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Riwayat proses eksperimen: data dari revisi_dsp_log.json
+                         (gwi-odps revision_dsp/process_log.csv, tools/render_process_log.py --kdc) -->
+                    <div class="mt-10" id="revisi-dsp-log">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1 flex items-center gap-2"><span class="material-icons-outlined">history</span> Riwayat proses eksperimen</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Setiap run, commit, dan keputusan, dengan jam mulai, jam selesai, durasi, status, dan hasil. Waktu dalam WIB.</p>
+                            <p class="text-xs text-gray-500 mt-1" id="revisi-dsp-log-meta"></p>
+                        </div>
+                        <div class="space-y-4" id="revisi-dsp-log-body">
+                            <div class="text-center py-8 text-gray-500">Memuat riwayat proses...</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Paper 1 (Inass Reject) RTL Content -->
@@ -1304,7 +1317,7 @@
             </section>
             
             <div class="mt-12 text-center text-xs text-gray-400 dark:text-gray-600 pb-8">
-                &copy; 2026 Kukuh Dissertation Control &mdash; Update: 7 Nopember 2026
+                &copy; 2026 Kukuh Dissertation Control &mdash; Update: 10 Nopember 2026
             </div>
         </div>
     </main>
@@ -1740,6 +1753,7 @@
 
             // --- Load JSON-based sections ---
             loadAgenda();
+            loadRevisiDspLog();
             loadCatatan();
             loadRepository();
         });
@@ -2144,6 +2158,99 @@ async function loadReferences() {
                 });
             } catch (e) {
                 container.innerHTML = `<div class="text-center py-8 text-red-500"><span class="material-icons text-4xl">error_outline</span><p class="mt-2">Gagal memuat agenda: ${e.message}</p></div>`;
+            }
+        }
+
+        // =====================================================================
+        // RIWAYAT PROSES REVISI DSP — Load from revisi_dsp_log.json
+        // Dibuat dari gwi-odps revision_dsp/process_log.csv oleh
+        // tools/render_process_log.py --kdc <path repo kdc>
+        // =====================================================================
+        function _escLog(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function _hmsLog(sec) {
+            const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+            return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        }
+        function _timeLog(s) {
+            // "2026-11-09 12:43:27" -> "09/11 12:43:27"; "2026-11-07" -> "07/11"
+            const m = String(s || '').match(/^(\d{4})-(\d{2})-(\d{2})(?: (\d{2}:\d{2}:\d{2}))?$/);
+            return m ? m[3] + '/' + m[2] + (m[4] ? ' ' + m[4] : '') : _escLog(s);
+        }
+        const _logKind = {
+            run:        { icon: 'play_circle',  cls: 'text-blue-600 dark:text-blue-400',     label: 'Run' },
+            commit:     { icon: 'commit',       cls: 'text-gray-600 dark:text-gray-400',     label: 'Commit' },
+            keputusan:  { icon: 'gavel',        cls: 'text-amber-600 dark:text-amber-400',   label: 'Keputusan' },
+            analisis:   { icon: 'analytics',    cls: 'text-indigo-600 dark:text-indigo-400', label: 'Analisis' },
+            diagnostik: { icon: 'troubleshoot', cls: 'text-purple-600 dark:text-purple-400', label: 'Diagnostik' },
+            insiden:    { icon: 'warning',      cls: 'text-red-600 dark:text-red-400',       label: 'Insiden' },
+            tulis:      { icon: 'edit_note',    cls: 'text-teal-600 dark:text-teal-400',     label: 'Penulisan' }
+        };
+        function _statusLog(status) {
+            const s = String(status || '');
+            let cls = 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300';
+            if (s.startsWith('belum')) cls = 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
+            else if (/dihentikan|rc [1-9]/.test(s)) cls = 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300';
+            return `<span class="text-xs px-2 py-0.5 rounded font-semibold ${cls}">${_escLog(s)}</span>`;
+        }
+        function renderRevisiDspLogRow(r) {
+            const k = _logKind[r.kind] || _logKind.run;
+            const extra = [r.outputs, r.ref].filter(Boolean).map(_escLog).join(' &middot; ');
+            return `<div class="flex gap-3 py-3 border-t border-gray-100 dark:border-gray-700 first:border-t-0">
+                <span class="material-icons-outlined ${k.cls} text-xl shrink-0" title="${k.label}">${k.icon}</span>
+                <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-mono font-bold text-gray-500 dark:text-gray-400">${_escLog(r.id)}</span>
+                        <span class="text-sm font-semibold text-gray-800 dark:text-white">${_escLog(r.activity)}</span>
+                        ${_statusLog(r.status)}
+                    </div>
+                    ${r.result ? `<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${_escLog(r.result)}</p>` : ''}
+                    ${extra ? `<p class="text-xs text-gray-400 dark:text-gray-500 mt-1 break-all">${extra}</p>` : ''}
+                </div>
+                <div class="text-right shrink-0 text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    ${r.start ? `<div>${_timeLog(r.start)}</div>` : ''}
+                    ${r.end ? `<div>&rarr; ${_timeLog(r.end)}</div>` : ''}
+                    ${r.duration ? `<div class="font-semibold text-gray-700 dark:text-gray-200">${_escLog(r.duration)}</div>` : ''}
+                </div>
+            </div>`;
+        }
+        function renderRevisiDspLogPhase(p, info, rows) {
+            const comp = rows.filter((r) => r.kind === 'run' && r.duration_s != null).reduce((a, r) => a + r.duration_s, 0);
+            const todo = rows.filter((r) => String(r.status).startsWith('belum'));
+            const done = rows.length - todo.length;
+            const state = !todo.length ? ['Selesai', 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300']
+                : done ? ['Berjalan', 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300']
+                : ['Belum mulai', 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'];
+            const summary = done + ' kegiatan &middot; komputasi ' + _hmsLog(comp)
+                + (todo.length ? ' &middot; belum: ' + todo.map((r) => _escLog(r.id)).join(', ') : '');
+            return `<details class="bg-white dark:bg-gray-800 border-l-4 border-blue-500 rounded-lg shadow-sm" ${state[0] === 'Berjalan' ? 'open' : ''}>
+                <summary class="cursor-pointer px-5 py-4 flex flex-wrap items-center gap-2">
+                    <span class="w-8 h-8 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center">${p}</span>
+                    <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">${_escLog(info.dates)}</span>
+                    <h4 class="font-bold text-gray-800 dark:text-white">${_escLog(info.name)}</h4>
+                    <span class="text-xs px-2 py-0.5 rounded font-semibold ${state[1]}">${state[0]}</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 sm:ml-auto">${summary}</span>
+                </summary>
+                <div class="px-5 pb-4">${rows.map(renderRevisiDspLogRow).join('')}</div>
+            </details>`;
+        }
+        async function loadRevisiDspLog() {
+            const body = document.getElementById('revisi-dsp-log-body');
+            if (!body) return;
+            try {
+                const res = await fetch('revisi_dsp_log.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                const phases = Object.keys(data.agenda).map(Number).sort((a, b) => a - b);
+                body.innerHTML = phases.map((p) => {
+                    const rows = data.rows.filter((r) => Number(r.phase) === p);
+                    return rows.length ? renderRevisiDspLogPhase(p, data.agenda[p], rows) : '';
+                }).join('');
+                const meta = document.getElementById('revisi-dsp-log-meta');
+                if (meta) meta.textContent = 'Sumber: ' + data.source + (data.generated ? ' · diperbarui ' + data.generated + ' WIB' : '');
+            } catch (e) {
+                body.innerHTML = `<div class="text-center py-8 text-red-500"><span class="material-icons text-4xl">error_outline</span><p class="mt-2">Gagal memuat riwayat proses: ${_escLog(e.message)}</p></div>`;
             }
         }
 
