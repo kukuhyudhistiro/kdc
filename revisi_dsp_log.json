@@ -1,7 +1,7 @@
 {
  "timezone": "WIB (UTC+7)",
  "source": "gwi-odps, revision_dsp/process_log.csv",
- "generated": "2026-11-10 05:49:55",
+ "generated": "2026-11-10 05:52:08",
  "agenda": {
   "1": {
    "dates": "7-9 Nov",
@@ -573,13 +573,13 @@
    "kind": "analisis",
    "activity": "Integrasi riwayat proses ke halaman agenda KDC (bagian Riwayat proses eksperimen)",
    "start": "2026-11-10 05:46:49",
-   "end": "2026-11-10 05:49:55",
-   "status": "selesai (lokal)",
+   "end": "2026-11-10 05:52:08",
+   "status": "selesai",
    "outputs": "kdc: index.html; revisi_dsp_log.json",
-   "result": "Diuji di preview lokal; belum di-push, situs publik belum berubah",
-   "ref": "",
-   "duration_s": 186,
-   "duration": "0:03:06"
+   "result": "Diuji di preview lokal, di-push ke kdc main, dan tampil di https://kdc-2026.vercel.app/agenda",
+   "ref": "kdc commit 0eb2b27",
+   "duration_s": 319,
+   "duration": "0:05:19"
   },
   {
    "phase": 3,
