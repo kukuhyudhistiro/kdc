@@ -1,7 +1,7 @@
 {
  "timezone": "WIB (UTC+7)",
  "source": "gwi-odps, revision_dsp (tahapan sesuai runbook revisi)",
- "generated": "2026-11-10 16:22:49",
+ "generated": "2026-11-10 16:28:10",
  "agenda": {
   "1": {
    "dates": "7-9 Nov",
@@ -629,6 +629,38 @@
    "outputs": "",
    "result": "Tag lokal dipindah ke commit perbaikan run_all.sh; dipublikasikan bersama push repositori",
    "ref": "commit 7377f4b; tag v3.0.0-dsp-r1",
+   "reviewer": "semua (Data availability)",
+   "duration_s": null,
+   "duration": ""
+  },
+  {
+   "phase": 5,
+   "phase_name": "Kirim draf",
+   "id": "S-04",
+   "kind": "run",
+   "activity": "Smoke test pada clone Windows tanpa modifikasi setelah FIX-2, tanpa variabel tambahan, dengan path Python berisi spasi",
+   "start": "2026-11-10 16:25:57",
+   "end": "2026-11-10 16:27:38",
+   "status": "selesai",
+   "outputs": "",
+   "result": "12 skrip selesai; selftest T0-T6 PASS; output di tests/_smoke/ dan git status tetap bersih",
+   "ref": "folder kerja sementara",
+   "reviewer": "pendukung (bukan eksperimen)",
+   "duration_s": 101,
+   "duration": "0:01:41"
+  },
+  {
+   "phase": 5,
+   "phase_name": "Kirim draf",
+   "id": "REL-2c",
+   "kind": "commit",
+   "activity": "Tag v3.0.0-dsp-r1 dipindah dari 7377f4b ke 32a7b58 (FIX-2); masih lokal",
+   "start": "2026-11-10 16:27:47",
+   "end": "",
+   "status": "selesai (lokal)",
+   "outputs": "",
+   "result": "Tag lokal dipindah ke commit perbaikan smoke test; dipublikasikan bersama push repositori",
+   "ref": "commit 32a7b58; tag v3.0.0-dsp-r1",
    "reviewer": "semua (Data availability)",
    "duration_s": null,
    "duration": ""
