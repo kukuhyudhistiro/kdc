@@ -1,7 +1,7 @@
 {
  "timezone": "WIB (UTC+7)",
  "source": "gwi-odps, revision_dsp (tahapan sesuai runbook revisi)",
- "generated": "2026-11-10 15:46:28",
+ "generated": "2026-11-10 16:22:49",
  "agenda": {
   "1": {
    "dates": "7-9 Nov",
@@ -598,6 +598,38 @@
    "result": "",
    "ref": "runbook §8, Kam 19 Nov",
    "reviewer": "semua",
+   "duration_s": null,
+   "duration": ""
+  },
+  {
+   "phase": 5,
+   "phase_name": "Kirim draf",
+   "id": "S-02",
+   "kind": "run",
+   "activity": "Smoke test pada clone baru dengan path Python berisi spasi, setelah perbaikan run_all.sh",
+   "start": "2026-11-10 16:15:33",
+   "end": "2026-11-10 16:17:08",
+   "status": "selesai",
+   "outputs": "",
+   "result": "12 skrip selesai; selftest T0-T6 PASS",
+   "ref": "run_all.sh dari working tree sebelum commit 7377f4b",
+   "reviewer": "pendukung (bukan eksperimen)",
+   "duration_s": 95,
+   "duration": "0:01:35"
+  },
+  {
+   "phase": 5,
+   "phase_name": "Kirim draf",
+   "id": "REL-2b",
+   "kind": "commit",
+   "activity": "Tag v3.0.0-dsp-r1 dipindah dari aedda87 ke 7377f4b (perbaikan run_all.sh); masih lokal",
+   "start": "2026-11-10 16:19:03",
+   "end": "",
+   "status": "selesai (lokal)",
+   "outputs": "",
+   "result": "Tag lokal dipindah ke commit perbaikan run_all.sh; dipublikasikan bersama push repositori",
+   "ref": "commit 7377f4b; tag v3.0.0-dsp-r1",
+   "reviewer": "semua (Data availability)",
    "duration_s": null,
    "duration": ""
   }
