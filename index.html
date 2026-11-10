@@ -2201,20 +2201,42 @@ async function loadReferences() {
                               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
             return `<span class="text-xs px-2 py-0.5 rounded font-semibold ${cls}" title="Komentar reviewer yang dijawab">${isRev ? 'Reviewer: ' : ''}${_escLog(rv)}</span>`;
         }
+        // File output: one chip per file, icon by type (log, data, gambar, dokumen, kode, folder)
+        function _fileIconLog(f) {
+            const s = f.toLowerCase();
+            if (s.includes('logs_local') || /\.log\b/.test(s)) return ['receipt_long', 'Log'];
+            if (/\.(png|pdf|jpe?g|svg)\b|gambar/.test(s)) return ['image', 'Gambar'];
+            if (/\.(csv|json|ya?ml|npz)\b/.test(s)) return ['table_chart', 'Data'];
+            if (/\.(py|sh)\b/.test(s)) return ['code', 'Kode'];
+            if (/\.(md|cff|txt)\b/.test(s)) return ['article', 'Dokumen'];
+            return ['folder', 'Folder'];
+        }
+        function _filesLog(outputs) {
+            const files = String(outputs || '').split(';').map((x) => x.trim()).filter(Boolean);
+            return files.map((f) => {
+                const [icon, label] = _fileIconLog(f);
+                return `<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-mono break-all" title="${label}"><span class="material-icons-outlined text-sm text-gray-500 dark:text-gray-400">${icon}</span>${_escLog(f)}</span>`;
+            }).join(' ');
+        }
+        function _fieldLog(label, html) {
+            return html ? `<div class="mt-2"><div class="text-[11px] font-bold uppercase tracking-wide text-gray-400 dark:text-gray-500">${label}</div><div class="text-sm text-gray-700 dark:text-gray-300 mt-0.5">${html}</div></div>` : '';
+        }
         function renderRevisiDspLogRow(r) {
             const k = _logKind[r.kind] || _logKind.run;
-            const extra = [r.outputs, r.ref].filter(Boolean).map(_escLog).join(' &middot; ');
+            const title = r.title || r.activity;
             return `<div class="flex gap-3 py-3 border-t border-gray-100 dark:border-gray-700 first:border-t-0">
                 <span class="material-icons-outlined ${k.cls} text-xl shrink-0" title="${k.label}">${k.icon}</span>
                 <div class="min-w-0 flex-1">
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="text-xs font-mono font-bold text-gray-500 dark:text-gray-400">${_escLog(r.id)}</span>
-                        <span class="text-sm font-semibold text-gray-800 dark:text-white">${_escLog(r.activity)}</span>
+                        <span class="text-sm font-semibold text-gray-800 dark:text-white">${_escLog(title)}</span>
                         ${_statusLog(r.status)}
                         ${_reviewerLog(r.reviewer)}
                     </div>
-                    ${r.result ? `<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${_escLog(r.result)}</p>` : ''}
-                    ${extra ? `<p class="text-xs text-gray-400 dark:text-gray-500 mt-1 break-all">${extra}</p>` : ''}
+                    ${r.title && r.activity ? `<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">${_escLog(r.activity)}</p>` : ''}
+                    ${_fieldLog('Hasil', r.result ? _escLog(r.result) : '')}
+                    ${_fieldLog('Temuan / Catatan', r.finding ? _escLog(r.finding) : '')}
+                    ${_fieldLog('File output', _filesLog(r.outputs) ? `<div class="flex flex-wrap gap-1">${_filesLog(r.outputs)}</div>` : '')}
                 </div>
                 <div class="text-right shrink-0 text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     ${r.start ? `<div>${_timeLog(r.start)}</div>` : ''}
