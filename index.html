@@ -945,7 +945,7 @@
                     <div class="mt-10" id="revisi-dsp-log">
                         <div class="mb-4">
                             <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1 flex items-center gap-2"><span class="material-icons-outlined">history</span> Riwayat proses eksperimen</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Tahapan eksperimen sesuai runbook revisi (E00&ndash;E26) dan tag pra-registrasi, dengan jam mulai, jam selesai, durasi, status, dan hasil. Waktu dalam WIB.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Tahapan eksperimen sesuai runbook revisi (E00&ndash;E26) dan tag pra-registrasi, dengan komentar reviewer yang dijawab, jam mulai, jam selesai, durasi, status, dan hasil. Waktu dalam WIB.</p>
                             <p class="text-xs text-gray-500 mt-1" id="revisi-dsp-log-meta"></p>
                         </div>
                         <div class="space-y-4" id="revisi-dsp-log-body">
@@ -2194,6 +2194,13 @@ async function loadReferences() {
             else if (/dihentikan|rc [1-9]/.test(s)) cls = 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300';
             return `<span class="text-xs px-2 py-0.5 rounded font-semibold ${cls}">${_escLog(s)}</span>`;
         }
+        function _reviewerLog(rv) {
+            if (!rv) return '';
+            const isRev = /^(R\d|E\d|semua)/.test(rv);
+            const cls = isRev ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300'
+                              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
+            return `<span class="text-xs px-2 py-0.5 rounded font-semibold ${cls}" title="Komentar reviewer yang dijawab">${isRev ? 'Reviewer: ' : ''}${_escLog(rv)}</span>`;
+        }
         function renderRevisiDspLogRow(r) {
             const k = _logKind[r.kind] || _logKind.run;
             const extra = [r.outputs, r.ref].filter(Boolean).map(_escLog).join(' &middot; ');
@@ -2204,6 +2211,7 @@ async function loadReferences() {
                         <span class="text-xs font-mono font-bold text-gray-500 dark:text-gray-400">${_escLog(r.id)}</span>
                         <span class="text-sm font-semibold text-gray-800 dark:text-white">${_escLog(r.activity)}</span>
                         ${_statusLog(r.status)}
+                        ${_reviewerLog(r.reviewer)}
                     </div>
                     ${r.result ? `<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${_escLog(r.result)}</p>` : ''}
                     ${extra ? `<p class="text-xs text-gray-400 dark:text-gray-500 mt-1 break-all">${extra}</p>` : ''}

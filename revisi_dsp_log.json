@@ -1,7 +1,7 @@
 {
  "timezone": "WIB (UTC+7)",
  "source": "gwi-odps, revision_dsp (tahapan sesuai runbook revisi)",
- "generated": "2026-11-10 06:00:36",
+ "generated": "2026-11-10 06:29:17",
  "agenda": {
   "1": {
    "dates": "7-9 Nov",
@@ -53,6 +53,7 @@
    "outputs": "config.yaml, scripts 10-26, README.md",
    "result": "Protokol yang dipakai untuk revisi",
    "ref": "CHANGELOG.md baris 1 (jam tidak tercatat)",
+   "reviewer": "R2.3, R2.9",
    "duration_s": null,
    "duration": ""
   },
@@ -68,6 +69,7 @@
    "outputs": "logs_local/S00_smoke/",
    "result": "Semua skrip berjalan",
    "ref": "",
+   "reviewer": "pendukung (bukan eksperimen)",
    "duration_s": 130,
    "duration": "0:02:10"
   },
@@ -83,6 +85,7 @@
    "outputs": "results/env/; results/selftest/; results/mechanism/; logs_local/E00-02_check.log",
    "result": "11 PASS: kernel, peta GWi/GWC, ODPS, normalisasi, dan counts identik dengan kode submit (04c); evaluator 3,78 s per citra per metode",
    "ref": "",
+   "reviewer": "E00: R1.4, R3.6; E01: R2.3, R2.9; E02: R2.2, R3.1b, R2.4, R1.5, R1.3",
    "duration_s": 348,
    "duration": "0:05:48"
   },
@@ -98,6 +101,7 @@
    "outputs": "",
    "result": "",
    "ref": "commit 9ff7d64; tag prereg-dsp-2026-11-08",
+   "reviewer": "R2.1",
    "duration_s": null,
    "duration": ""
   },
@@ -113,6 +117,7 @@
    "outputs": "results/selection/ (versi commit 8dfd806); logs_local/E10_select.log",
    "result": "Terpilih k7 λ5 (rata-rata ODS GWi 0,4742), bukan k5 λ4",
    "ref": "",
+   "reviewer": "R2.1, R3.4",
    "duration_s": 8121,
    "duration": "2:15:21"
   },
@@ -128,6 +133,7 @@
    "outputs": "results/ablation/ (versi commit 8dfd806); logs_local/E11_ablation.log",
    "result": "ODS GWi masih naik di λ6, tepi rentang; dasar amandemen 1",
    "ref": "",
+   "reviewer": "R2.5, R2.6, R3.2, R3.4",
    "duration_s": 2587,
    "duration": "0:43:07"
   },
@@ -143,6 +149,7 @@
    "outputs": "",
    "result": "",
    "ref": "commit 4fb2f64; tag prereg-dsp-amend1-2026-11-09",
+   "reviewer": "R2.1",
    "duration_s": null,
    "duration": ""
   },
@@ -158,6 +165,7 @@
    "outputs": "results/selection/amend1_18cand/; logs_local/E10b_select_18cand.log",
    "result": "Terpilih k7 λ8 (tepi atas grid), sehingga aturan tepi amandemen 1 berlaku",
    "ref": "",
+   "reviewer": "R2.1, R3.4",
    "duration_s": 18068,
    "duration": "5:01:08"
   },
@@ -173,6 +181,7 @@
    "outputs": "HYPOTHESES.md",
    "result": "",
    "ref": "commit 9358d14; tag hyp-dsp-2026-11-09",
+   "reviewer": "R2.2, R3.1b, R3.2, R3.4",
    "duration_s": null,
    "duration": ""
   },
@@ -188,6 +197,7 @@
    "outputs": "results/hypotheses/",
    "result": "H1 didukung (Spearman 0,92 / 0,90); H2a gagal; H2b didukung; H2c hanya trivial",
    "ref": "",
+   "reviewer": "R2.2, R3.1b, R3.2, R3.4",
    "duration_s": 3,
    "duration": "0:00:03"
   },
@@ -203,6 +213,7 @@
    "outputs": "logs_local/E10c_edge_k7l9.log",
    "result": "k7 λ9 terbaik (0,5366), masih di tepi",
    "ref": "",
+   "reviewer": "R2.1, R3.4",
    "duration_s": 1295,
    "duration": "0:21:35"
   },
@@ -218,6 +229,7 @@
    "outputs": "logs_local/E10c_edge_k7l10.log, _k7l11.log, _k7l12.log (selesai 22:02:58, 22:25:15, 22:47:41)",
    "result": "ODS GWi naik monoton sampai λ12 (+0,0006 per langkah terakhir): tidak ada optimum interior (FINDINGS F4)",
    "ref": "",
+   "reviewer": "R2.1, R3.4",
    "duration_s": 4012,
    "duration": "1:06:52"
   },
@@ -233,6 +245,7 @@
    "outputs": "config.yaml, FINDINGS.md",
    "result": "",
    "ref": "commit 9084e61; tag prereg-dsp-amend2-2026-11-09",
+   "reviewer": "R2.1",
    "duration_s": null,
    "duration": ""
   },
@@ -248,6 +261,7 @@
    "outputs": "results/selection/; logs_local/E10d_amend2_round1-3.log (selesai 23:19:14, 23:40:56, 00:04:28)",
    "result": "Terpilih k9 λ9, d 4,5 (rata-rata ODS GWi+ODPS 0,5558; BSDS500 0,4953; BIPED 0,6163). k9 λ10 0,5552 (plateau)",
    "ref": "",
+   "reviewer": "R2.1, R3.4",
    "duration_s": 2716,
    "duration": "0:45:16"
   },
@@ -263,6 +277,7 @@
    "outputs": "results/ablation/; logs_local/E11c_amend2_ablation.log",
    "result": "d = λ/2 hampir optimal (selisih ≤ 0,0034); N = 4 setara N = 8; σ/λ dan γ mengubah ODS ≤ 0,0006",
    "ref": "",
+   "reviewer": "R2.5, R2.6, R3.2, R3.4",
    "duration_s": 2905,
    "duration": "0:48:25"
   },
@@ -278,6 +293,7 @@
    "outputs": "results/freeze/freeze.json; results/config_final.yaml",
    "result": "14 metode: k9 λ9 dan k5 λ4 (GWi, GWi+ODPS, GWC raw, GWC zero-DC) + 6 baseline. OIS/AP memakai akumulasi dataset",
    "ref": "commit 7f0df12; tag freeze-2026-11-10",
+   "reviewer": "R2.1",
    "duration_s": 192,
    "duration": "0:03:12"
   },
@@ -293,6 +309,7 @@
    "outputs": "results/test/summary.csv; results/test/legacy_check.csv; logs_local/E20_test.log",
    "result": "Angka submit k5 λ4 tereproduksi tepat 4 desimal. GWi+ODPS k9 λ9: 0,5120 / 0,6281 / 0,6451. GaussGradMag σ1,4 peringkat 1 di ketiga dataset",
    "ref": "",
+   "reviewer": "R2.8, R2.9, R1.5 (semua tabel)",
    "duration_s": 8852,
    "duration": "2:27:32"
   },
@@ -308,6 +325,7 @@
    "outputs": "results/stats/pairs.csv; variability.csv; claims_guard.json; logs_local/E22_stats.log",
    "result": "ODPS vs GWi: meningkat di BSDS500 (+0,0122; CI [0,0090; 0,0158]); tidak berbeda di BIPED dan UDED. GWi di atas GWC raw dan GWC zero-DC di ketiga dataset",
    "ref": "tools/run_logged.sh",
+   "reviewer": "R1.1, R2.11, R1.5",
    "duration_s": 91,
    "duration": "0:01:31"
   },
@@ -317,14 +335,15 @@
    "id": "E21",
    "kind": "run",
    "activity": "E21 ablasi pra-pemrosesan: GWi dan GWi+ODPS × (HE ya/tidak) × (/255 ya/tidak) (R2.7)",
-   "start": "",
-   "end": "",
-   "status": "belum dijalankan",
-   "outputs": "",
-   "result": "",
-   "ref": "",
-   "duration_s": null,
-   "duration": ""
+   "start": "2026-11-10 06:05:26",
+   "end": "2026-11-10 06:27:53",
+   "status": "selesai",
+   "outputs": "results/preproc/preproc_ablation.csv; logs_local/E21_preproc.log",
+   "result": "Tanpa HE, ODS lebih tinggi di ketiga dataset: GWi +0,0055 / +0,0623 / +0,0261; GWi+ODPS +0,0111 / +0,0591 / +0,0361 (BSDS500 / BIPED / UDED). /255 tidak berpengaruh. Protokol tetap HE sesuai freeze (FINDINGS F26, C9)",
+   "ref": "tools/run_logged.sh",
+   "reviewer": "R2.7",
+   "duration_s": 1347,
+   "duration": "0:22:27"
   },
   {
    "phase": 3,
@@ -338,6 +357,7 @@
    "outputs": "",
    "result": "Butuh peta TEED/PiDiNet/LDC",
    "ref": "",
+   "reviewer": "R1.2, R3.5",
    "duration_s": null,
    "duration": ""
   },
@@ -353,6 +373,7 @@
    "outputs": "",
    "result": "",
    "ref": "",
+   "reviewer": "R1.4, R2.5, R2.10, R3.3, R3.6",
    "duration_s": null,
    "duration": ""
   },
@@ -368,6 +389,7 @@
    "outputs": "",
    "result": "",
    "ref": "",
+   "reviewer": "R1.3",
    "duration_s": null,
    "duration": ""
   },
@@ -383,6 +405,7 @@
    "outputs": "",
    "result": "",
    "ref": "",
+   "reviewer": "semua",
    "duration_s": null,
    "duration": ""
   }
