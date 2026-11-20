@@ -32,12 +32,12 @@
    "name": "Perbaikan akhir"
   },
   "8": {
-   "dates": "23 Nov",
+   "dates": "25 Nov",
    "name": "Unggah revisi"
   },
   "9": {
-   "dates": "24 Nov",
-   "name": "Batas akhir dari editor"
+   "dates": "8 Des",
+   "name": "Batas akhir dari editor (diundur)"
   }
  },
  "rows": [
@@ -660,13 +660,13 @@
    "kind": "tulis",
    "activity": "Kirim paket review internal ke promotor dan pengunggah: naskah revisi bertanda perubahan dan response letter",
    "title": "Kirim paket review internal",
-   "start": "",
+   "start": "2026-11-20",
    "end": "",
-   "status": "belum",
+   "status": "selesai",
    "outputs": "",
-   "result": "",
+   "result": "Draf revisi dikirim ke Promotor dan Ko-promotor (20 Nov)",
    "finding": "Naskah revisi bertanda perubahan dan response letter ke promotor dan pengunggah (runbook §8, Kam 19 Nov)",
-   "ref": "runbook §8, Kam 19 Nov",
+   "ref": "runbook §8; dijadwalkan Kam 19 Nov, terkirim 20 Nov",
    "reviewer": "semua",
    "duration_s": null,
    "duration": ""

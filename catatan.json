@@ -1,5 +1,19 @@
 [
   {
+    "date": "20 Nopember 2026",
+    "icon": "send",
+    "color": "orange",
+    "tag": "Review & Feedback",
+    "content": "<strong>Kirim Draf Revisi Paper 1 DSP ke Promotor</strong> - Draf revisi Paper 1 (<strong>Gwi+ODPS</strong>, DSP-D-26-02462) dikirim ke Promotor dan Ko-Promotor untuk ditelaah. Revisi tetap direncanakan diunggah ke DSP pada <strong>25 Nopember 2026</strong>, lebih awal dari batas baru 8 Desember 2026."
+  },
+  {
+    "date": "12 Nopember 2026",
+    "icon": "event",
+    "color": "amber",
+    "tag": "Review Process",
+    "content": "<strong>Paper 1 DSP: Batas Revisi Diundur</strong> - Email editor Digital Signal Processing (DSP): batas pengiriman revisi DSP-D-26-02462 diundur dari 24 Nopember menjadi <strong>8 Desember 2026</strong>."
+  },
+  {
     "date": "7 Nopember 2026",
     "icon": "send",
     "color": "orange",
